@@ -34,8 +34,8 @@
 - soft/bar/barrc                   ~
 + soft/conky/conkyrc.$(uname -i)   ~
 + soft/ctags/ctags                 ~
-+ soft/htop                        ~/.config
-+ soft/mc                          ~/.config
++ soft/htop                        ~
++ soft/mc                          ~
 + soft/vim/vim                     ~
 + soft/vim/vimrc                   ~
 + soft/vimperator                  ~
