@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вс 08 сен 2013 22:24:12
+# Изменён: Вск 01 Янв 2006 20:31:43
 #
 ################################################################################
 
@@ -61,8 +61,6 @@ if [[ $OS != Windows* ]]; then
 	export C_INCLUDE_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include
 	export CPLUS_INCLUDE_PATH=/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/
 	export LD_LIBRARY_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/
-
-	OOoPath="$HOME/Programs/Soft/OOo/openoffice.org3/program/"
 fi
 
 #Формат времени, выводимый командой time
@@ -139,7 +137,7 @@ path-- () {
 	local i
 
 	for i in ${!2}; do
-		if [ "$i" != "$1" ]; then
+		if [[ "$i" != "$1" ]]; then
 			newpath=${newpath:+$newpath:}$i
 		fi
 	done
@@ -153,7 +151,7 @@ path++ () {
 	local i
 
 	for i in $1; do
-		if [ -d "$i" ]; then
+		if [[ -d "$i" ]]; then
 			if [ -z "${!2:-}" ]; then
 				export $2=""
 			fi
@@ -192,8 +190,6 @@ if [ $UID -eq 0 ]; then
 	path++ /usr/sbin       PATH
 	path++ /usr/local/sbin PATH
 else
-	path++ $OOoPath PATH
-
 	PROMPT_COLOR='\033[1;32m'
 	export HOME=/home/$(whoami)
 fi
