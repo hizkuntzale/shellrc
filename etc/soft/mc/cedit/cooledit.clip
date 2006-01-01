@@ -1,0 +1,3 @@
+	echo -n "Установка настроек Х......."
+		ln -s $DIR/X/Xdefaults $1/.Xdefaults
+	[ $? == 0 ] && echo "OK"
