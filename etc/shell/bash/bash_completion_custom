@@ -1,0 +1,113 @@
+#!/bin/bash #########################
+#
+# Изменён: Пт 16 авг 2013 23:03:31
+# 
+#complete <что дополнять> <программа>
+
+complete -A alias	{,un}alias
+complete -A hostname	rsh rcp telnet rlogin r ftp ping disk
+complete -A export	printenv
+complete -A variable	export local readonly unset
+complete -A enabled	builtin
+complete -A function	function
+complete -A user	su mail finger
+
+complete -A shopt	shopt
+complete -A stopped -P	'%' bg
+complete -A job -P '%'	fg jobs disown
+
+complete -A directory	mkdir rmdir
+complete -A directory	-o default cd
+
+complete -F _killall	killall pkill pskill
+
+#Сжатые данные
+complete -f -o default -X '*.+(zip|ZIP)'	zip pk
+complete -f -o default -X '!*.+(zip|ZIP)'	unzip ext
+complete -f -o default -X '*.+(z|Z)'		compress pk
+complete -f -o default -X '!*.+(z|Z)'		uncompress ext
+complete -f -o default -X '*.+(gz|GZ)'		gzip pk
+complete -f -o default -X '!*.+(gz|GZ)'		gunzip ext
+complete -f -o default -X '*.+(bz2|BZ2)'	bzip2 pk
+complete -f -o default -X '!*.+(bz2|BZ2)'	bunzip2 ext
+complete -f -o default -X '!*.+(rar|RAR|zip|ZIP|z|Z|gz\
+			|GZ|bz2|BZ2|tgz|tbz2)'	ext
+
+#Документы
+complete -f -o default -X '!*.+(ps|PS)'		zathura z
+complete -f -o default -X '!*.+(dvi|DVI)'	okular
+complete -f -o default -X '!*.+(pdf|PDF)'	zathura z
+complete -f -o default -X '!*.texi*'		makeinfo texi2dvi texi2pdf
+complete -f -o default -X '!*.tex'		kile tex latex slitex
+complete -f -o default -X '!*.+(htm*|HTM*)'	konqueror firefox lynx html2ps
+complete -f -o default -X '!*.+(doc|DOC|xls|\
+XLS|ppt|PPT|sx?|SX?|csv|CSV|od?|OD?|ott|OTT)'	soffice
+
+#Мультимедийные файлы
+complete -f -o default -X '!*.+(gif|GIF|jp*g|\
+JP*G|bmp|BMP|xpm|XPM|png|PNG)'			xv gimp geeqie
+
+complete -f -o default -X '!*.+(mp3|MP3)'	amarok mpg123 mpg321
+complete -f -o default -X '!*.+(ogg|OGG)'	amarok ogg123
+complete -f -o default -X '!*.@(mp[23]|MP[23]|\
+ogg|OGG|wav|WAV|pls|m3u|xm|mod|s[3t]m|it|mtm|ult|flac)' amarok
+
+complete -f -o default -X '!*.@(mp?(e)g|MP?(E)G|\
+wma|avi|AVI|asf|vob|VOB|bin|dat|vcd|ps|pes|fli|viv|\
+rm|ram|yuv|mov|MOV|qt|QT|wmv|mp3|MP3|ogg|OGG|ogm|OGM|\
+mp4|MP4|wav|WAV|asx|ASX)'			smplayer mplayer xine vlc
+
+complete -f -o default -X '!*.+(gpt|gp3|gp4|gp5)'   tuxguitar
+
+#Программирование
+complete -f -o default -X '!*.tcl'	tclsh wish nagelfar
+complete -f -o default -X '!*.pl'	perl perl5
+complete -f -o default -X '!*.sh'	sh bash
+complete -f -o default -X '!*.+(c|cpp)'	gcc g++ mpp
+
+#Запуск и остановка сервисов
+_rcd () {
+	COMPREPLY=($(\ls /etc/rc.d/rc.$(echo $2 | \
+	sed 's;/etc/rc.d/rc\.;;g')* 2> /dev/null))
+}
+
+complete -F _rcd start stop restart
+
+_local-bins () {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(\ls $SHELLRC/bin/scripts/ $SHELLRC/bin/dmenu \
+			| sed '/^\/.*:$/d; /^\s*$/d' 2> /dev/null))
+	else
+		COMPREPLY=($(\ls $SHELLRC/bin/scripts/ $SHELLRC/bin/dmenu \
+			| sed '/^\/.*:$/d; /^\s*$/d' | grep $2 2> /dev/null))
+	fi
+}
+
+complete -F _local-bins vimwhich catwhich nlwhich
+
+complete -c command cdwhich
+
+# Функция, т.к. grep позволяет дополнять подстроку в любом регистре
+_updirs() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(echo "$PWD" | tr '/' "\n"))
+	else
+		COMPREPLY=($(echo "$PWD" | tr '/' "\n" | grep -i "$2" 2> /dev/null))
+	fi
+}
+
+complete -F _updirs up
+
+#Дополнение пакетов
+_slapt-r () {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(slapt-get --available | cut -d ' ' -f 1))
+	else
+		COMPREPLY=($(slapt-get --available | cut -d ' ' -f 1 | grep $2))
+	fi
+}
+
+complete -F _slapt-r slapt-get
+
+[ -f $BASHRC/bash_completion_surfraw ] && . $BASHRC/bash_completion_surfraw
+

@@ -1,0 +1,24 @@
+[user]
+	name = Maxim Lihachev
+	email = envrm@yandex.ru
+
+[core]
+	pager = "less -R -X --ignore-case -w --jump-target=.5"
+	editor=vim
+	excludesfile = ~/.shellrc/etc/soft/git/gitignore-global
+
+[gui]
+	wmstate = normal
+	geometry = 1278x971+1+22 212 188
+
+[color]
+	ui = true
+
+[merge]
+	tool = vimdiff
+
+[help]
+	autocorrect = true
+
+[credential]
+	helper = cache --timeout=3600

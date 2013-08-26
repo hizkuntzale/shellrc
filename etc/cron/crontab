@@ -1,0 +1,16 @@
+# crontab
+#
+# Изменён: Пн 26 авг 2013 18:52:06
+#
+
+# MIN HOUR DAY MONTH DAYOFWEEK COMMAND
+
+# Проверка почты
+*/10 * * * * ~/.shellrc/bin/scripts/checkmail
+
+# Доступные обновления системы
+* */3 * * * ~/.shellrc/bin/scripts/slacklog > ~/.shellrc/var/log/updates
+
+# Удаление файлов, к которым не обращались дольше трёх месяцев
+* * */10 * * ~/.shellrc/bin/scripts/delolder 90 ~/.shellrc/var/vim/
+

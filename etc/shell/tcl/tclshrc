@@ -1,0 +1,76 @@
+#!/usr/bin/tclsh
+#
+# ~/.tclshrc
+#
+# Изменён: Сб 24 авг 2013 22:52:58
+#
+
+package require tclreadline
+#------------------------------------------------------------------
+interp alias {} :q {} exit 0
+#------------------------------------------------------------------
+namespace eval tclreadline {
+	#PROMPT - вывод текущего времени и количества выполненных команд
+	proc prompt1 {} {
+		return "\033\[1;33m\[[clock format [clock seconds] \
+			-format %H:%M:%S]\]\033\[1;36m % \033\[00m"
+	}
+
+	#PROMPT2
+	proc prompt2 {} {
+		return "\[[incr cmd]\] >  "
+	}
+}
+
+#Настройка цветов
+array set color {
+	Reset	"\033\[00m"
+	Blue	"\033\[1;36m"
+	Yellow	"\033\[1;33m"
+	Red	"\033\[1;31m"
+	Green	"\033\[1;32m"
+}
+#------------------------------------------------------------------
+#Список пакетов
+proc lspkg {{pattern *}} {
+	eval [package unknown] Tcl [package provide Tcl]
+	foreach package [lsort [package names]] {
+		if {[string match -nocase $pattern* $package]} {
+			foreach version [package versions $package] {
+				set present [expr {[string compare $version \
+				[package provide $package]] ? " " : "+" }]
+
+				set ifneeded [string replace [string trim \
+				[string map {"\n" " " "\t" " "} [package \
+				ifneeded $package $version]]] 50 end "..."]
+
+				puts [format "%1s%-40s\t%-20s\t%-55s" \
+				"$present" "$::color(Blue)$package" \
+				"$::color(Yellow)$version$::color(Reset)" \
+				"$ifneeded"]
+			}
+		}
+	}
+}
+
+#Список Tk-виджетов
+proc lstk {{pattern *}} {
+	package require Tk
+
+	set tkCommands  [lsort [info commands "::tk::$pattern*"]]
+	set ttkCommands [lsort [info commands "::ttk::$pattern*"]]
+	set allCommands [concat $tkCommands $ttkCommands]
+
+	foreach cmd $allCommands {
+		regsub "::tk::" $cmd "$::color(Yellow)tk::$::color(Blue)" cmd
+		regsub "::ttk::" $cmd "$::color(Green)ttk::$::color(Blue)" cmd
+		puts "$cmd$::color(Reset)"
+	}
+}
+#------------------------------------------------------------------
+puts "$color(Blue)#Tcl v[info patchlevel] ([info library])\n"
+
+#Загрузка файла истории
+tclreadline::Loop [file join $::env(SHELLRC) var shell tclsh.history]
+
+#------------------------------------------------------------------

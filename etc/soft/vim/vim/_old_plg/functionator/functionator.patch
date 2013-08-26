@@ -1,0 +1,35 @@
+--- ./functionator.vim	2010-10-30 20:59:04.000000000 +0600
++++ ./new.vim	2010-10-30 20:59:25.000000000 +0600
+@@ -67,6 +67,10 @@
+ 		let funBegin = search('^\s*\<fu\%[nction]\>', 'bW')
+ 		let funEnd = searchpair('^\s*\<fu\%[nction]\>', '', '^\s*\<endf\%[unction]\>')
+ 		let funName = substitute(getline(funBegin), '^\s*', '', '')
++	elseif a:ft == 'tcl'
++		let funBegin = search('^\s*proc\s\+\w\+\s*\(\w\+\|{}\|{.*}\)\s\+{', 'bWce')
++		let funEnd = searchpair('{', '', '}', 'n')
++		let funName = matchstr(getline(funBegin), '\s\+\w\+\s\+\({.*}\|\w\+\)')
+ 	endif
+ 	call cursor(line, col)
+ 	if funBegin && funEnd && funEnd > line
+@@ -81,14 +85,17 @@
+ endf
+ 
+ fun functionator#GetName()
+-	if &ft !~ '^\v(c|objc|javascript|python|vim)$'
+-		return s:Warning('This filetype is currently not supported by functionator.vim.')
++	if &ft !~ '^\v(c|objc|javascript|python|vim|tcl)$'
++		return ""
++		""return s:Warning('This filetype is currently not supported by functionator.vim.')
+ 	endif
+ 	let function = s:GetFuncName(&ft)
+ 	if empty(function)
+-		return s:Warning('Not in function.')
++		return ""
++		"return s:Warning('Not in function.')
+ 	elseif !v:count
+-		echoh ModeMsg | echo function[0].' - Line '.function[1] | echoh None
++		return function[0].' ['.function[1].']'
++		"echoh ModeMsg | echo function[0].' - Line '.function[1] | echoh None
+ 	else
+ 		let lnum = line('.') - (function[1] - v:count)
+ 		if lnum > function[2]

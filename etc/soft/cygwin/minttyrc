@@ -1,0 +1,12 @@
+BoldAsFont=no
+Locale=ru_RU
+Charset=UTF-8
+FontHeight=11
+CursorType=block
+CursorBlinks=no
+Columns=80
+Rows=15
+Scrollbar=none
+Transparency=off
+OpaqueWhenFocused=no
+FontSmoothing=default

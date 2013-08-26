@@ -1,0 +1,52 @@
+# ---------------------------------------------------------------
+#                         [ GNU/LINUX ]
+# ---------------------------------------------------------------
+
+# [ Shell ]
+
++ shell/bash/bash_profile          ~
++ shell/bash/bashrc                ~
++ shell/guile/guile                ~
++ shell/tcl/tclshrc                ~
++ shell/tcl/wishrc                 ~
+- shell/screen/screenrc            ~
+
+# [ X.org ]
+
++ X/Xdefaults                      ~
++ X/xinitrc.$(uname -i)            ~
++ wm/gtk/gtkrc-2.0                 ~
++ wm/gtk/gtk-bookmarks             ~
++ wm/musca/musca_start.$(uname -i) ~
++ wm/fonts/fonts.conf              ~
+
+# [ Net ]
+
++ net/rtorrent/rtorrent.rc         ~
++ net/snownews                     ~
++ mail/mailcap/mailcap             ~
++ mail/procmail/procmailrc         ~
+
+# [ Soft ]
+
++ media/ncmpcpp                    ~
++ media/scmpc                      ~
+- soft/bar/barrc                   ~
++ soft/conky/conkyrc.$(uname -i)   ~
++ soft/ctags/ctags                 ~
++ soft/htop                        ~/.config
++ soft/mc                          ~/.config
++ soft/vim/vim                     ~
++ soft/vim/vimrc                   ~
++ soft/vimperator                  ~
++ soft/vimperator/vimperatorrc     ~
++ soft/git/gitconfig               ~
++ soft/git/gitk                    ~
+
+: ---------------------------------------------------------------
+
+mkdir -v ../var/{shell,log,mpd,scmpc,vim}
+mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
+
+: ---------------------------------------------------------------
+

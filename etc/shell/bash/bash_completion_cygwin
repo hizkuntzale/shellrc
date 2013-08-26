@@ -1,0 +1,83 @@
+#!/bin/bash ####################################################################
+#
+# Создан:  Ср 14 авг 2013 12:07:22
+# Изменён: Сб 24 авг 2013 12:15:37
+#
+################################################################################
+
+complete -W "accounts computer config continue file \
+	group help helpmsg localgroup name pause print \
+	send session share start statistics stop time use user view" \
+net
+
+complete -W "boot config continue control create delete description \
+	enumdepend failure failureflag getdisplayname getkeyname \
+	interrogate lock pause qc qdescription qfailure query \
+	queryex querylock sdset sdshow start stop" \
+sc
+
+
+complete -W 'access appwiz desk directx hdwwiz intl \
+	inetcpl joy mmsys ncpa netsetup odbccp32 \
+	powercfg timedate teltphon wuaucpl wscui' \
+cpl
+
+complete -W 'compmgmt gpedit dsa ciadv certmgr devmgmt \
+	dfrg diskmgmt eventvwr fsmgmt ntmsmgr ntmsoprq \
+	perfmon lusrmgr rsop services secpol wmimgmt' \
+msc
+
+_rdp () {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(echo "cb\nts\nms\n$(qappsrv | tail -n +3 | tr '' ' ')"))
+	else
+		COMPREPLY=($(echo "cb\nts\nms\n$(qappsrv | tail -n +3 | tr '' ' ')" | grep -i $2))
+	fi
+}
+
+complete -F _rdp rdp
+
+
+_wiki() {
+	wikidir=/cygdrive/z/wiki
+
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/'))
+	else
+		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/' | grep "^$2"))
+	fi
+}
+
+complete -F _wiki wiki
+
+_vnc() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(net view | grep -o '^\\\\[^[:space:]]*' | sed 's/^\\\\//'))
+	else
+		COMPREPLY=($(net view | grep -o '^\\\\[^[:space:]]*' | sed 's/^\\\\//' | grep "$2"))
+	fi
+
+}
+
+complete -F _vnc vnc
+
+_sc_start() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- ))
+	else
+		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
+	fi
+}
+
+complete -F _sc_start sc_start
+
+_sc_set_status() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- ))
+	else
+		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
+	fi
+}
+
+complete -F _sc_set_status sc_stop sc_pause sc_continue
+

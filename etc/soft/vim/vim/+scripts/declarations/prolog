@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#Создан:  Чтв 08 Июл 2010 17:45:51  YEKST
+#Изменён: Втр 20 Июл 2010 19:44:38  YEKST
+
+desc=$(
+	echo "help($1)." | swipl --nopce 2>/dev/null | cat -v - \
+	| sed -r 's/.\^H//g; s/\s+/ /g' | grep "^$1" | tr '\n' ';'
+)
+
+[ "$desc" == "" ] && desc=$(
+	\grep -E "$1[[:space:]]*(.*)[[:space:]](:-|.)" "$2" 2>/dev/null \
+	| sed -r 's/\s*(:-.*$|\.\s*$)/; /g' | tr '\n' ' '
+)
+
+echo -n "$desc"

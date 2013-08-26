@@ -1,0 +1,14 @@
+# mailcap
+#
+# Изменён: Вс 25 авг 2013 01:04:07
+#
+
+#Настройка отображений различных типов файлов
+
+# text/html;		w3m -I %{charset} -dump '%s'; copiousoutput; description = HTML Text; nametemplate=%s.html
+#text/html;		lynx -dump '%s'; copiousoutput; description = HTML Text; nametemplate=%s.html
+text/html;		lynx -dump -force_html '%s'; copiousoutput; description = HTML Text; nametemplate=%s.html
+
+image/*;		geeqie '%s'
+application/*;		xdg-open '%s'
+

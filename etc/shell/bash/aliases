@@ -1,0 +1,466 @@
+#!/bin/bash ####################################################################
+#
+# Изменён: Вс 25 авг 2013 03:55:58
+#
+################################################################################
+#{{{				Псевдонимы
+################################################################################
+
+alias ~='cd ~'								#noindex
+alias ..='cd ..'							#noindex
+alias .-='cd -'								#noindex
+alias pd="pushd"							#noindex
+alias po="popd"								#noindex
+
+#- Удаление, перемещение и копирование с подтверждением
+alias mv='mv -i -v'							#noindex
+alias cp='cp -i -v -r'							#noindex
+alias rm="rm -i -v"							#noindex
+alias rmdir="rmdir -v"							#noindex
+
+#- Алиасы для стандартных команд
+alias gcc="gcc -Os -Wextra -Wall"					#noindex
+alias g++="g++ -Os -Wall"						#noindex
+alias echo="echo -e"							#noindex
+alias less="less -R"							#noindex
+alias ls='ls -lGhpX --color=always --group-directories-first -v'	#noindex
+alias lss='\ls --format=single-column'					#noindex
+alias nl="nl -b a"							#noindex
+alias su='su -m'							#noindex
+alias df='df -hT'							#noindex
+alias du='du -hs'							#noindex
+alias free="free -m"							#noindex
+alias wget='wget -c -T 5'						#noindex
+alias ps="ps -aux"							#noindex
+alias date="command date '+%A, %B %e %Y %H:%M:%S'"			#noindex
+alias grep='grep -E -i'							#noindex
+alias tree="tree -CAFa"							#noindex
+alias sudo="su -c "$*""							#noindex
+alias cal="cal -m"							#noindex
+alias crontab_i="crontab $CRON"						#noindex
+alias crontab_e="$EDITOR $CRON"						#noindex
+alias dmenu="dmenu -fn '-*-fixed-*-*-*-*-15-*-*-*-*-*-*-*'"		#noindex
+alias pstree="pstree -U -h"						#noindex
+alias mkdir="mkdir -p -v"						#noindex
+alias j="jobs -l"							#noindex
+alias dirs="dirs -v"							#noindex
+alias vcat=vimcat							#noindex
+alias src=vimcat							#noindex
+
+#- Замена стандартных путей для конфигурационных файлов
+alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
+alias mpdr="\mpd $SHELLRC/etc/media/mpd/mpd_remote.conf"		#noindex
+alias mcabber="mcabber -f $SHELLRC/etc/net/mcabber/mcabberrc"	#noindex
+alias vim="vim -i $SHELLRC/var/vim/viminfo -p $*"				#noindex
+alias mutt="mutt -F $SHELLRC/etc/mail/mutt/muttrc && echo "0" > $MD/new" #noindex
+alias screen="TERM=rxvt-256color screen" #noindex
+alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
+alias cdargs="cdargs -b -f $SHELLRC/etc/soft/cdargs/cdargs -o $SHELLRC/etc/soft/cdargs/cdargsresult" #noindex
+alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
+alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
+alias ooo="nh soffice" #noindex
+alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
+
+if [ $UID -eq 0 ]; then
+	alias mc="TERM=xterm-256color mc -S modarin256root"
+else
+	alias mc="TERM=xterm-256color mc -S modarin256"
+	alias htop="htop -u $(whoami)"
+fi
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Bash>\n
+################################################################################
+
+#- Подсветка текущего дня в календаре
+function cal() {
+	[ -z "$2" ] && command cal | clr `\date +%d` || command cal $*
+}
+
+#- Запуск программ без привязки к сессии
+nh() {
+    nohup "$@" &>/dev/null &
+}
+
+#- Правка псевдонимов в Vim
+alias ealias="$EDITOR $ALIASES"						#noindex
+#- Перезагрузка конфигов баша
+alias reload=". ~/.bashrc"
+#- Выход из сеанса
+alias :q="exit"
+#- Очистка экрана
+alias c='clear'
+#- ls с цифровым видом прав
+alias lls="ls -l | sed 's/--x/1/g; s/-w-/2/g; s/-wx/3/g; s/r--/4/g;
+			s/r-x/5/g; s/rw-/6/g; s/rwx/7/g; s/---/0/g'"
+
+#- История bash
+h() { [ -z "$1" ] && history || history | grep "$1"; }
+
+#Переназначение функции, вызываемой неизвестной командой
+command_not_found_handle() {						#noindex
+	if [ -d "$1" ]; then
+		cd "$1"
+	else
+		echo $1 | grep '[фывапролджэйцукенгшщзхъячсмитьбю]' 2>&1 > /dev/null
+
+		if [ $? == 0 ]; then
+			ex="$(echo -n $@ | \
+			sed "y/йцукенгшщзхъфывапролджэячсмитьбю\.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,/qwertyuiop\[\]asdfghjkl;\'zxcvbnm,\.\/QWERTYUIOP\{\}ASDFGHJKL:\"ZXCVBNM<>\?/")"
+			echo "$red[$@] -> $green[$ex]$rstc"
+			$ex
+		else
+			echo >&2 "$redКоманда ${green}${1}${red} не найдена.$rstc"
+		fi
+	fi
+}
+
+#- Список функций и псевдонимов
+:h() {
+printf "$white
+-----------------------[ Функции и псевдонимы ]-----------------------$rstc\n"
+for file in ${HELPSRC[@]}; {
+	for i in $(awk '/\w\(\)|^alias|^#\{\{\{ / && !/#noindex/ {print NR"\n"}' $file); {
+		printf  "$blue\t%-17s$rstc%s\n" \
+			"$(echo $(sed "s/=/ /g; /alias \|()\|#{{{ \| .*/ s///g; "$i"q;d" $file))" \
+			"$(sed "/#\|}}}/ s///g; "$((--i))"q;d" $file)";
+	}
+}
+printf "$white
+----------------------------------------------------------------------$rstc\n\n"
+}
+
+#- Бэкап настроек
+b_back() { tar cvpzf "./Bash_`\date +%d-%m-%Y.%T`".tgz $SHELLRC; }
+
+#- Цветовые коды консоли
+colors() {
+	for ((i = 0; i < 127; i++ )); {
+		printf "\033[${i}m ${i} \e[0m"
+	}
+	echo ""
+}
+
+#- Самые используемые команды [-u -- уникальные]
+toph() {
+	case "$1" in
+		-u) history | cut -d ' ' -f 6- | sort | uniq -c | sort -rn | head -n 30;;
+		* ) history | awk '{a[$4]++} END {for(i in a) {print a[i] " " i}}' \
+				| sort -rn | head -n 30 | column -t;;
+	esac
+}
+
+#- Форматированный вывод PATH
+path() {
+	echo $PATH | tr ':' '\n' | nl
+}
+
+#-
+alias w1="watch -n 1" #noindex
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Мультимедийные_функции>\n
+################################################################################
+
+#- Просмотр фильмов в алфавитном порядке
+pnext() {
+	case $1 in
+		-clear) rm -i ./done.txt ;;
+		-last) vlc "$(tail -n 1 ./done.txt)" ;;
+		*) diff -N <(\ls -1 *.avi *.mkv *.mp4 *.flv *.mov 2>&-) done.txt \
+				| sed "s/< //;2q;d" \
+				| tee -a ./done.txt | xargs vlc
+	esac
+}
+
+#- Конвертирование аудио в mp3
+a2mp3() { lame -b $2 --noreplaygain -q 0 -m s -k -p "$1"; }
+
+#- Лог scmpc/last.fm
+lastfmlog() { watch -n 1 "tail $SHELLRC/var/log/scmpc.log"; }
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Сетевые_функции>\n
+################################################################################
+
+#- Список открытых портов
+alias ports="netstat -lp --inet"
+#- Просмотр ARP-таблицы
+alias arpt="arp -an | column -t"
+#- Информация о сети
+netinfo() {
+	echo -e "$yellow—————— Сетевая информация ——————$rstc"
+	ifconfig | awk /'Bcast/ {print $3}; /HWaddr/ {print $4,$5}'
+	lynx -dump http://checkip.dyndns.org:8245/ | sed 's/^   //g; 1q;d'
+	echo -e "$yellow————————————————————————————————$rstc"
+}
+
+#- Отображение заголовка HTML страницы
+headers() {
+	local port=${2:-80}
+	exec 5<> /dev/tcp/$1/$port
+	printf "GET / HTTP/1.0\n\n" >&5
+	cat <&5
+	exec 5>&-
+}
+
+#- Загрузка проекта с github.com
+githubdl() {
+	git clone git://github.com/${1}.git
+}
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Работа_с_файлами>\n
+################################################################################
+
+#- Vim
+alias :e="vim"
+
+# alias c+r="chmod +r"
+# alias c+w="chmod +w"
+# alias c+x="chmod +x"
+# alias c-r="chmod -r"
+# alias c-w="chmod -w"
+# alias c-x="chmod -x"
+
+#- Переход с поиском выше по дереву директорий
+up() {
+	[[ "$1" == "" ]] && cd .. \
+		|| cd $(echo $PWD | \grep -o "^.*$1\/" \
+		|| (echo "$redПуть $1 не найден$rstc" >&2 && echo ".") )
+}
+
+#- koi8r -> utf8
+alias KU="iconv -c -f koi8r"
+#- cp1251 -> utf8
+alias CU="iconv -c -f cp1251"
+#- utf8 -> koi8r
+alias UK="iconv -c -t koi8r"
+#- utf8 -> cp1251
+alias UC="iconv -c -t cp1251"
+#- -> utf8
+alias 2U="iconv -c -t utf8"
+
+#- Конвертирование обложки в png
+alias cover2png="mv *.jpg cover.jpg; convert cover.jpg cover.png && rm -f cover.jpg"
+
+#- Копирование файлов с прогрессом
+alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h"
+#- Перемещение файлов с прогрессом
+alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
+
+#- Вывод колонки текста
+alias cln="cut -d ' ' -f"
+
+#- Копирование файла в директорию книг для прочтения
+toread() { #noindex
+	READDIR=/media/MEDIA/Книги/Прочитать/
+	\cp -v -i "$@" $READDIR
+}
+
+lnt() { #noindex
+	ln -s "$(pwd)/$1" "$HOME/Downloads/TORRENTS/${2:-}"
+}
+
+#- Файловое дерево -> html
+ls2html() {
+	\tree --dirsfirst -C -L $1 -H "$(pwd)" \
+	--charset=utf8 -o $(sed -r "s/\///; s/\//_/g" <(pwd)).html
+}
+
+#- Пропуск N строк с начала файла и вывод в консоль
+skip () { tail -n $(( $( grep -c . $2)-$1 )) "$2"; }
+
+#- Показ строки файла по номеру
+str() { sed ""$1"q;d"; }
+
+#- Создание резервной копии файла
+backup() { cp $1{,.$(\date "+%d-%m-%Y.%T").bak}; }
+
+#- Удаление HTML-тэгов из файла ($1)
+unhtml() { cat $1 | sed -e :a -e 's/<[^>]*>//g;/</N;//ba'; }
+
+sortf() { #noindex
+	mkdir -p ./Archives ; mv *{.rar,.tar.*,.bz2,.gz,.tar,.t?z?,.zip,.7z,.tgz} ./Archives
+	mkdir -p ./Images   ; mv *{.jpg,.JPG,.jpeg,.bmp,.gif,.png} ./Images
+	mkdir -p ./Video    ; mv *{.avi,.mpg,.mp4,.dvx,.flv} ./Video
+	mkdir -p ./Docs     ; mv *{.doc,.odt,.pdf,.txt,.rtf} ./Docs
+	mkdir -p ./Audio    ; mv *{.ogg,.mp3,.wav,.m3u,.midi,.mid,.gp?} ./Audio
+	mkdir -p ./TFiles   ; mv *.torrent* ./TFiles
+	mkdir -p ./Scripts  ; mv *{.sh,.py,.rb,.tcl} ./Scripts
+	mkdir -p ./Wine     ; mv *{.exe,.EXE} ./Wine
+	mkdir -p ./Vim      ; mv *{.vim,.vba} ./Vim
+} 2>&-
+
+#- mc TORRENTS Music/new
+alias mcm="mc $HOME/Downloads/TORRENTS/ /media/2TB/Music/new/"
+
+#- Вывод размера файлов в отсортированном виде
+dus() {
+	\du -smc "$@" | sort -gr | awk '{
+		if ($1 > 1024) {
+			printf("%s%10sG","'$red'",sprintf("%.2f",$1/1024))
+		} else if ($1 > 1) {
+			printf("%s%10sM","'$yellow'",$1)
+		} else {
+			printf("%s%10sM","'$blue'","~"$1)
+		}
+		sub($1,"")
+		print $0,"'$rstc'"
+	}'
+}
+
+#- file -> [X] file
+fcheck() {
+	for i in "$@"; {
+		if [[ ! "$i" =~ \[X\]\ .* ]]; then
+			echo -n $i
+			echo -ne '\000'
+			echo -n $(echo $(basename "$i") | sed 's/^\[ \] \|^/[X] /')
+			echo -ne '\000'
+		fi
+	} | xargs -0 -n2 mv -v
+}
+
+#- file -> [ ] file
+fucheck() {
+	for i in "$@"; {
+		if [[ ! "$i" =~ \[.\]\ .* ]]; then
+			echo -n $i
+			echo -ne '\000'
+			echo -n "[ ] $i"
+			echo -ne '\000'
+		fi
+	} | xargs -0 -n2 mv -v
+}
+
+#- Поиск пути к исполняемому файлу, просмотр кода функций и псевдонимов
+which() { #noindex
+    (alias; declare -f) \
+    | /usr/bin/which \
+	    --tty-only \
+	    --read-alias \
+	    --read-functions \
+	    --show-tilde \
+	    --show-dot $@
+} 2>/dev/null
+
+#- Переход в директорию файла
+cdwhich() {
+	cd $(dirname $(/usr/bin/which $1))
+}
+
+#- Редактирование скриптов
+dowhich() { #noindex
+	eval $1 $(/usr/bin/which $2)
+}
+
+#- Редактирование скриптов
+alias vimwhich="dowhich vim"
+alias nlwhich="dowhich nl"
+alias catwhich="dowhich cat"
+alias vcatwhich="dowhich vcat"
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Администрирование>\n
+################################################################################
+
+#- gslapt
+alias gslapt="CDPATH='.' su -c gslapt" #noindex
+#- Установленные пакеты
+alias pkgs="ls /var/log/packages/ | tail -n +2 | nl"
+#- Просмотр обновлений системы
+alias updates="cat $SHELLRC/var/log/updates"
+#- Последние версии ядра
+alias kernel="finger @kernel.org"
+
+#- Копирование файла $1 в $SHELLRC/bin/$2
+cpbin() {
+	cp $1 $SHELLRC/bin/$2/
+}
+
+#- Перемещение файла $1 в $SHELLRC/bin/$2
+mvbin() {
+	mv $1 $SHELLRC/bin/$2/
+}
+
+#- Создание символической ссылки на файл $1 в $SHELLRC/bin/$2
+lnbin() {
+	ln -s $(realpath $1) $SHELLRC/bin/$2/$1
+}
+
+#- Генератор паролей
+alias passgen='for i in `seq 10`; { </dev/urandom tr -dc A-Za-z0-9_ | head -c8; echo ""; }'
+#- UUID носителей
+alias uuids="ls /dev/disk/by-uuid/"
+#- Монтирование образов
+alias mntiso="mount -o loop -t iso9660 $1 $2"
+#- Поиск suid-файлов
+alias fsuid='find / -perm +6000 -type f -exec ls -ld {} \; | column -t | nl'
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Сборка_и_установка_ПО>\n
+################################################################################
+
+#- Запуск шелла perl -MCPAN
+alias pcpan='perl -MCPAN -e shell'
+
+#- Создание документации robodoc
+robodoc2html() {
+	mkdir -p ${1:-.}/doc
+	robodoc --src ${1:-.} --doc ./doc/ --multidoc \
+		--html \
+		--charset utf-8 \
+		--index \
+		--nosort \
+		--sections \
+		--source_line_numbers
+		# --syntaxcolors
+		# --nopre \
+}
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Управление_сервисами_и_процессами>\n
+################################################################################
+
+#- Поиск процесса по имени
+alias pgrep="pgrep -l"
+#- Завершение процесса по имени
+pskill() { kill -9 `pgrep $1`; }
+#- Запуск сервиса
+start() { su -c "sh $1 start"; }
+#- Остановка сервиса
+stop() { su -c "sh $1 stop"; }
+#- Перезапуск сервиса
+restart() { su -c "sh $1 restart"; }
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Математические_функции>\n
+################################################################################
+
+#- Консольный калькулятор
+calc() { echo "$*" | bc -l; }
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Прочее>\n
+################################################################################
+
+#- Проверка правописания по словарю
+spell() { echo "$@" | aspell -a | clr $@; }
+#- Подсветка выражений
+clr() { sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g"; }
+
+#- Создание git-репозитория с ветками master/stable/experimental
+gitnew() {
+	git init
+	git add .
+	git commit -m "Create GIT repository"
+	git branch stable
+	git branch experimental
+}
+
+#- Дневник
+alias ,w,w="vim -c VimwikiMakeDiaryNote"				#noindex
+
+#}}} ###########################################################################
+

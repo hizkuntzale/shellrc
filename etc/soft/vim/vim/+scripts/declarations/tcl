@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Создан:  Чтв 08 Июл 2010 17:45:51  YEKST
+#Изменён: Втр 20 Июл 2010 20:10:13  YEKST
+
+desc=$(man n "$1" 2>/dev/null \
+	| cat -v - \
+	| sed -r 's/.\^H|^\s+//g' \
+	| sed -n '/^SYNOPSIS/{n;p}'
+)
+
+[ "$desc" == "" ] && desc=$(
+	\grep -E "proc[[:space:]]+$1" "$2" 2>/dev/null \
+	| sed -r 's/\{$|proc\s+//g'
+)
+
+[ "$desc" == "" ] && desc=$(echo "$1" | tclsh 2>&1 \
+	| grep 'should be' | sed 's/.*should be|"//g'
+)
+
+echo -n "$desc"

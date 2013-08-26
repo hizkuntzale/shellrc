@@ -1,0 +1,29 @@
+! цвет текста
+URxvt*foreground: #f2f2f2
+! цвет фона
+URxvt*background: #303030
+! шрифт (со сглаживанием)
+URxvt*font: xft:DejaVU Sans Mono
+! тип скроллбара
+URxvt*scrollstyle:plain
+! расположение скроллбара
+URxvt*scrollBar_right:true
+! цвет скроллбара
+URxvt*scrollColor: #fdb927
+! цветовая схема используемая в URxvt
+URxvt*color0: #6c6c6c
+URxvt*color1: #e9897c
+URxvt*color2: #b6e77d
+URxvt*color3: #ecebbe
+URxvt*color4: #7993a9
+URxvt*color5: #ea96eb
+URxvt*color6: #c9caec
+URxvt*color7: #f2f2f2
+URxvt*color8: #747474
+URxvt*color9: #f99286
+URxvt*color10: #b6e77d
+URxvt*color11: #fcfbcc
+URxvt*color12: #b6defb
+URxvt*color13: #fba1fb
+URxvt*color14: #d7d9fc
+URxvt*color15: #f2f2f2

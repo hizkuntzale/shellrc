@@ -1,0 +1,37 @@
+# muttrc
+#
+# Изменён: Вс 25 авг 2013 01:04:32
+#
+
+#Подключение конфигурационных файлов
+source "$SHELLRC/etc/mail/mutt/colors.mutt"
+source "$SHELLRC/etc/mail/mutt/keys.mutt"
+source "$SHELLRC/etc/mail/mutt/header.mutt"
+source "$SHELLRC/etc/mail/mutt/boxes.mutt"
+
+#Автоматический просмотр html
+auto_view text/html
+
+#Кириллизация
+#set allow_8bit=yes
+#set ascii_chars=yes
+set charset="UTF-8"
+set send_charset="us-ascii:iso-8859-1:utf-8"
+set locale=ru_RU.UTF-8
+
+#Отключение звукового сигнала
+set beep=no
+
+#Внешний вид просмотрщика ящика
+set index_format="%4C %Z %{%b %d} %-15.15F %s"
+set to_chars="  TCF"
+set sort=threads
+
+#Выделение цитат
+set quote_regexp="^([ \t[A-Za-z]*]*[>+])+"
+
+set pager_context=1
+set pager_index_lines=10
+
+set sort_browser=reverse-size
+

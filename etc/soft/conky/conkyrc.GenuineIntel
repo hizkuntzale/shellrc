@@ -1,0 +1,58 @@
+background yes
+use_xft yes 
+xftfont DejaVu Mono:size=10
+xftalpha 1
+update_interval 2.0
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_transparent no
+own_window_colour black
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 1366 3
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+stippled_borders 0
+border_width 1
+default_color darkgray
+default_shade_color white
+default_outline_color darkgray
+alignment top_left
+gap_x 2
+gap_y 2
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+use_spacer right
+
+background yes
+
+default_color black
+
+own_window_colour D9D9D9
+
+TEXT
+[ ${color darkblue}${execi 2 SHELL=/bin/sh musca -c "silent show groups" \
+	| cut -f 2- -d ' ' \
+	| sed -e :a -e '$b;N;s/\n/ | /;ba' \
+	| sed 's/- //g;s/\*/⚫/g'
+} ]${offset 55}\
+${alignc} \
+${if_mounted /}$color /: ${color brown}${fs_free /}${endif}\
+${if_mounted /home/maks}$color | home: ${color brown}${fs_free /home/maks}${endif}\
+${if_mounted /media/2TB}$color | 2TB: ${color brown}${fs_free /media/2TB}${endif}\
+${if_mounted /media/MEDIA}$color | media: ${color brown}${fs_free /media/MEDIA}${endif}\
+${if_mounted /media/DATA}$color | data: ${color brown}${fs_free /media/DATA}${endif}\
+${if_mounted /media/FLASH}$color | flash: ${color brown}${fs_free /media/FLASH}${endif}\
+${alignr}\
+${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}\
+${color brown}⚠$color ${battery_percent}%$color | \
+${color darkgreen}⏏$color: ${execi 18000 cat $SHELLRC/var/log/updates | wc -l}$color | \
+${color darkred}⌧$color: ${execi 60 cat $MD/new}$color | \
+${color darkblue}[${execi 2 SHELL=/bin/sh skb 1}]$color | \
+${color black}${time %H:%M} (${time %d.%m.%Y}) 

@@ -1,0 +1,28 @@
+display-twiddle: no
+display-ansi: yes
+display-summary: yes
+#
+twiddle-foreground: green
+twiddle-bold: yes
+#
+count-foreground: cyan
+count-bold: yes
+#
+throughput-label-foreground: normal
+throughput-label-bold: yes
+throughput-foreground: green
+throughput-bold: yes
+#
+time-label-foreground: normal
+time-label-bold: yes
+time-foreground: green
+time-bold: yes
+#
+percent-foreground: yellow
+percent-bold: yes
+#
+bar-brace-foreground: red
+bar-brace-bold: yes
+#
+bar-foreground: yellow
+bar-bold: yes

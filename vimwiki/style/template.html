@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<link rel="Stylesheet" type="text/css" href="%root_path%css/vimwiki.css" />
+
+		<title>%title%</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<script type="text/javascript" src="%root_path%js/scripts/shCore.js"></script>
+
+		<link href="%root_path%css/styles/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="%root_path%css/styles/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="%root_path%css/styles/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="%root_path%css/styles/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="%root_path%css/styles/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushScheme.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushErlang.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushPlain.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushLatex.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushProlog.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushDiff.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushVim.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBat.js"></script>
+
+		<script type="text/javascript" src="%root_path%js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+		<!-- Ссылки на предыдущую и следующую запись дневника -->
+		<script type="text/javascript" src="%root_path%js/date.js"></script>
+		<script type="text/javascript">
+		function wikiDiaryLinks() {
+			var date = new Date.parse(document.title)
+
+				var prev = date.prev().day().toString('yyyy-MM-dd');
+				var next = date.next().day().next().day().toString('yyyy-MM-dd');
+
+				document.links["prev"].href = [prev,".html"].join("");
+				document.links["next"].href = [next,".html"].join("");
+
+				document.getElementById("prev").innerHTML = "&#8678";
+				document.getElementById("next").innerHTML = "&#8680";
+		}
+		window.onload = wikiDiaryLinks;
+		</script>
+		<!-- -->
+		<!-- document.getElementById("prev").innerHTML = "&larr;"; -->
+		<!-- document.getElementById("next").innerHTML = "&rarr;"; -->
+
+		<script type="text/javascript" src="%root_path%js/pl/swfobject.js"></script>
+		<script type="text/javascript" src="%root_path%js/pl/1bit.js"></script>
+
+		<script type="text/javascript">
+			oneBit = new OneBit('%root_path%js/pl/1bit.swf');
+			oneBit.ready(function() {
+				oneBit.specify('color', '#000000');
+				oneBit.specify('background', '#FFFFFF');
+				oneBit.specify('playerSize', '10');
+				oneBit.specify('position', 'after');
+				oneBit.specify('analytics', false);
+				oneBit.apply('a');
+			});
+		</script>
+
+	</head>
+<body>
+		<div style="text-align: left;  float: left; "><a class="yesterday" href="prev" id="prev"></a></div>
+		<div style="text-align: right; float: right;"><a class="tomorrow"  href="next" id="next"></a></div>
+
+		<div class="contents">
+			%content%
+		</div>
+	</body>
+</html>

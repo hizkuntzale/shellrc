@@ -1,0 +1,105 @@
+# xbindkeysrc.AuthenticAMD
+#
+# Изменён: Вс 25 авг 2013 01:55:59
+#
+
+#Запуск программ#{{{
+
+"xkill"
+	m:0xc + c:9
+	Control+Alt + Escape
+
+"import screenshot.png"
+	m:0x0 + c:107
+        Print
+
+"xkill"
+	m:0x10c + c:9
+	Control+Alt+Mod2 + Escape
+
+"import screenshot.png"
+	m:0x10 + c:107
+        Mod2 + Print
+
+"serial"
+	m:0x40 + c:33
+	Mod4 + p
+
+"dmenfm"
+	m:0x40 + c:52
+	Mod4 + z
+
+"moveWindow"
+	m:0x40 + c:57
+	Mod4 + n
+
+#}}}
+
+#Управление плеером#{{{
+
+"musca -c 'use music' && { mpd $SHELLRC/etc/media/mpd/mpd.conf; last.fm; urxvtc -e ncmpcpp; }"
+	m:0x0 + c:234
+	XF86AudioMedia
+
+"mpc next"
+	m:0x0 + c:171
+	XF86AudioNext
+
+"mpc prev"
+	m:0x0 + c:173
+	XF86AudioPrev
+
+"mpc toggle"
+	m:0x0 + c:172
+	XF86AudioPlay
+
+"mpc stop"
+	m:0x0 + c:174
+	XF86AudioStop
+
+}}}
+
+#Сохранение оценки песни в тегах#{{{
+
+"musca -c 'use music' && eval $(echo setrating 1 | dmenu -i)"
+	m:0x4 + c:10
+	Control + 1
+
+"musca -c 'use music' && eval $(echo setrating 2 | dmenu -i)"
+	m:0x4 + c:11
+	Control + 2
+
+"musca -c 'use music' && eval $(echo setrating 3 | dmenu -i)"
+	m:0x4 + c:12
+	Control + 3
+
+"musca -c 'use music' && eval $(echo setrating 4 | dmenu -i)"
+	m:0x4 + c:13
+	Control + 5
+
+"musca -c 'use music' && eval $(echo setrating 5 | dmenu -i)"
+	m:0x4 + c:14
+	Control + 5
+
+"musca -c 'use music' && eval $(echo setrating 5+ | dmenu -i)"
+	m:0x4 + c:15
+	Control + 6
+
+}}}
+
+#Запуск программ на рабочих столах {{{
+
+"loadLayout"
+    m:0x40 + c:31
+#    Mod4 + i
+
+"saveLayout"
+    m:0x41 + c:31
+#    Shift+Mod4 + i
+
+"moveWindow"
+    m:0x41 + c:33
+    Shift+Mod4 + p
+
+}}}
+

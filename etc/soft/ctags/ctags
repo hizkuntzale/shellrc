@@ -1,0 +1,62 @@
+--langdef=txt
+--langmap=txt:.txt
+--regex-txt=/^([0-9]+\.?[ \t]+)([^,]+$)/\1\2/c,content/
+--regex-txt=/^(([0-9]+\.){1}([0-9]+\.?)[ \t]+)([^,]+$)/.   \1\4/c,content/
+--regex-txt=/^(([0-9]+\.){2}([0-9]+\.?)[ \t]+)([^,]+$)/.       \1\4/c,content/
+--regex-txt=/^[ \t]+(figure[ \t]+[0-9a-zA-Z]+([.: ]([ \t]*.+)?)?$)/\1/f,figures/i
+--regex-txt=/^[ \t]+(table[ \t]+[0-9a-zA-Z]+([.: ]([ \t]*.+)?)?$)/\1/t,tables/i
+
+--langdef=rfc
+--langmap=rfc:.rfc
+--regex-rfc=/^([0-9]+\.?[ \t]+)([^,]+$)/\1\2/c,content/
+--regex-rfc=/^(([0-9]+\.){1}([0-9]+\.?)[ \t]+)([^,]+$)/.   \1\4/c,content/
+--regex-rfc=/^(([0-9]+\.){2}([0-9]+\.?)[ \t]+)([^,]+$)/.       \1\4/c,content/
+--regex-rfc=/^[ \t]+(figure[ \t]+[0-9a-zA-Z]+([.: ]([ \t]*.+)?)?$)/\1/f,figures/i
+--regex-rfc=/^[ \t]+(table[ \t]+[0-9a-zA-Z]+([.: ]([ \t]*.+)?)?$)/\1/t,tables/i
+
+--langdef=tcl
+--langmap=tcl:.tcl
+--regex-tcl=/^[ \t]*(proc)[ \t]+([^ \t]+[ \t]+(\{.*\}|[^ \t]+))[ \t]+\{.*/\2/x,functions/
+--regex-tcl=/^(set|variable)[ \t]+([^ \t]+)[ \t]+(.+)/\2/g,global,globals/
+--regex-tcl=/^[ \t]*(namespace)[ \t]+[^ \t]+[ \t]+([^ \t]+)[ \t]+(.+)/\2/n,namespaces/
+--regex-tcl=/^.+(set)[ \t]+([^ \t]+)[ \t]+(.+)/\2/v,variables,vars/
+--regex-tcl=/^.*(array set)[ \t]+([^ \t]+)[ \t]+(.+)/\2/a,arrays/
+--regex-tcl=/^[^\$]*(source)[ \t]+([^ \t]+)$/\2/s,sources/
+--regex-tcl=/^.*(package require)[ \t]+([^ \t]+)$/\2/k,packages/
+--regex-tcl=/^.*(st::)?addproc[ \t]+([^ \t]+)[ \t]+.*$/\2/u,tests/
+--regex-tcl=/^.*interp[ \t]+alias[ \t]+[^ \t]+[ \t]+(.+).*$/\1/i,aliases/
+
+--langmap=scheme:
+--langdef=scm
+--langmap=scm:.ss.scm
+--regex-scm=/^[[:space:]]*(\(|[[]])define[^[:space:]]*[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/d,definition/i))
+
+--langmap=lisp
+--langmap=lisp:.lisp
+--regex-lisp=/^[[:space:]]*(\(|[[]])defun[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/f/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defmethod[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/m,methods/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defmacro[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/x,macro/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defgeneric[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/g,generic/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defvar[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/v,var/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defparameter[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/p,parameter/i
+--regex-lisp=/^[[:space:]]*(\(|[[]])defparameter[[:space:]]+(\(|[[]])?([^][[:space:]()]+)/\3/c,class/i
+
+--langdef=tex
+--langmap=tex:.tex
+--regex-tex=/\\subsubsection[ \t]*\*?\{[ \t]*([^])}]*)\}/- \1/s,subsubsection/
+--regex-tex=/\\subsection[ \t]*\*?\{[ \t]*([^])}]*)\}/+\1/s,subsection/
+--regex-tex=/\\section[ \t]*\*?\{[ \t]*([^])}]*)\}/\1/s,section/
+--regex-tex=/\\chapter[ \t]*\*?\{[ \t]*([^])}]*)\}/\1/c,chapter/
+--regex-tex=/\\label[ \t]*\*?\{[ \t]*([^])}]*)\}/\1/l,label/
+--regex-tex=/\\ref[ \t]*\*?\{[ \t]*([^])}]*)\}/\1/r,ref/
+
+--langdef=wiki
+--langmap=wiki:.wiki
+--regex-wiki=/^[ \t]*=[ \t]+(.+)[ \t]+=$/\1/h,header/
+--regex-wiki=/^[ \t]*==[ \t]+(.+)[ \t]+==$/. \1/h,header/
+--regex-wiki=/^[ \t]*===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
+--regex-wiki=/^[ \t]*====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
+--regex-wiki=/^[ \t]*=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
+--regex-wiki=/^[ \t]*======[ \t]+(.+)[ \t]+======$/.         \1/h,header/
+--regex-wiki=/^[\*#] (\[.\] .*)$/\1/t,todo/
+--regex-wiki=/^[ \t]+[\*#] (\[.\] .*)$/.   \1/t,todo/

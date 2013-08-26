@@ -1,0 +1,85 @@
+# /etc/inputrc
+
+#Привязки клавиш
+
+# Set various nice escape sequences:
+"\eOd": backward-word
+"\eOc": forward-word
+
+# for linux console
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+
+# for xterm
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+
+# for freebsd console
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+##<Вверх> - Поиск назад по истории
+"\e[A": history-search-backward
+##<Вниз> - Поиск вперед по истории
+"\e[B": history-search-forward
+#Поиск назад по истории
+"\C-p": history-search-backward
+#Поиск вперед по истории
+"\C-n": history-search-forward
+
+#Опции интерпретатора
+
+#8-битовый ввод
+set meta-flag On
+set input-meta On
+set convert-meta Off
+set output-meta On
+
+#Горизонтальная сортировка автодополнения
+#set print-completions-horizontally On
+set horizontal-scroll-mode On
+
+#Игнорирование регистра при автодополнении
+set completion-ignore-case On
+
+#Возможность использовать маски
+set glob-complete-word On
+
+#Автодополнение по одному нажатию <TAB>
+set show-all-if-ambiguous On
+
+#Запрашивать подтверждение на вывод автодополнения при >200 результатов
+set completion-query-items 200
+
+set show-all-symlinked-directories On
+
+#Автодополнение раскрывает тильду
+set expand-tilde On
+
+#Добавление символа типа файла к результату автодополнения
+set visible-stats On
+
+#Добавление слэша к директориям
+set mark-directories On
+
+#При изменении команды добавлять метку
+set mark-modified-lines Off
+
+#Запрет на отображение скрытых файлов в автодополнении
+set match-hidden-files Off
+
+#Дополнение из истории
+set dabbrev-expand on
+
+#Автоматическая подстановка директорий в cd
+set autocd on
+

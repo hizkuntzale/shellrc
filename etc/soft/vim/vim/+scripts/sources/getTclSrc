@@ -1,0 +1,18 @@
+#!/usr/bin/env tclsh
+
+#Создан:  Втр 20 Июл 2010 22:46:17  YEKST
+#Изменён: Сбт 24 Июл 2010 21:36:03
+
+catch {
+set arg [lindex $argv 0]
+eval [package unknown] Tcl [package provide Tcl]
+regexp {(?:::)?(\w+)::\w?} $arg -> name
+	foreach pkg [package names] {
+		if {[string match "$name*" $pkg]} {
+			catch { package require $pkg }
+		}
+	}
+	puts "proc $arg {[info args $arg]} {"
+	puts [info body $arg]
+	puts "}"
+}

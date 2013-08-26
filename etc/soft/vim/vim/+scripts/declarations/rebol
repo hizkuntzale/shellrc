@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Создан:  Чтв 08 Июл 2010 17:45:51  YEKST
+#Изменён: Сбт 28 Авг 2010 01:28:05
+
+desc=$(
+	echo "quit" \
+	| rebol -v --do "help $1" \
+	| sed -n '/^USAGE/{n;p}' \
+	| sed -r 's/^\s*//'
+)
+
+echo -n "$desc"

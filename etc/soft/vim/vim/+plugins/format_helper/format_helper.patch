@@ -1,0 +1,89 @@
+--- ./format_helper.vim	2008-11-07 12:39:10.000000000 +0500
++++ ../../../../../vim_old/vim/plugin/format_helper.vim	2010-07-21 21:47:59.000000000 +0600
+@@ -63,24 +63,24 @@
+ """""""""""""""""""""""""""""""""""""""""""""""""""
+ "              Predefined options		  "
+ """""""""""""""""""""""""""""""""""""""""""""""""""
+-set cmdheight=2
+-set complete+=k
+-set completeopt=menuone,preview
++" set cmdheight=2
++" set complete+=k
++" set completeopt=menuone,preview
+ 
+ """"""""""""""""""""""""""""""""""""""""""""
+ " Add location of your local dictionary here
+ "set dictionary+=?
+ """"""""""""""""""""""""""""""""""""""""""""
+ 
+-set laststatus=2
+-set pumheight=15
++" set laststatus=2
++" set pumheight=15
+ 
+ """"""""""""""""""""""""""""""""""""""""""""
+ " If you like system default <Tab> policy, 
+ " please comment below 3 lines.
+-set expandtab
+-set smarttab
+-set shiftwidth=4
++" set expandtab
++" set smarttab
++" set shiftwidth=4
+ """"""""""""""""""""""""""""""""""""""""""""
+ 
+ set showmatch
+@@ -119,13 +119,13 @@
+ "              Predefined maps			  "
+ """""""""""""""""""""""""""""""""""""""""""""""""""
+ " Auto-complete parenthesis
+-inoremap ( ()<ESC>i
++inoremap ( ()<left>
+ inoremap <silent>) <c-r>=<SID>:ClosePair(')')<CR>
+-inoremap { {}<ESC>i
++inoremap { {}<left>
+ inoremap <silent>} <c-r>=<SID>:ClosePair('}')<CR>
+-inoremap [ []<ESC>i
++inoremap [ []<left>
+ inoremap <silent>] <c-r>=<SID>:ClosePair(']')<CR>
+-inoremap < <><ESC>i
++inoremap < <><left>
+ inoremap <silent>> <c-r>=<SID>:ClosePair('>')<CR>
+ 
+ " bind function to the tab key
+@@ -451,7 +451,7 @@
+     echo "Characters (with spaces): " . result[0]
+     echo "Characters (no spaces): " . result[1]
+     echo "Words: " . result[2]
+-    echo '  Asia characters: ' . result[3]
++    " echo '  Asia characters: ' . result[3]
+     echo '  Non-asia words: ' . result[4]
+     echo "Lines (with empty): " . result[5]
+     echo "Lines (no empty): " . result[6]
+@@ -460,18 +460,20 @@
+ function! <SID>:SuperCleverTab()
+     "check if at beginning of line or after a space
+     let line = getline('.')
+-    if strpart(line, 0, col('.')-1) =~ '^\s*$' || line[col('.') - 2] !~ '[A-Za-z]'
++    if strpart(line, 0, col('.')-1) =~ '^\s*$' || line[col('.') - 2] !~ '[A-Za-z::/]'
+         return "\<Tab>"
+     else
++        " ++++++++++++++++++++++++++++++++++++++++++++++
+         " do we have omni completion available
+-        if &omnifunc != ''
++        " if &omnifunc != ''
+             "use omni-completion 1. priority
+-            return "\<C-X>\<C-O>"
+-        else
++            " return "\<C-X>\<C-O>"
++        " ++++++++++++++++++++++++++++++++++++++++++++++
+             " use known-word completion and known words in current file and words in headers
+             " option 'complete' should includes 'k' and 'd'
+-            return "\<C-N>"
+-        endif
++            " return "\<C-N>"
++            return "\<C-X>\<C-U>"
++        " endif
+     endif
+ endfunction <SID>:SuperCleverTab
+ 

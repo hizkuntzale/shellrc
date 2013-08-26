@@ -1,0 +1,34 @@
+#
+# Изменён: Сб 24 авг 2013 22:44:05
+#
+
+#Настройки RTorrent
+
+port_range	= 40890-40890;		#Используемый порт
+port_random	= no;			#Не использовать случайный порт
+dht		= auto;			#Использовать dht
+dht_port	= 6881;			#Порт dht
+encryption	= allow_incoming, \
+		enable_retry, \
+		prefer_plaintext;	#Шифрование
+use_udp_trackers = no;			#Не использовать udp
+min_peers	= 1;			#Минимальное количество пиров
+max_peers	= 1000;			#Максимальное количество пиров
+download_rate	= 0;			#Максимальная скорость загрузки
+upload_rate	= 0;			#Минимальная скорость загрузки
+session_save	= yes;			#Сохранять сессии
+
+#umask		= 002;			#Права на создаваемые файлы
+
+check_hash	= yes;			#Проверять загруженные данные
+close_low_diskspace = 200;		#Выключать закачку при <200M
+
+http_proxy=
+
+directory	= ~/Downloads/TORRENTS/
+session		= ~/.shellrc/var/rtorrent/sessions/
+
+#Останавливать раздачу удаленных файлов
+schedule = untied_directory,60,60,close_untied=
+
+

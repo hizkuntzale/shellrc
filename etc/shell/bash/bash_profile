@@ -1,0 +1,13 @@
+#!/bin/bash
+#.bash_profile
+
+#color
+
+if [ -f ~/.bashrc ]; then
+ 	. ~/.bashrc
+fi
+
+# BASH_ENV=$HOME/.bashrc
+# export BASH_ENV 
+# export PATH="~/.cw/df:$PATH"
+

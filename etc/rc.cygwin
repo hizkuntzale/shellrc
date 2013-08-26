@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------
+#                           [ CYGWIN ]
+# ---------------------------------------------------------------
+
+export CYGWIN=winsymlinks
+
+# [ Shell ]
+
++ shell/bash/bash_profile          ~
++ shell/bash/bashrc                ~
+- shell/guile/guile                ~
+- shell/tcl/tclshrc                ~
+- shell/tcl/wishrc                 ~
+- shell/screen/screenrc            ~
+
+# [ X.org ]
+
+- X/Xdefaults                      ~
+
+# [ Net ]
+
+- net/snownews                     ~
+- mail/mailcap/mailcap             ~
+- mail/procmail/procmailrc         ~
+
+# [ Soft ]
+
+- soft/bar/barrc                   ~
++ soft/ctags/ctags                 ~
+- soft/htop                        ~/.config
+- soft/mc                          ~/.config
++ soft/vim/vim                     ~
++ soft/vim/vimrc                   ~
+- soft/vimperator                  ~
+- soft/vimperator/vimperatorrc     ~
++ soft/git/gitconfig               ~
++ soft/git/gitk                    ~
+
+# [ Cygwin ]
+
++ soft/cygwin/minttyrc             ~
+
+: ---------------------------------------------------------------
+

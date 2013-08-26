@@ -1,0 +1,10 @@
+display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).jpg
+
+setxkbmap -model pc104 -layout us,ru -variant ,
+setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle
+xmodmap -e 'keycode 135 = Super_R'
+
+xmodmap $SHELLRC/etc/X/Xmodmaprc.$(uname -i)
+
+sleep 0.5
+exec musca > /dev/null

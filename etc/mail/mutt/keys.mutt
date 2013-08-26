@@ -1,0 +1,7 @@
+#Изменён: Сб 24 авг 2013 20:09:48
+
+#Получение почты
+macro index   G "!fetchmail -a -f $SHELLRC/etc/mail/fetchmail/fetchmailrc"
+macro pager   G "!fetchmail -a -f $SHELLRC/etc/mail/fetchmail/fetchmailrc"
+macro generic G "!fetchmail -a -f $SHELLRC/etc/mail/fetchmail/fetchmailrc"
+

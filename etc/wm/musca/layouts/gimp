@@ -1,0 +1,7 @@
+group	0	0	0	0	gimp
+frame	220	0	1460	1080	0	gimp	gimp-image-window
+frame	0	0	220	1080	0	gimp	gimp-toolbox
+frame	1680	0	240	1080	0	gimp	gimp-dock
+window	0	gimp	GNU Image Manipulation Program	gimp-image-window
+window	1	gimp	Слои, Каналы, Контуры, Отменить - Кисти, Текстуры, Градиенты	gimp-dock
+window	2	gimp	Панель инструментов	gimp-toolbox

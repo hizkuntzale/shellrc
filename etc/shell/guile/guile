@@ -1,0 +1,12 @@
+;;;Настройки guile
+
+;;Подключение библиотеки readline
+(use-modules (ice-9 readline))
+(activate-readline)
+
+;;Включение истории команд (переменные $n)
+(use-modules (ice-9 history))
+
+;;Форматированный вывод
+(use-modules (ice-9 pretty-print))
+

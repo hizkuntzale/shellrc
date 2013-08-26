@@ -1,0 +1,13 @@
+#Изменен: Сб 24 авг 2013 20:08:11
+
+#Сброс настроек
+ignore *
+
+#Отображаемые поля
+unignore From:
+unignore To:
+unignore Subject:
+unignore Date:
+
+#Порядок полей
+hdr_order Subject: From: To: Date:

@@ -1,0 +1,298 @@
+#!/bin/bash ####################################################################
+#
+# Изменён: Вс 25 авг 2013 03:27:22
+#
+################################################################################
+
+################################ Общие настройки ###############################
+# {{{				Переменные окружения
+################################################################################
+
+export BASH_ENV="$HOME/.bashrc"			#Файл настроек интерпретатора
+export SHELLRC="$HOME/.shellrc"			#Путь к директории настроек
+export BASHRC="$SHELLRC/etc/shell/bash"		#Путь к настройкам bash
+export INPUTRC="$BASHRC/inputrc"		#Файл inputrc
+
+export TERM=xterm
+
+export GUILE_HISTORY="$SHELLRC/var/shell/guile.history"	#История guile
+export GUILE_AUTO_COMPILE=0			#Запрет на автокомпиляцию
+
+export PAGER=less				#Страничный просмотрщик
+export VISUAL=vim				#Стандартный редактор
+export EDITOR=vim				#Стандартный редактор
+
+export HELPSRC=()
+
+#Не очищать экран при выходе.
+#Игнорировать регистр при поиске.
+#Подсвечивать новую строку при пролистывании экрана.
+#Показывать результат поиска в центре.
+export LESS="-X --ignore-case -w --jump-target=.5"
+
+export LESSOPEN="|/usr/bin/lesspipe.sh %s"
+export LESSHISTFILE=/dev/null
+export LESSCOLOR=yes
+
+export LC_ALL=ru_RU.UTF-8			#Системная локаль
+export PRINTER=HP_LaserJet_P1005		#Принтер по умолчанию
+
+export IGNOREEOF=3				#Закрывать оболочку по 3м C-d
+
+export LOGDIR=$SHELLRC/var/log			#Директория журналов скриптов
+export TODO=$SHELLRC/etc/soft/calcurse/todo  #Список дел
+export MD=$SHELLRC/var/mail/			#Директория почты
+export CRON=$SHELLRC/etc/cron/crontab	#Задания cron
+export TMP="/tmp"				#Директория временных файлов
+
+#Настройки cw
+export NOCOLOR_PIPE=1
+#export CW_INVERT=1
+
+#Настройки компилятора
+export CFLAGS="-march=k8 -Os -pipe"
+export MAKEOPTS="-j 3"
+
+if [[ $OS != Windows* ]]; then
+	#Версия gcc
+	GCCV=$(\gcc --version | head -n 1 | cut -d ' ' -f 3)
+
+	export C_INCLUDE=/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/
+	export C_INCLUDE_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include
+	export CPLUS_INCLUDE_PATH=/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/
+	export LD_LIBRARY_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/
+
+	OOoPath="$HOME/Programs/Soft/OOo/openoffice.org3/program/"
+fi
+
+#Формат времени, выводимый командой time
+# real	0m32.155s
+# user	0m0.357s
+# sys	0m0.343s
+# CPU	2.17%
+#
+export TIMEFORMAT=$'real\t%3lR\nuser\t%3lU\nsys\t%3lS\nCPU\t%P%'
+
+#Настройка TOR + Privoxy
+export http_proxy=
+export HTTP_PROXY=
+# http_proxy=http://127.0.0.1:8118/
+# proxy_address=$http_proxy
+# HTTP_PROXY=$http_proxy
+# export http_proxy HTTP_PROXY proxy_address
+
+export SBCL_HOME=/usr/lib/sbcl
+
+# }}} ##########################################################################
+# {{{				Опции подсветки
+################################################################################
+
+#Настройка цветовых кодов
+rstc="\033[00m"
+yellow="\033[1;33m"
+blue="\033[1;36m"
+red="\033[1;31m"
+green="\033[1;32m"
+grey="\033[0;37m"
+white="\033[1;1m"
+
+#Подсветка результатов grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;31'
+
+#Цвета ls
+export LS_COLORS="\
+no=00:fi=00:di=01;34:ln=01;36:\
+pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:\
+*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:\
+*.lzh=01;31:*.zip=01;31:*.7z=01;31:*.rar=01;31:*.z=01;31:*.Z=01;31:\
+*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:\
+*.jpg=00;35:*.jpeg=00;35:*.JPG=00;35:*.png=00;35:*.gif=00;35:*.bmp=00;35:\
+*.ppm=00;35:*.tga=00;35:*.xbm=00;35:*.xpm=00;35:*.tif=00;35:*.png=00;35:\
+*.mpg=01;35:*.avi=01;35:*.fli=01;35:*.vob=01;35:*.mp4=01;35:*.wmv=01;35:\
+*.txt=00;33:*.doc=00;33:*.odt=00;33:*.rtf=00;33:*.pdf=00;33:*.djvu=00;33:\
+*.mp3=01;36:*.wav=01;36:*.ape=01;36:*.ogg=01;36:*.wma=01;36:*.midi=01;36:\
+*.flac=01;36:*.gpt=01;38:*.gp2=01;38:*.gp3=01;38:*.gp4=01;38:\
+*.c=00;04:*.cpp=00;04:*.pas=00;04:*.ui=00;04:*.sh=00;04:*.py=00;04:*.rb=00;04:\
+*.gl=01;35:*.dl=01;35:"
+
+#Настройка подсветки мануалов
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# }}} ##########################################################################
+# {{{				 Настройка путей
+################################################################################
+
+# removes duplicate paths
+# NOTE: symlinks aren't dereferenced (e.g., using `readlink`) as they may
+# exist for compatibility reasons
+#- Удаление директории(й) из PATH
+path-- () {
+	local IFS=':'
+	local newpath
+	local i
+
+	for i in ${!2}; do
+		if [ "$i" != "$1" ]; then
+			newpath=${newpath:+$newpath:}$i
+		fi
+	done
+	export $2="$newpath"
+}
+
+#- Добавление директории(й) в PATH. path++ d:i:r:s PATH [before]
+path++ () {
+	local IFS=':'
+	local oldpath
+	local i
+
+	for i in $1; do
+		if [ -d "$i" ]; then
+			if [ -z "${!2:-}" ]; then
+				export $2=""
+			fi
+			path-- $i $2
+			if [ "${3:-}" = "before" ]; then
+				export $2="$i:${!2:+${!2}}"
+			else
+				export $2="${!2:+${!2}:}$i"
+			fi
+		else
+			echo "$i is not a directory" >&2
+		fi
+	done
+}
+
+INIT_PATH=$PATH
+PATH="."
+
+#- TODO: Slackware
+if [[ $OS != Windows* ]]; then
+	path++ $SHELLRC/etc/shell/cw/def                   PATH
+	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca       PATH
+	path++ /usr/lib/qt/bin                             PATH
+	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV PATH
+	path++ $OOoPath                                    PATH
+fi
+
+path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
+path++ /bin:/usr/bin:/usr/local/bin      PATH
+
+if [ $UID -eq 0 ]; then
+	TMOUT=600
+	PROMPT_COLOR='\033[1;31m'
+	export HOME=/root
+
+	path++ /sbin           PATH
+	path++ /usr/sbin       PATH
+	path++ /usr/local/sbin PATH
+else
+	PROMPT_COLOR='\033[1;32m'
+	export HOME=/home/$(whoami)
+fi
+
+# }}} ##########################################################################
+# {{{				Подключение псевдонимов
+################################################################################
+
+[ -f $BASHRC/aliases ] && ALIASES="$BASHRC/aliases" && . $ALIASES && HELPSRC+=("$ALIASES")
+
+#Раскрывать псевдонимы в скриптах
+shopt -s expand_aliases
+
+# }}} ##########################################################################
+# {{{				Настройка Cygwin
+################################################################################
+
+if [[ `uname -o` == Cygwin  ]]; then
+	path++ $INIT_PATH PATH
+
+	[[ -f $BASHRC/aliases_cygwin ]] && CYGWIN_ALIASES="$BASHRC/aliases_cygwin" \
+					&& . $CYGWIN_ALIASES \
+					&& HELPSRC+=("$CYGWIN_ALIASES")
+	[[ -f $BASHRC/bash_completion_cygwin ]] && . $BASHRC/bash_completion_cygwin
+fi
+
+# }}} ##########################################################################
+
+[[ "$-" != *i* ]] && return
+
+######################## Настройки интерактивного режима #######################
+# {{{		               Настройка приглашения
+################################################################################
+
+[ -n "$SSH_CLIENT" ] && PROMPT_SHH="[${red}ssh${PROMPT_COLOR}]"
+
+PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR└─[$PROMPT_COLOR\t]\$ $rstc"
+PS2="$green-> $rstc"
+PS3="$green+> $rstc"
+PS4="$green++ $rstc"
+
+PROMPT_COMMAND="history -a; history -n;"
+
+export CDPATH=".:~/Programs:~/Programs/Projects:~/Downloads"
+export PROMPT_DIRTRIM=3			#В приглашении показывать 3 директории
+
+# }}} ##########################################################################
+# {{{				Настройка автодополнения
+################################################################################
+
+[ -f $BASHRC/bash_completion ] && . $BASHRC/bash_completion
+[ -f $BASHRC/bash_completion_custom ] && . $BASHRC/bash_completion_custom
+
+# }}} ##########################################################################
+# {{{				Настройка истории команд
+################################################################################
+
+#Раздельная история для рута и пользователя
+export HISTFILE=$SHELLRC/var/shell/bash.history-$(whoami | awk '{print $1}';exit)
+export HISTSIZE=100000				#Размер истории
+export HISTFILESIZE=900000			#Размер файла истории
+export HISTTIMEFORMAT='%d.%m.%Y %H:%M:%S '	#Формат записи истории
+export HISTCONTROL="ignoreboth"			#Игнорировать '^ ' и дубликаты
+export HISTIGNORE="&:[bf]g:c:exit:\:q"		#Не записывать в историю
+
+# }}} ##########################################################################
+# {{{				Прочие настройки
+################################################################################
+
+#Права на созданные файлы
+umask 022
+
+shopt -s progcomp
+shopt -s globstar		#Включение масок ** и **/ (рекурсивный перебор)
+shopt -s autocd			#Интерпретировать команды как параметры cd
+shopt -s checkjobs		#При выходе проверять фоновые задания
+shopt -s histappend		#Не добавлять команды, не переписывая историю
+shopt -s cmdhist		#Сохранение многострочной команды в одной строке
+shopt -s cdable_vars		#Аргументы cd могут быть переменными
+shopt -s cdspell		#Исправление ошибок в именах директорий
+shopt -s dirspell		#Исправление имен директорий при автодополнении
+shopt -s checkhash		#Проверка на существование команд в хеш-таблице
+shopt -s lithist		#Заменять ';' на '\n' в многострочных командах
+shopt -s histreedit		#Повторное редактирование команды
+shopt -s promptvars		#Раскрывать значения переменных в приглашении
+shopt -s hostcomplete		#Дополнение имен хостов (@...)
+shopt -s interactive_comments	#Игнорирование строк, начинающихся на #
+shopt -s dotglob		#Подстановка скрытых файлов
+shopt -s nocaseglob		#Подстановка без учета регистра
+shopt -s checkwinsize		#Проверять размер окна терминала
+shopt -s no_empty_cmd_completion #Не дополнять пустую строку
+shopt -s xpg_echo		#echo -e -E
+shopt -s extglob		#Расширенное сопоставление с образцами
+# ?(шаблон) Количество появлений указанного шаблона, равное нулю или единице
+# *(шаблон) Количество появлений указанного шаблона, равное нулю или больше
+# +(шаблон) Одно или большее количество появлений указанного шаблона
+# @(шаблон) Одно появление указанного шаблона
+# !(шаблон) Всё, кроме одного появления указанного шаблона
+
+[[ (-f $BASHRC/cdargs-bash.sh) && (`uname -o` != Cygwin) ]] && . $BASHRC/cdargs-bash.sh
+
+# }}} ##########################################################################
+

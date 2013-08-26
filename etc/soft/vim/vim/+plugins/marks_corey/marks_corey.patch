@@ -1,0 +1,55 @@
+--- ./asdg	2010-08-27 14:19:02.000000000 +0600
++++ ./marks_corey.vim	2010-10-30 20:06:42.000000000 +0600
+@@ -110,7 +110,7 @@
+   if vIndex > -1
+     call s:Remove_sign(vIndex)
+   else
+-    silent! exe 'sign define CS' . vFlagNum . ' text='. vFlagNum .' texthl=ErrorMsg'
++    silent! exe 'sign define CS' . vFlagNum . ' text='. vFlagNum .' texthl=SignColor linehl=SignColor'
+     silent! exe 'sign place ' . vFlagNum . ' line=' . vLn . ' name=CS'. vFlagNum . ' file=' . vFileName
+ 
+     "let s:Cs_sign_number = s:Cs_sign_number + 1
+@@ -406,26 +406,26 @@
+ 
+ " ---------------------------------------------------------------------
+ if !hasmapto('<Plug>Place_sign')
+-  map <unique> <c-F2> <Plug>Place_sign
++  " map <unique> <c-F2> <Plug>Place_sign
+   map <silent> <unique> mm <Plug>Place_sign
+ endif
+ nnoremap <silent> <script> <Plug>Place_sign :call Place_sign()<cr>
+ 
+ if !hasmapto('<Plug>Goto_next_sign') 
+-  map <unique> <F2> <Plug>Goto_next_sign
++  " map <unique> <F2> <Plug>Goto_next_sign
+   map <silent> <unique> mb <Plug>Goto_next_sign
+ endif
+ nnoremap <silent> <script> <Plug>Goto_next_sign :call Goto_next_sign()<cr>
+ 
+ if !hasmapto('<Plug>Goto_prev_sign') 
+-  map <unique> <s-F2> <Plug>Goto_prev_sign
++  " map <unique> <s-F2> <Plug>Goto_prev_sign
+   map <silent> <unique> mv <Plug>Goto_prev_sign
+ endif
+ nnoremap <silent> <script> <Plug>Goto_prev_sign :call Goto_prev_sign()<cr>
+ 
+-if !hasmapto('<Plug>Remove_all_signs') 
+-  map <unique> <F4> <Plug>Remove_all_signs
+-endif
++" if !hasmapto('<Plug>Remove_all_signs') 
++  " map <unique> <F4> <Plug>Remove_all_signs
++" endif
+ nnoremap <silent> <script> <Plug>Remove_all_signs :call Remove_all_signs()<cr>
+ 
+ if !hasmapto('<Plug>Move_sign') 
+@@ -434,8 +434,8 @@
+ nnoremap <silent> <script> <Plug>Move_sign :call Move_sign()<cr>
+ 
+ 
+-noremap <F6> :call SaveP()<cr>
+-noremap <F5> :call ReloadP()<cr>
++" noremap <F6> :call SaveP()<cr>
++" noremap <F5> :call ReloadP()<cr>
+ 
+ " ---------------------------------------------------------------------
+ 

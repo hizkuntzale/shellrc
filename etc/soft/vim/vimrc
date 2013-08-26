@@ -1,0 +1,866 @@
+" ~/.vimrc
+"
+" Изменён: Вс 25 авг 2013 20:42:37
+"
+"###############################################################################
+" {{{				НАСТРОЙКИ VIM
+"###############################################################################
+
+" {{{-------------------------- Общие настройки --------------------------------
+
+set nocompatible			" Несовместимость настроек с Vi
+set history=500				" Настройка истории
+set t_Co=256				" 256-цветный режим
+set nohidden				" Выгружать буферы при переключении
+set novisualbell			" Отключение визуального оповещения
+set t_vb=				" Отключение визуального оповещения
+set tabpagemax=99			" Предел открытия вкладок
+set winminheight=0			" Минимальная высота окна
+set winminwidth=0			" Минимальная ширина окна
+set winaltkeys=menu			" Включение Win/Alt
+set autochdir				" Переходить в каталог файла
+set viewdir=$HOME/.shellrc/var/vim/view " Директория файлов состояний буферов
+
+" При выходе запоминать состояние файла
+au BufWinLeave * if bufname("") =~ "..*" | mkview | endif
+
+	" Восстановление состояния
+	function RestoreState()
+		if getline(1) != ""
+			if bufname("") =~ "..*"
+				" !empty(expand("<sfile>"))
+				silent loadview
+			endif
+		endif
+	endfunction
+
+au BufWinEnter * call RestoreState()
+au BufWinEnter * set cursorline
+
+" Vimwiki тормозит
+au BufWinEnter *.wiki set nocursorline
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Работа с файловой системой----------------------
+
+set autoread				" Перечитывать файл при изменении
+set browsedir=current			" Открывать в Ex директорию файла
+set wildignore=*.bak,*.~		" Не показывать временные файлы в меню
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Языки и кодировки ------------------------------
+
+set helplang=ru,en			" Языки справки
+set encoding=utf8			" Кодировка
+set termencoding=utf-8			" Кодировка текста по умолчанию
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка мыши и клавиатуры --------------------
+
+"set mouse=a				" Мышь в текстовом режиме
+set ruler				" Всегда показывать положение курсора
+set mousehide				" Скрывать указатель мыши при наборе
+set scrolljump=7			" Вверх в режиме редактирования
+set scrolloff=7				" Вниз в режиме редактирования
+
+" Смена указателя в зависимости от режима
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+if &term =~ "xterm\\|rxvt"
+	let &t_SI = "\033]12;orange\007"
+	let &t_EI = "\033]12;darkgrey\007"
+	autocmd VimLeave * :!echo -ne "\033]12;darkgrey\007"
+endif
+
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Редактирование текста --------------------------
+
+syntax on				" Подсветка синтаксиса
+filetype on				" Определение типа файла
+filetype plugin on			" Определение типа файла
+set nu					" Нумерация строк
+set iminsert=0				" Раскладка по умолчанию - английская
+
+"match ErrorMsg '\%>80v.\+'		" Подсветка выхода за 80-й символ
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка табуляции ----------------------------
+
+set tabstop=8				" Размер табуляции
+set softtabstop=8			" Табуляция
+set shiftwidth=8			" Размер сдвига блоков ( << , >> )
+set listchars=tab:>.,trail:+,extends:#,nbsp:. " Показывать табуляцию и висящие пробелы
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка отступов -----------------------------
+
+set autoindent				" Автоматическая расстановка отступов
+set smartindent				" Умная расстановка отступов
+set cindent				" Умная расстановка отступов
+set cin					" Расстановка отступов в стиле С
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка автодополнения -----------------------
+
+set wildmenu				" Меню при автодополнении команд
+
+set completeopt=menu			" Показывать меню автодополнения
+set undolevels=1000			" Размер истории для отмены
+set wrap				" Включаем перенос строк
+set linebreak				" Перенос строк по словам, а не по буквам
+
+set complete=""				" Автозавершение слов
+set complete+=.				" Из текущего буфера
+set complete+=k				" Из словаря
+set complete+=b				" Из других открытых буферов
+set complete+=t				" Из тегов
+
+" Автодополнение из файла с синтаксисом
+autocmd FileType * exec('set dict+='.$VIMRUNTIME.'/syntax/'.getbufvar("%","current_syntax").'.vim')
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Скрытие блоков кода ----------------------------
+
+set foldcolumn=1			" Видимая колонка фолдинга
+set foldmethod=syntax			" Скрытие блоков текста
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройки поиска -------------------------------
+
+set incsearch				" Поиск по набору текста
+set hlsearch				" Подсветка результатов поиска
+set wrapscan				" Не останавливать поиск при достижении конца файла
+set ignorecase				" Игнорировать регистр букв при поиске
+set smartcase				" Учитывать регистр, если есть заглавные буквы
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка резервного копирования ---------------
+
+set dir^=~/.shellrc/var/vim/swp/	" Директория сохранения swap-файлов
+set backup				" Cоздавать .bak файлы
+set backupdir=~/.shellrc/var/vim/backup " Директория хранения бэкапов
+
+	" Бэкапы в поддиректории
+	function! BackupDir()
+		" Каталог для сохранения резервной копии
+		let l:backupdir=$HOME.'/.shellrc/var/vim/backup/'.
+			\substitute(expand('%:p:h'), '^'.$HOME, '~', '')
+
+		" Каталог не существует, создадим его рекурсивно
+		if !isdirectory(l:backupdir)
+			call mkdir(l:backupdir, 'p', 0700)
+		endif
+
+		" Каталог для резервных копий
+		let &backupdir=l:backupdir
+
+		" Расширение файла резервной копии
+		let &backupext=strftime('.%d-%m-%Y.%T~')
+	endfunction
+
+	autocmd! bufwritepre * call BackupDir()"
+
+" }}}---------------------------------------------------------------------------
+
+" {{{-------------------------- Настройка отмены действий ----------------------
+set undodir=$SHELLRC/var/vim/undo
+set undofile
+set undolevels=1000
+set undoreload=10000"
+" }}}---------------------------------------------------------------------------
+
+" }}}###########################################################################
+" {{{				НАСТРОЙКИ ЦВЕТА
+" ##############################################################################
+
+set background=dark
+colo wombat_converted                                 " Цветовая схема
+
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=160 ctermbg=none
+
+hi Todo		ctermfg=black ctermbg=221        	" Метки TODO
+
+hi MatchParen	ctermfg=47 ctermbg=NONE	        	" Парные скобки
+
+hi Pmenu	ctermfg=black ctermbg=lightgreen	" Дополнение - Фон
+hi PmenuSel	ctermfg=black ctermbg=darkgreen		" Дополнение - Элемент
+
+hi CursorLine    ctermfg=NONE  ctermbg=234  cterm=NONE	" Подсветка строки
+set cursorline
+
+"hi Folded	ctermfg=black ctermbg=gray		" Скрытие блоков
+hi FoldColumn	ctermfg=black ctermbg=black		" Скрытие блоков
+
+hi Error	ctermfg=NONE ctermbg=1			" Ошибки
+hi ErrorMsg	ctermfg=grey ctermbg=red		" Сообщение об ошибке
+
+hi TabLineFill	ctermfg=black ctermbg=black		" Строка вкладок
+hi TabLineSel	ctermfg=lightgreen ctermbg=NONE	        " Текущая вкладка
+hi TabLine	ctermfg=yellow ctermbg=NONE		" Остальные вкладки
+
+hi Comment	ctermfg=darkgray			" Цвет комментариев
+
+hi Search	ctermfg=black ctermbg=209		" Цвет найденного
+
+hi SignColor ctermbg=64 ctermfg=lightyellow guibg=grey guifg=RoyalBlue3
+
+" }}}###########################################################################
+" {{{				СТРОКА СОСТОЯНИЯ
+" ##############################################################################
+
+set showcmd				" Показывать размер выделенной области
+set ch=1				" Количество строк
+set cmdheight=1				" Коммандная строка в одну линию
+set laststatus=2			" Всегда отображать статусную строку
+
+" Функция отображения конструкции языка
+function! SyntaxItem()
+	if synIDattr(synID(line("."),col("."),1),"name") == ""
+		return " --- "
+	else
+		return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+
+set statusline=%#Question#					" Цвет
+set statusline+=%t%m%r%h%w					" Имя файла
+" set statusline+=%{strlen(GitBranch())?'@'.GitBranch().'.git':''} " Ветка Git
+set statusline+=%=						" Выравн. справа
+" set statusline+=%#Function#					" Цвет
+" set statusline+=%{functionator#GetName()}			" Функция
+" set statusline+=%#Question#					" Цвет
+" set statusline+=\ [ЛЕКСЕМА:\ %{SyntaxItem()}]			" Лексема
+" set statusline+=%#WarningMsg#					" Цвет
+set statusline+=%#Function#					" Цвет
+set statusline+=\ [%{strlen(&ft)?&ft:'none'}			" Тип файла
+set statusline+=\/\%{(&fenc==\"\"?&enc:&fenc)}			" Кодировка
+" set statusline+=%#String#					" Цвет
+set statusline+=\|%L:%03l,%03v\ %p%%]			" Строка/столбец
+
+" }}}###########################################################################
+" {{{				ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ
+" ##############################################################################
+
+" Автоматически делать файл исполняемым
+function ModeChange()
+	if getline(1) =~ "^#!/"
+		silent !chmod a+x <afile>
+	endif
+endfunction
+au BufWritePost * call ModeChange()
+
+" Отображение декларации функции
+function GetDeclaration()
+	if strlen(glob("~/.vim/+scripts/declarations/".&ft))
+		echo system("~/.vim/+scripts/declarations/".&ft." '".expand("<cword>")."' ".expand("%"))
+	endif
+
+	" elseif &ft == 'perl'
+		" echo system("echo -n $(perldoc -i -f "
+		" \ .expand("<cword>")
+		" \ . " | head -1 | sed -r 's/^[[:space:]]+//g')")
+	" endif
+endfunction
+
+nmap <silent>fd :call GetDeclaration()<CR>
+
+" }}}###########################################################################
+" {{{				КОМБИНАЦИИ КЛАВИШ
+" ##############################################################################
+
+" , как <leader>
+let mapleader=","
+nmap \ ,
+
+" Открытие/закрытие блоков текста
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Удаление конечных пробелов
+map <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Выделение недавно редактированного текста
+nmap gV `[v`]
+
+" Отключение подсветки найденного
+nmap <silent> ,/ :nohlsearch<CR>
+
+" Перемещение курсора в режиме вставки
+imap <C-h> <left>
+imap <C-j> <down>
+imap <C-k> <up>
+imap <C-l> <right>
+
+" Показ строк, содержащих слово под курсором
+nmap <Leader>g [I:let nr=input("> ")<Bar>exe "normal " . nr . "[\t"<CR>
+
+" История комманд
+cmap <C-P> <Up>
+
+" Omnicompletion
+imap <S-Tab> <C-X><C-O>
+
+" Открытие буфера с ошибками
+map <Leader>co :copen<CR>
+
+" URxvt Home/End
+map! <Esc>[7;7^ <C-Home>
+map <Esc>[7;7^ <C-Home>
+map <Esc>[8;8^ <C-End>
+map! <Esc>[8;8^ <C-End>
+
+" Копирование от курсора до конца строки
+map Y y$
+
+" Открытие руководства
+nmap <F1> <S-K><cr>
+imap <F1> <esc><S-K><cr>
+vmap <F1> <esc><S-K><cr>
+nmap fm <F1>
+
+" Сохранение файла
+nmap <F2> :up<cr><Right>
+vmap <F2> <esc>:up<cr>i<Right>
+imap <F2> <esc>:up<cr>i<Right>
+
+" Открытие/закрытие окна с тэгами
+nmap <F3> :TlistToggle<cr>
+imap <F3> <esc>:TlistToggle<cr>
+vmap <F3> <esc>:TlistToggle<cr>
+
+" Включение режима вклейки
+set pastetoggle=<F6>
+
+"nmap `` <Plug>Goto_next_sign
+
+" Проверка орфографии
+set wcm=<Tab>
+menu Spell.ru		:set spell spelllang=<CR> :set spelllang=ru<CR>
+menu Spell.ru,en	:set spell spelllang=<CR> :set spelllang=ru,en<CR>
+menu Spell.en		:set spell spelllang=<CR> :set spelllang=en<CR>
+menu Spell.off		:set nospell<CR>
+map <F6> :emenu Spell.<TAB>
+
+" Навигация по ошибкам
+"nmap <F8> :cn<cr>zv:cc<cr>
+"vmap <F8> <esc>:cn<cr>zv:cc<cr>
+"imap <F8> <esc>:cn<cr>zv:cc<cr>
+
+"nmap <S-F8> :cp<cr>zv:cc<cr>
+"vmap <S-F8> <esc>:cp<cr>zv:cc<cr>
+"imap <S-F8> <esc>:cp<cr>zv:cc<cr>
+
+" Компиляция/запуск интерпретатора
+nmap <F9> :make<cr>
+vmap <F9> <esc>:make<cr>
+imap <F9> <esc>:make<cr>
+
+nmap <S-F9> :copen<cr>
+imap <S-F9> <esc>:copen<cr>
+imap <S-F9> <esc>:copen<cr>
+
+" Выполнение файла с параметрами
+nmap <F10> :call Run("")<left><left>
+vmap <F10> <esc>:call Run("")<left><left>
+imap <F10> <esc>:call Run("")<left><left>
+
+	function Run(...)
+		if getline(1) =~ "^#!/"
+			execute "!%:p" a:1
+		else
+			execute "!\'".getcwd()."/%<\'" a:1
+		endif
+	endfunction
+
+nmap <F11> :echo system("robodoc &")<CR>:echo "MAKING DOCUMENTATION"<CR>
+imap <F11> :echo system("robodoc &")<CR>:echo "MAKING DOCUMENTATION"<CR>
+vmap <F11> :echo system("robodoc &")<CR>:echo "MAKING DOCUMENTATION"<CR>
+
+" < & > - отступы для блоков текста
+vmap < <gv
+vmap > >gv
+
+" Открытие новой вкладки
+" nmap <C-t> :tabnew<cr>
+" imap <C-t> <ESC>:tabnew<cr>
+" vmap <C-t> <ESC>:tabnew<cr>
+
+iabbrev chg Создан:  TIMESTAMP#Изменён: TIMESTAMP<ESC>F#xi
+
+" Редактирование командной строки как в Emacs
+cnoremap <C-B>      <Left>
+cnoremap <C-E>      <End>
+" cnoremap <C-F>      <Right>
+cnoremap <C-N>      <Down>
+cnoremap <C-P>      <Up>
+cnoremap <ESC>b     <S-Left>
+cnoremap <ESC><C-B> <S-Left>
+cnoremap <ESC>f     <S-Right>
+cnoremap <ESC><C-F> <S-Right>
+cnoremap <ESC><C-H> <C-W>
+
+" Редактирование окружений (cib/dap/...) {{{
+" Редактирование СЛЕДУЮЩЕГО окружения"
+nnoremap cinb f(ci(
+nnoremap canb f(ca(
+nnoremap cinB f{ci{
+nnoremap canB f{ca{
+nnoremap cin( f(ci(
+nnoremap can( f(ca(
+nnoremap cin{ f{ci{
+nnoremap can{ f{ca{
+nnoremap cin) f(ci(
+nnoremap can) f(ca(
+nnoremap cin} f{ci{
+nnoremap can} f{ca{
+nnoremap cin[ f[ci[
+nnoremap can[ f[ca[
+nnoremap cin] f[ci[
+nnoremap can] f[ca[
+nnoremap cin< f<ci<
+nnoremap can< f<ca<
+nnoremap cin> f<ci<
+nnoremap can> f<ca<
+nnoremap cin' f'ci'
+nnoremap can' f'ca'
+nnoremap cin" f"ci"
+nnoremap can" f"ca"
+
+nnoremap dinb f(di(
+nnoremap danb f(da(
+nnoremap dinB f{di{
+nnoremap danB f{da{
+nnoremap din( f(di(
+nnoremap dan( f(da(
+nnoremap din{ f{di{
+nnoremap dan{ f{da{
+nnoremap din) f(di(
+nnoremap dan) f(da(
+nnoremap din} f{di{
+nnoremap dan} f{da{
+nnoremap din[ f[di[
+nnoremap dan[ f[da[
+nnoremap din] f[di[
+nnoremap dan] f[da[
+nnoremap din< f<di<
+nnoremap dan< f<da<
+nnoremap din> f<di<
+nnoremap dan> f<da<
+nnoremap din' f'di'
+nnoremap dan' f'da'
+nnoremap din" f"di"
+nnoremap dan" f"da"
+
+nnoremap yinb f(yi(
+nnoremap yanb f(ya(
+nnoremap yinB f{yi{
+nnoremap yanB f{ya{
+nnoremap yin( f(yi(
+nnoremap yan( f(ya(
+nnoremap yin{ f{yi{
+nnoremap yan{ f{ya{
+nnoremap yin) f(yi(
+nnoremap yan) f(ya(
+nnoremap yin} f{yi{
+nnoremap yan} f{ya{
+nnoremap yin[ f[yi[
+nnoremap yan[ f[ya[
+nnoremap yin] f[yi[
+nnoremap yan] f[ya[
+nnoremap yin< f<yi<
+nnoremap yan< f<ya<
+nnoremap yin> f<yi<
+nnoremap yan> f<ya<
+nnoremap yin' f'yi'
+nnoremap yan' f'ya'
+nnoremap yin" f"yi"
+nnoremap yan" f"ya"
+
+" Редактирование ПРЕДЫДУЩЕГО окружения
+nnoremap ciNb F(ci(
+nnoremap caNb F(ca(
+nnoremap ciNB F{ci{
+nnoremap caNB F{ca{
+nnoremap ciN( F(ci(
+nnoremap caN( F(ca(
+nnoremap ciN{ F{ci{
+nnoremap caN{ F{ca{
+nnoremap ciN) F(ci(
+nnoremap caN) F(ca(
+nnoremap ciN} F{ci{
+nnoremap caN} F{ca{
+nnoremap ciN[ F[ci[
+nnoremap caN[ F[ca[
+nnoremap ciN] F[ci[
+nnoremap caN] F[ca[
+nnoremap ciN< F<ci<
+nnoremap caN< F<ca<
+nnoremap ciN> F<ci<
+nnoremap caN> F<ca<
+nnoremap ciN' F'ci'
+nnoremap caN' F'ca'
+nnoremap ciN" F"ci"
+nnoremap caN" F"ca"
+
+nnoremap diNb F(di(
+nnoremap daNb F(da(
+nnoremap diNB F{di{
+nnoremap daNB F{da{
+nnoremap diN( F(di(
+nnoremap daN( F(da(
+nnoremap diN{ F{di{
+nnoremap daN{ F{da{
+nnoremap diN) F(di(
+nnoremap daN) F(da(
+nnoremap diN} F{di{
+nnoremap daN} F{da{
+nnoremap diN[ F[di[
+nnoremap daN[ F[da[
+nnoremap diN] F[di[
+nnoremap daN] F[da[
+nnoremap diN< F<di<
+nnoremap daN< F<da<
+nnoremap diN> F<di<
+nnoremap daN> F<da<
+nnoremap diN' F'di'
+nnoremap daN' F'da'
+nnoremap diN" F"di"
+nnoremap daN" F"da"
+
+nnoremap yiNb F(yi(
+nnoremap yaNb F(ya(
+nnoremap yiNB F{yi{
+nnoremap yaNB F{ya{
+nnoremap yiN( F(yi(
+nnoremap yaN( F(ya(
+nnoremap yiN{ F{yi{
+nnoremap yaN{ F{ya{
+nnoremap yiN) F(yi(
+nnoremap yaN) F(ya(
+nnoremap yiN} F{yi{
+nnoremap yaN} F{ya{
+nnoremap yiN[ F[yi[
+nnoremap yaN[ F[ya[
+nnoremap yiN] F[yi[
+nnoremap yaN] F[ya[
+nnoremap yiN< F<yi<
+nnoremap yaN< F<ya<
+nnoremap yiN> F<yi<
+nnoremap yaN> F<ya<
+nnoremap yiN' F'yi'
+nnoremap yaN' F'ya'
+nnoremap yiN" F"yi"
+nnoremap yaN" F"ya"
+" }}}
+
+" }}}###########################################################################
+" {{{				АББРЕВИАТУРЫ
+" ##############################################################################
+
+" ROBODOC
+iabbrev rDV  DEFAULT VALUE
+iabbrev rIV  INIT VALUE
+iabbrev rNS  NAMESPACE
+iabbrev rSA  SEE ALSO
+iabbrev rSE  SIDE EFFECTS
+iabbrev rUB  USED BY
+iabbrev rUGV USED GLOBAL VARIABLES
+iabbrev rUH  USER HELP
+iabbrev rUV  USED VARIABLES
+iabbrev rV   VARIABLE
+iabbrev rVS  VARIABLES
+iabbrev rW   WARNING
+
+" }}}###########################################################################
+" {{{			ВВОД КОМАНД В РУССКОЙ РАСКЛАДКЕ
+" ##############################################################################
+
+source $SHELLRC/etc/soft/vim/vim/russian.vim
+
+" }}}###########################################################################
+" {{{			      НАСТРОЙКИ ПЛАГИНОВ
+" ##############################################################################
+
+" Pathogen {{{
+" Отключенные плагины
+let g:pathogen_disabled = ['colorsupport', 'timelog']
+execute pathogen#infect('+plugins/{}')
+" call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+" }}}
+
+" Airline {{{
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '/ '
+let g:airline_branch_prefix = '⇵ '
+let g:airline_paste_symbol = '⬎'
+let g:airline_whitespace_symbol = '∅'
+
+let g:airline_section_c = '%t%m%r%h%w%{VicleStatus()}'
+let g:airline_section_z = '%L:%03l,%03v %p%%'
+
+" enable/disable fugitive/lawrencium integration
+let g:airline_enable_branch=1
+
+" enable/disable syntastic integration
+let g:airline_enable_syntastic=0
+
+" enable/disable tagbar integration
+let g:airline_enable_tagbar=0
+
+" enable modified detection
+let g:airline_detect_modified=1
+
+" enable paste detection
+let g:airline_detect_paste=1
+
+" enable iminsert detection
+let g:airline_detect_iminsert=1
+
+" enable whitespace detection
+let g:airline_detect_whitespace=1 "icon and message (default)
+
+" change the default theme
+let g:airline_theme='wombat'
+
+" enable/disable usage of patched powerline font symbols
+let g:airline_powerline_fonts=0
+
+" define the set of text to display for each mode.
+let g:airline_mode_map = { 'i': '+', 'n': '⚫', 'v': '⋕', 'V': '⇄', '': '⇅', 'R': '✂', 'c': '#', 's': 'SELECT', '^S': 'S-BLOCK', 'S': 'S-LINE' }
+
+" }}}
+
+" Vicle {{{
+function VicleStatus()
+  if exists('t:vicle_screen_sn')
+	  return ' :: ' . t:vicle_screen_sn
+  else
+	  return ''
+  endif
+endfunction
+" }}}
+
+" GIT"{{{
+" Смена ветки Git
+function GetGitBranches()
+	if bufname("") !~ "COMMIT.*"
+		if system("git status 2>/dev/null >/dev/null; echo -n $?") == 0
+			exe system("echo -n  let s:git_branches  = ;git branch | tr '\n*' '  '"
+						\."| sed -r \"s/^\\s+/['/; s/\\s+$/']/; s/\\s+/','/g\"")
+
+			set wcm=<Tab>
+			for branch in s:git_branches
+				exe "menu Git.".branch." :GitCheckout ".branch."<CR>:edit<CR>"
+			endfor
+			map <Leader>gb :emenu Git.<TAB>
+		endif
+	endif
+endfunction
+
+au BufWinEnter * call GetGitBranches()
+au! BufEnter * if bufname("") !~ ".*COMMIT_EDITMSG.*" | lcd %:p:h | endif
+
+"}}}
+
+" {{{ Gitv
+map <Leader>gv :Gitv --all<cr>
+
+let g:Gitv_OpenHorizontal = 1
+" }}}
+
+" TagList"{{{
+let Tlist_WinWidth = 37
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Use_Right_Window = 0
+
+let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
+let tlist_vimwiki_settings = 'wiki;h:Headers;t:Todo'
+let tlist_tex_settings = 'tex;s:section;c:chapter;l:label;r:ref'
+let tlist_rfc_settings = 'rfc;c:content;f:figures;t:tables'
+let tlist_tcl_settings = 'tcl;c:Class;f:Method;m:Method;n:Namespaces;k:Packages;s:Sources;'
+			\ . 'x:Procedures;g:Global variables;a:Arrays;v:Variables;u:Unit tests;i:Aliases'
+let tlist_lisp_settings = 'lisp;f:Functions;v:Varuables;p:Parameters;g:Generics;c:Classes;m:Methods;x:Macros'
+"}}}
+
+" NERDTree"{{{
+let g:NERDTreeWinPos = "right"
+"}}}
+
+" VimWiki"{{{
+let wiki                  = {}
+let wiki.path             = '~/.shellrc/vimwiki/wiki/'
+let wiki.path_html        = '~/.shellrc/vimwiki/html/'
+let wiki.template_path    = '~/.shellrc/vimwiki/style/'
+let wiki.template_default = 'template'
+let wiki.template_ext     = '.html'
+let wiki.css_name         = 'css/vimwiki.css'
+let wiki.auto_export      = 1
+let wiki.nested_syntaxes  = {
+			\'prolog': 'prolog'
+			\, 'bash': 'sh'
+			\, 'tcl': 'tcl'
+			\, 'scheme': 'scheme'
+			\, 'haskell': 'haskell'
+			\, 'erlang': 'erlang'
+			\, 'bnf': 'abnf'
+			\, 'plain': 'txt'
+			\, 'diff': 'diff'
+			\, 'javascript': 'javascript'
+			\, 'vim': 'vim'
+			\, 'latex': 'tex'}
+
+let wiki.diary_rel_path   = 'ЖЖ/Календарь/'
+let wiki.diary_index      = 'Календарь'
+let wiki.diary_header     = 'Календарь'
+let wiki.diary_link_count = 4
+let wiki.maxhi            = 0 " Не проверять ссылки (на больших файлах вики тормозит)
+
+let g:vimwiki_list = [wiki]
+
+let g:vimwiki_hl_headers  = 1
+let g:vimwiki_folding     = 1
+let g:vimwiki_fold_lists  = 1 " Скрытие блоков
+let g:vimwiki_camel_case  = 0 " Не использовать ВикиСлова
+let g:vimwiki_list_ignore_newline = 0 " Преобразовывать переводы строк в </ br>
+
+let g:vimwiki_html_header_numbering     = 2 " Нумерация заголовков HTML со второго уровня
+let g:vimwiki_html_header_numbering_sym = '.' " Нумерация оканчивается точкой
+
+let g:vimwiki_user_htmls = 'ЖЖ/Календарь/today.html,ЖЖ/Календарь/timeline.html,ЖЖ/Календарь/statistic_words.html,ЖЖ/Календарь/statistic_tags.html'
+
+let g:vimwiki_hl_cb_checked = 1 " Подсвечивать выполненные задания как комментарии
+
+let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr,embed,type,src,width,height,quality,object,param,p,cite'
+let g:vimwiki_file_exts       = 'pdf,txt,doc,rtf,xls,php,zip,rar,7z,html,gz,mp3,ogg'
+
+"}}}
+
+" MRU"{{{
+nmap <Leader>m :MRU<cr>
+
+let MRU_File = $HOME . '/.shellrc/var/vim/mru/vim_mru_files'
+let MRU_Max_Entries = 100
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|.*COMMIT_EDITMSG.*'
+"}}}
+
+" Quickhl {{{
+nmap <Leader>qq <Plug>(quickhl-toggle)
+vmap <Leader>qq <Plug>(quickhl-toggle)
+nmap <Leader>qr <Plug>(quickhl-reset)
+vmap <Leader>qr <Plug>(quickhl-reset)
+"}}}
+
+" Textmanip {{{
+nmap <Leader>pP <Plug>(textmanip-duplicate-up)
+vmap <Leader>pP <Plug>(textmanip-duplicate-up)
+
+nmap <Leader>pp <Plug>(textmanip-duplicate-down)
+vmap <Leader>pp <Plug>(textmanip-duplicate-down)
+
+vmap <Leader>k <Plug>(textmanip-move-up)
+vmap <Leader>j <Plug>(textmanip-move-down)
+vmap <Leader>l <Plug>(textmanip-move-right)
+vmap <Leader>h <Plug>(textmanip-move-left)
+"}}}
+
+" CommentToggle"{{{
+nmap <C-C> <Plug>CommentToggle
+imap <C-C> <ESC><Plug>CommentToggle
+vmap <C-C> <Plug>CommentToggle
+"}}}
+
+" Calendar"{{{
+let g:calendar_navi_label = 'Пред,Тек,След'
+let g:calendar_mruler = 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь'
+			\.',Октябрь,Ноябрь,Декабрь'
+let g:calendar_wruler = 'Вс Пн Вт Ср Чт Пт Сб'
+let g:calendar_monday = 1
+"}}}
+
+" Tasklist"{{{
+let g:tlWindowPosition = 1 " Открывать окно снизу экрана
+let g:tlTokenList = ['TODO','FIXME','DONE','INPROGRESS','XXX','DEBUG','TMP','BUGS', 'knownBug']
+"}}}
+
+" Neocomplcache {{{
+let g:neocomplcache_enable_at_startup = 1 "Автоматически загружать плагин
+let g:neocomplcache_auto_completion_start_length = 3
+let g:neocomplcache_disable_auto_complete = 1 "Дополнение возможно по <C-x><C-u>
+let g:neocomplcache_temporary_dir = $HOME . '/.shellrc/var/vim/neocon'
+"}}}
+
+" Neosnippet {{{
+let g:neosnippet#snippets_directory = $HOME . '/.vim/+snippets/'
+
+imap <C-o>     <Plug>(neosnippet_expand_or_jump)
+smap <C-o>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-o>     <Plug>(neosnippet_expand_target)
+
+if has('conceal')
+	set conceallevel=2 concealcursor=i
+endif
+"}}}
+
+"Scratch {{{
+nmap <Leader><Space> :Sscratch<CR>
+"}}}
+
+" Timestamp {{{
+let g:timestamp_regexp = '\v\C%(<%(Last %([cC]hanged?|modified)|Modified|Измен(е|ё)н)\s*:\s+)@<=.{2,3} \d{2} .{3} \d{4} \d{2}:\d{2}:\d{2}.*$|TIMESTAMP'
+
+" %c seems to be different on different systems. Use a full form instead.
+let g:timestamp_rep = '%a %d %b %Y %H:%M:%S'
+
+"}}}
+
+"Pummode"{{{
+" Выбор вариантов дополнения курсорными клавишами
+call pummode#map('i', '', 0, 'j', '<C-n>')
+call pummode#map('i', '', 0, 'k', '<C-p>')
+call pummode#map('i', '', 0, '<CR>', '<C-y>')
+"}}}
+
+"Yankring {{{
+let g:yankring_history_file=".shellrc/var/vim/yankring/history"
+let g:yankring_min_element_length = 5
+let g:yankring_map_dot = 0
+let g:yankring_ignore_operator = 'g~ gu gU ! = gq g? > < zf g@ @:'
+
+map <leader>y :YRShow<cr>
+"}}}
+
+"Errormarker {{{
+let g:errormarker_errorgroup = "Error"
+let g:errormarker_warninggroup = "Todo"
+let g:errormarker_errortext = "⚫"
+let g:errormarker_warningtext = "⚑"
+"}}}
+
+" Figlet {{{
+let g:figletFontDir = $HOME . '/.shellrc/etc/soft/figlet/fonts/'
+let g:figletFont = 'slant'
+" }}}
+
+" Vim-Easy-Align {{{
+vnoremap <silent> <Enter> :EasyAlign<cr>
+" }}}
+
+" }}}###########################################################################
+

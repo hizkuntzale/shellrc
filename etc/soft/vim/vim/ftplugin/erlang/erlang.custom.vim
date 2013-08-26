@@ -1,0 +1,1 @@
+../../+ftplugin/erlang.vim

@@ -1,0 +1,305 @@
+--- ./nag	2010-10-24 00:33:30.000000000 +0600
++++ ./nagelfar.tcl	2010-10-24 00:43:01.000000000 +0600
+@@ -317,7 +317,7 @@
+     if {[string match "##nagelfar *" $str]} {
+         set rest [string range $str 11 end]
+         if {[catch {llength $rest}]} {
+-            errorMsg N "Bad list in ##nagelfar comment" $index
++            errorMsg W "Bad list in ##nagelfar comment" $index
+             return
+         }
+         if {[llength $rest] == 0} return
+@@ -380,7 +380,7 @@
+                 }
+             }
+             default {
+-                errorMsg N "Bad type in ##nagelfar comment" $index
++                errorMsg W "Bad type in ##nagelfar comment" $index
+                 return
+             }
+         }
+@@ -455,7 +455,7 @@
+                 set i $ni
+                 set si2 $i
+             } else {
+-                errorMsg N "Standalone {*} can be confusing. I recommend \"*\"." $i
++                errorMsg W "Standalone {*} can be confusing. I recommend \"*\"." $i
+             }
+         }
+     }
+@@ -605,7 +605,7 @@
+     }
+     set check [info exists option($cmd)]
+     if {!$check && $::Nagelfar(dbpicky)} {
+-        errorMsg N "DB: Missing options for command \"$cmd\"" 0
++        errorMsg W "DB: Missing options for command \"$cmd\"" 0
+     }
+     set i 0
+     set used 0
+@@ -893,7 +893,7 @@
+ 	return ""
+     }
+     # FIXA: Use markVariable
+-    if {![info exists knownVars(known,$var)] && !$::Prefs(noVar)} {
++    if {![info exists knownVars(known,$var)] && !$::Prefs(noVar) && ![regexp {[\w]*::[\w]+} $var]} {
+         if {[string match "*::*" $var]} {
+             set tail [namespace tail $var]
+             set ns [namespace qualifiers $var]
+@@ -983,11 +983,11 @@
+                 if {[string equal $c "\]"] && $i == ($len - 1)} {
+                     # Note unescaped bracket at end of word since it's
+                     # likely to mean it should not be there.
+-                    errorMsg N "Unescaped end bracket" [expr {$index + $i}]
++                    errorMsg W "Unescaped end bracket" [expr {$index + $i}]
+                 } elseif {[string equal $c "\""] && $i == ($len - 1)} {
+                     # Note unescaped quote at end of word since it's
+                     # likely to mean it should not be there.
+-                    errorMsg N "Unescaped quote" [expr {$index + $i}]
++                    errorMsg W "Unescaped quote" [expr {$index + $i}]
+                 }
+             }
+         } else {
+@@ -1047,7 +1047,7 @@
+                         # Warn if the called command is expr
+                         set body [string range $str $si $i]
+                         if {[string match "expr*" $body]} {
+-                            errorMsg N "Expr called in expression" \
++                            errorMsg W "Expr called in expression" \
+                                     [expr {$index + $si}]
+                         }
+                         parseBody $body [expr {$index + $si}] knownVars 1
+@@ -1089,7 +1089,7 @@
+     while {[set si [string first \# $word $si]] >= 0} {
+         # Is it first in a line?
+         if {[string index $word [expr {$si - 1}]] eq "\n"} {
+-            errorMsg N "Suspicious \# char. Possibly a bad comment." \
++            errorMsg W "Suspicious \# char. Possibly a bad comment." \
+                     [expr {$index + $si}]
+             break
+         }
+@@ -1286,7 +1286,7 @@
+                 # corresponding object command
+                 #decho "$tok $tokCount $mod"
+ 		if {([lindex $wordstatus $i] & 1) == 0} { # Non constant
+-                    errorMsg N "Non constant definition \"[lindex $argv $i]\".\
++                    errorMsg W "Non constant definition \"[lindex $argv $i]\".\
+                             Skipping." [lindex $indices $i]
+                 } else {
+                     set copyFrom [string range $mod 1 end]
+@@ -1356,7 +1356,7 @@
+                 # FIXA: Maybe accept substitutions as part of namespace?
+                 foreach ws [lrange $wordstatus $i $iplus2] {
+                     if {($ws & 1) == 0} {
+-                        errorMsg N "Non constant argument to proc \"[lindex $argv $i]\".\
++                        errorMsg W "Non constant argument to proc \"[lindex $argv $i]\".\
+                                 Skipping." $index
+                         return
+                     }
+@@ -1534,7 +1534,7 @@
+ 		}
+ 		lappend constantsDontCheck $i
+ 		if {([lindex $wordstatus $i] & 1) == 0} { # Non constant
+-		    errorMsg N "Non static subcommand to \"$cmd\"" \
++		    errorMsg W "Non static subcommand to \"$cmd\"" \
+                             [lindex $indices $i]
+ 		} else {
+ 		    set arg [lindex $argv $i]
+@@ -1564,7 +1564,7 @@
+                             }
+ 			}
+ 		    } elseif {$::Nagelfar(dbpicky)} {
+-                        errorMsg N "DB: Missing subcommands for \"$cmd\"" 0
++                        errorMsg W "DB: Missing subcommands for \"$cmd\"" 0
+                     }
+ 		    # Are there any syntax definition for this subcommand?
+ 		    set sub "$cmd $arg"
+@@ -1578,7 +1578,7 @@
+ 			set i $argc
+ 			break
+ 		    } elseif {$::Nagelfar(dbpicky)} {
+-                        errorMsg N "DB: Missing syntax for subcommand $sub" 0
++                        errorMsg W "DB: Missing syntax for subcommand $sub" 0
+                     }
+ 		}
+ 		incr i
+@@ -1723,7 +1723,7 @@
+             }
+         }
+         if {$wordtype ne "varName"} {
+-            errorMsg N "Suspicious variable name \"$var\"" $index
++            errorMsg W "Suspicious variable name \"$var\"" $index
+         }
+ 	return 0
+     }
+@@ -1942,7 +1942,7 @@
+             }
+             # Detect bracketed command
+             if {[llength $words2] == 1 && [string index $cmd 0] eq "\["} {
+-                errorMsg N "Suspicious brackets around command" $index
++                errorMsg W "Suspicious brackets around command" $index
+             }
+             return
+         }
+@@ -1987,7 +1987,7 @@
+                     set knownVars(namespace,$var) ""
+                     set knownVars(type,$var)      ""
+ 		} else {
+-		    errorMsg N "Non constant argument to $cmd: $var" $index
++		    errorMsg W "Non constant argument to $cmd: $var" $index
+ 		}
+ 	    }
+             set noConstantCheck 1
+@@ -2022,7 +2022,7 @@
+                             }
+                             lappend constantsDontCheck $i
+                         } else {
+-                            errorMsg N "Non constant argument to $cmd: $var" \
++                            errorMsg W "Non constant argument to $cmd: $var" \
+                                     $index
+                         }
+                     }
+@@ -2057,7 +2057,7 @@
+                 # Assume it is not a level unless odd number of args.
+                 if {$oddA} {
+                     # Warn here? FIXA
+-                    errorMsg N "Non constant level to $cmd: \"$level\"" $index
++                    errorMsg W "Non constant level to $cmd: \"$level\"" $index
+                     set hasLevel 1
+                     set level ""
+                 } else {
+@@ -2077,7 +2077,7 @@
+ 	    foreach {other var} $tmp {wsO wsV} $tmpWS {
+                 if {($wsV & 1) == 0} {
+                     # The variable name contains substitutions
+-                    errorMsg N "Suspicious upvar variable \"$var\"" $index
++                    errorMsg W "Suspicious upvar variable \"$var\"" $index
+                 } else {
+                     set knownVars(known,$var) 1
+                     set knownVars(type,$var)  ""
+@@ -2282,7 +2282,7 @@
+             }
+             if {[lindex $wordstatus $i] & 1 == 1} {
+                 # First argument to switch is constant, suspiscious
+-                errorMsg N "String argument to switch is constant" \
++                errorMsg W "String argument to switch is constant" \
+                         [lindex $indices $i]
+             }
+             incr i
+@@ -2428,7 +2428,7 @@
+                     popNamespace
+                 } else {
+                     if {!$::Nagelfar(firstpass)} { # Messages in second pass
+-                        errorMsg N "Only braced namespace evals are checked." \
++                        errorMsg W "Only braced namespace evals are checked." \
+                                 [lindex $indices 0]
+                     }
+                 }
+@@ -2496,7 +2496,7 @@
+                             $wordtype $indices]
+                 }
+             } else {
+-                errorMsg N "No superclass found for 'next'" $index
++                errorMsg W "No superclass found for 'next'" $index
+             }
+         }
+ 	tailcall {
+@@ -2554,7 +2554,7 @@
+                 set type [checkCommand $cmd $index $argv $wordstatus \
+                         $wordtype $indices]
+             } elseif {$::Nagelfar(dbpicky)} {
+-                errorMsg N "DB: Missing syntax for command \"$cmd\"" 0
++                errorMsg W "DB: Missing syntax for command \"$cmd\"" 0
+             }
+         }
+     }
+@@ -2725,7 +2725,7 @@
+                     if {$tmp != $closeBrace} {
+                         # Only do this if there is a free open brace
+                         if {[regexp "\{\n" $tryline]} {
+-                            errorMsg N "Close brace not aligned with line\
++                            errorMsg W "Close brace not aligned with line\
+                                     [calcLineNo $index] ($tmp $closeBrace)" \
+                                     $closeBraceIx
+                         }
+@@ -2743,7 +2743,7 @@
+                 # If it does not end the statement, there is probably a
+                 # brace mismatch.
+                 # When inside a namespace eval block, this is probably ok.
+-                errorMsg N "Found non indented close brace that did not end\
++                errorMsg W "Found non indented close brace that did not end\
+                         statement." $closeBraceIx
+                 contMsg "This may indicate a brace mismatch."
+             }
+@@ -2820,7 +2820,7 @@
+         foreach statement [lrange $statements 0 end-1] \
+                 stmtIndex [lrange $indices 0 end-1] {
+             if {[string index $statement end] eq "\n"} {
+-                errorMsg N "Newline in command substitution" $stmtIndex
++                errorMsg W "Newline in command substitution" $stmtIndex
+                 break
+             }
+         }
+@@ -2863,7 +2863,7 @@
+         if {[llength $a] > 1} {
+             set seenDefault 1
+         } elseif {$seenDefault && !$::Nagelfar(firstpass) && $var ne "args"} {
+-            errorMsg N "Non-default arg after default arg" $indexArgs
++            errorMsg W "Non-default arg after default arg" $indexArgs
+             # Reset to avoid further messages
+             set seenDefault 0
+         }
+@@ -2882,14 +2882,14 @@
+         # Check for non-last "args"
+         set i [lsearch $procArgs "args"]
+         if {$i >= 0 && $i != [llength $procArgs] - 1} {
+-            errorMsg N "Argument 'args' used before last, which can be confusing" \
++            errorMsg W "Argument 'args' used before last, which can be confusing" \
+                     $indexArgs
+         }
+         # Check for duplicates
+         set l1 [lsort $procArgs]
+         set l2 [lsort -unique $procArgs]
+         if {$l1 ne $l2} {
+-            errorMsg N "Duplicate proc arguments" $indexArgs
++            errorMsg W "Duplicate proc arguments" $indexArgs
+         }
+     }
+ }
+@@ -3040,7 +3040,7 @@
+     if {$isMethod} {
+         set currentObj [currentObject]
+         if {$currentObj eq ""} {
+-            errorMsg N "Method definition without a current object" \
++            errorMsg W "Method definition without a current object" \
+                     [lindex $indices 0]
+             set isMethod 0
+         } else {
+@@ -3317,7 +3317,7 @@
+         }
+         if {!$found} {
+ 	    # Close brace is reported elsewhere
+-            if {$cmd ne "\}"} {
++            if {$cmd ne "\}" && ![regexp {::} $cmd]} {
+ 		# Different messages depending on name
+ 		if {[regexp {^(?:(?:[\w',:.]+)|(?:%W))$} $cmd]} {
+ 		    errorMsg W "Unknown command \"$cmd\"" $index
+@@ -3363,7 +3363,7 @@
+     parseScript $script
+     if {$i >= 0} {
+         # Add a note about the Ctrl-Z
+-        errorMsg N "Aborted script due to end-of-file marker" \
++        errorMsg W "Aborted script due to end-of-file marker" \
+                 [expr {[string length $::instrumenting(script)] - 1}]
+     }
+     flushMsg
+@@ -3876,9 +3876,7 @@
+     } else {
+         foreach f $::Nagelfar(files) {
+             if {$::Nagelfar(stop)} break
+-            if {$::Nagelfar(gui) || [llength $::Nagelfar(files)] > 1} {
+-                set ::currentFile $f
+-            }
++	    set ::currentFile $f
+             set syntaxfile [file rootname $f].syntax
+             if {[file exists $syntaxfile]} {
+                 if {!$::Nagelfar(quiet)} {

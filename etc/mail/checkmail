@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Изменён: Пн 26 авг 2013 18:53:37
+#
+
+#Проверка почты с помощью fetchmail
+#Количество непрочитанных сообщений записывается в mail/new
+
+/usr/bin/awk -v LOG=~/.shellrc/var/mail/new '
+	/^[0-9]+/ {
+		total += $1
+	}
+	
+	END {
+		print total > LOG
+	}' <(/usr/bin/fetchmail -a -f ~/.shellrc/etc/mail/fetchmail/fetchmailrc) ~/.shellrc/var/mail/new
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#Создан:  Чтв 08 Июл 2010 17:45:51  YEKST
+#Изменён: Срд 21 Июл 2010 00:22:50  YEKST
+
+desc=$(
+	echo "(help $1)" \
+	| guile 2>/dev/null \
+	| grep -o 'Scheme Procedure: .*' \
+	| sed -r 's/\"|Scheme Procedure: //g'
+)
+
+[ "$desc" == "" ] && desc=$(
+	grep "\(define \(?${1}" $2 \
+	| cut -d '(' -f 3 | sed 's/)//g'
+)
+
+echo -n "$desc" | tr '\n' ';'
+

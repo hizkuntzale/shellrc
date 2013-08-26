@@ -1,0 +1,92 @@
+# xbindkeysrc.GehuineIntel
+#
+# Изменён: Вс 25 авг 2013 01:57:58
+#
+
+#Запуск программ#{{{
+
+"xkill"
+	m:0xc + c:9
+	Control+Alt + Escape
+
+"serial"
+	m:0x40 + c:33
+	Mod4 + p
+
+#}}}
+
+#HP ProBook{{{
+"amixer set PCM 2dB-"
+	m:0x0 + c:122
+	XF86AudioLowerVolume
+
+"amixer set PCM 2dB+"
+	m:0x0 + c:123
+	XF86AudioRaiseVolum
+
+"amixer set PCM toggle"
+	m:0x0 + c:121
+	XF86AudioMute
+
+"xbacklight -dec 10"
+	m:0x0 + c:232
+	XF86MonBrightnessDown
+
+"xbacklight -inc 10"
+	m:0x0 + c:233
+	XF86MonBrightnessUp
+
+#}}}
+
+#Управление плеером#{{{
+
+"musca -c 'use music' && { mpd $SHELLRC/etc/media/mpd/mpd.conf; urxvtc -e ncmpcpp; }"
+	m:0x0 + c:237
+	XF86AudioMedia
+
+"mpc next"
+	m:0x0 + c:153
+	XF86AudioNext
+
+"mpc prev"
+	m:0x0 + c:144
+	XF86AudioPrev
+
+"mpc toggle"
+	m:0x0 + c:162
+	XF86AudioPlay
+
+"mpc stop"
+	m:0x0 + c:164
+	XF86AudioStop
+
+#}}}
+
+#Сохранение оценки песни в тегах#{{{
+
+"musca -c 'use music' && eval $(echo setrating 1 | dmenu -i)"
+	m:0x4 + c:10
+	Control + 1
+
+"musca -c 'use music' && eval $(echo setrating 2 | dmenu -i)"
+	m:0x4 + c:11
+	Control + 2
+
+"musca -c 'use music' && eval $(echo setrating 3 | dmenu -i)"
+	m:0x4 + c:12
+	Control + 3
+
+"musca -c 'use music' && eval $(echo setrating 4 | dmenu -i)"
+	m:0x4 + c:13
+	Control + 5
+
+"musca -c 'use music' && eval $(echo setrating 5 | dmenu -i)"
+	m:0x4 + c:14
+	Control + 5
+
+"musca -c 'use music' && eval $(echo setrating 5+ | dmenu -i)"
+	m:0x4 + c:15
+	Control + 6
+
+#}}}
+

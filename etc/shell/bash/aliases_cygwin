@@ -1,0 +1,150 @@
+#!/bin/bash ####################################################################
+#
+# Создан:  Ср 14 авг 2013 12:07:22
+# Изменён: Сб 24 авг 2013 12:09:04
+#
+################################################################################
+#{{{ \033[00m\n\b------<Cygwin>\n
+################################################################################
+
+#- Добавление пути поиска исполнимых файлов Windows
+path++ $INIT_PATH PATH
+
+#- Выполнение команды с помощью cmd.exe
+alias winshell="nh cmd.exe /c"
+
+#- Преобразование пути UNIX->Windows
+path2win() { #noindex
+	echo "$@" | sed 's/^\/cygdrive\/\([a-z]\)\//\1:\\/; s/\//\\/g'
+}
+
+#- Преобразование пути Windows->UNIX
+path2nix() { #noindex
+	echo "$1" | sed 's/^\(\w\):/\/cygdrive\/\1/; s/\\/\//g'
+}
+
+#- Смена рабочей директории
+cd_drive() { #noindex
+	if [[ "$(pwd)" == //cb* ]]; then
+		cd ./${1/:}\$
+	else
+		cd $1
+	fi
+}
+
+#- Подключение к ПК с помощью VNC
+vnc() {
+	if [[ "$1" == [0-9][0-9].[0-9][0-9] ]]; then
+		host="192.168.$1"
+	else
+		host="$1"
+	fi
+	winshell "C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe" $host 2>&1 > /dev/null &
+}
+
+#- Подключение по RDP (cb/ts/ms/etc)
+rdp() {
+	case "$1" in
+		cb) host="it-srv-rdp.tkpt.ru";;
+		ts) host="srv1.ts.tkpt.ru";;
+		ms) host="srv1.ms.tkpt.ru";;
+		* ) host="$1";;
+	esac
+	nh mstsc.exe /v:$host &
+}
+
+#- Вызов оснастки Windows
+msc() {
+	winshell "$1.msc" &
+}
+
+#- Вызов компонента Панели управления Windows
+cpl() {
+	winshell "$1.cpl" &
+}
+
+#- Проводник Windows
+ex() {
+	explorer.exe $(cygpath -w ${1:-.})
+}
+
+#- ПО
+alias iexplore="/cygdrive/c/Program\ Files/Internet\ Explorer/iexplore.exe" #noindex
+alias firefox="/cygdrive/c/Program\ Files/Mozilla\ Firefox/firefox.exe" #noindex
+alias 1c8="/cygdrive/c/Program\ Files/1cv82/common/1cestart.exe" #noindex
+alias far='cmd /c start /max "" "%SYSTEMDRIVE%\Program Files\Far Manager\Far.exe"' #noindex
+alias mc=far #noindex
+
+#- Открытие страницы vimwiki в браузере
+wiki() {
+	firefox "Z:\\wiki\\${1:-index}.html" &
+}
+
+#- Windows: административные утилиты
+alias win_all="winshell control admintools &"
+#- Windows: просмотр событий
+alias win_log="msc eventvwr"
+#- Windows: общие ресурсы
+alias win_shr="msc fsmgmt"
+#- Windows: свойства системы
+alias win_sys="cpl sysdm"
+#- Windows: установка и удаление программ
+alias win_pkg="cpl appwiz"
+#- Windows: сетевые подключения
+alias win_net="cpl ncpa"
+#- Windows: диспетчер устройств
+alias win_dev="msc devmgmt"
+#- Windows: свойства папки
+alias win_dir="control folders"
+
+#- Windows: запуск службы
+alias sc_start="sc start"
+#- Windows: остановка службы
+alias sc_stop="sc stop"
+#- Windows: приостановление выполнения службы
+alias sc_pause="sc pause"
+#- Windows: возобновление выполнения службы
+alias sc_continue="sc continue"
+
+#- Журнал обновлений Windows
+alias wl_update="nl $(cygpath $SYSTEMROOT/WindowsUpdate.log)"
+
+#- Список выполняемых задач
+alias ps="tasklist.exe" #noindex
+
+#- Завершение задачи
+alias kill=tskill #noindex
+
+# Смена логического раздела
+for drive in $(\df | grep '^[A-Z]:' -o | /usr/bin/sort -u); {
+	alias $drive="cd_drive $drive"
+	alias $(echo $drive | tr A-Z a-z)="cd_drive $drive"
+}
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<TKPT>\n
+################################################################################
+
+#- Переход к компьютеру пользователя cb-??-??
+cb() {
+	cd "//cb-$1/"
+}
+
+#- Основные сетевые директории tkpt
+alias @install="cd //file-srv/install$/"   #noindex
+alias @gpo="cd //file-srv/install$/GPO/"   #noindex
+alias @it="cd //file-srv/install$//it/"    #noindex
+alias @programs="cd //file-srv/programs$/" #noindex
+alias @docs="cd //file-srv/docs$/"         #noindex
+
+#- Быстрый доступ к ресурсам
+alias beeline="iexplore https://uslugi.beeline.ru &"     #noindex
+alias elastix="firefox  https://sip.tkpt.ru/index.php &" #noindex
+
+#- Установленные пакеты
+alias pkgs="cygcheck -c -d | tail -n +3 | nl" #noindex
+
+#}}} ###########################################################################
+
+cd ~
+

@@ -1,0 +1,29 @@
+#Изменён: Сб 24 авг 2013 20:10:04
+
+#Цветовая гамма
+color hdrdefault red           default
+color quoted     brightblue    default
+color signature  red           default
+color indicator  blue          green
+color error      brightred     default
+color status     yellow        blue
+color tree       magenta       default
+color tilde      magenta       default
+color message    brightcyan    default
+color markers    brightcyan    default
+color attachment brightmagenta default
+color search     default       green
+
+#Подсветка ключевых слов
+color header     brightred     default ^(From|To|Cc|Reply-To|Subject):
+color body       blue       default "(ftp|https?)://[^ ]+"
+color body       magenta       default [-a-z_0-9.+]+@[-a-z_0-9.]+
+color underline  brightgreen   default
+
+#Выделение отмеченных сообщений
+color index black white   "~N !~T !~F !~p !~P"
+color index black cyan    "~T !~F !~p !~P"
+color index red   default "~F !~p !~P"
+
+#emails
+color body brightmagenta default "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
