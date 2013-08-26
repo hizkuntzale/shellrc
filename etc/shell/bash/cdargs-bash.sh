@@ -27,8 +27,8 @@ CDARGS_NODUPS=1 # set to 1 if you want mark to delete dups
 # @return 0 on success, >0 on failure           #
 # --------------------------------------------- #
 
-CDARGSPATH="$SHELLRC/etc/soft/cdargs/cdargs"
-CDARGSRESULT="$SHELLRC/etc/soft/cdargs/cdargsresult"
+CDARGSPATH="$SHELLRC/var/cdargs/cdargs"
+CDARGSRESULT="$SHELLRC/var/cdargs/cdargsresult"
 
 function _cdargs_get_dir ()
 {
