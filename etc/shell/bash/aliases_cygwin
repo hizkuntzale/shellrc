@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Сб 24 авг 2013 12:09:04
+# Изменён: Вт 27 авг 2013 12:29:18
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
@@ -13,23 +13,20 @@ path++ $INIT_PATH PATH
 #- Выполнение команды с помощью cmd.exe
 alias winshell="nh cmd.exe /c"
 
-#- Преобразование пути UNIX->Windows
-path2win() { #noindex
-	echo "$@" | sed 's/^\/cygdrive\/\([a-z]\)\//\1:\\/; s/\//\\/g'
-}
-
-#- Преобразование пути Windows->UNIX
-path2nix() { #noindex
-	echo "$1" | sed 's/^\(\w\):/\/cygdrive\/\1/; s/\\/\//g'
-}
-
-#- Смена рабочей директории
+#- Смена логического диска
 cd_drive() { #noindex
+	# Для пользовательских компьютеров в сети
 	if [[ "$(pwd)" == //cb* ]]; then
 		cd ./${1/:}\$
 	else
 		cd $1
 	fi
+}
+
+# Смена логического диска
+for drive in $(\df | grep '^[A-Z]:' -o | /usr/bin/sort -u); {
+	alias $drive="cd_drive $drive"
+	alias $(echo $drive | tr A-Z a-z)="cd_drive $drive"
 }
 
 #- Подключение к ПК с помощью VNC
@@ -69,16 +66,11 @@ ex() {
 }
 
 #- ПО
-alias iexplore="/cygdrive/c/Program\ Files/Internet\ Explorer/iexplore.exe" #noindex
-alias firefox="/cygdrive/c/Program\ Files/Mozilla\ Firefox/firefox.exe" #noindex
-alias 1c8="/cygdrive/c/Program\ Files/1cv82/common/1cestart.exe" #noindex
+alias iexplore="$(cygpath $SYSTEMDRIVE)/Program\ Files/Internet\ Explorer/iexplore.exe" #noindex
+alias firefox="$(cygpath $SYSTEMDRIVE)/Program\ Files/Mozilla\ Firefox/firefox.exe" #noindex
+alias 1c8="$(cygpath $SYSTEMDRIVE)/Program\ Files/1cv82/common/1cestart.exe" #noindex
 alias far='cmd /c start /max "" "%SYSTEMDRIVE%\Program Files\Far Manager\Far.exe"' #noindex
 alias mc=far #noindex
-
-#- Открытие страницы vimwiki в браузере
-wiki() {
-	firefox "Z:\\wiki\\${1:-index}.html" &
-}
 
 #- Windows: административные утилиты
 alias win_all="winshell control admintools &"
@@ -96,6 +88,8 @@ alias win_net="cpl ncpa"
 alias win_dev="msc devmgmt"
 #- Windows: свойства папки
 alias win_dir="control folders"
+
+# Псевдонимы sc_.* нужны для работы дополнения bash
 
 #- Windows: запуск службы
 alias sc_start="sc start"
@@ -115,11 +109,8 @@ alias ps="tasklist.exe" #noindex
 #- Завершение задачи
 alias kill=tskill #noindex
 
-# Смена логического раздела
-for drive in $(\df | grep '^[A-Z]:' -o | /usr/bin/sort -u); {
-	alias $drive="cd_drive $drive"
-	alias $(echo $drive | tr A-Z a-z)="cd_drive $drive"
-}
+#- Установленные пакеты
+alias pkgs="cygcheck -c -d | tail -n +3 | nl" #noindex
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<TKPT>\n
@@ -141,8 +132,10 @@ alias @docs="cd //file-srv/docs$/"         #noindex
 alias beeline="iexplore https://uslugi.beeline.ru &"     #noindex
 alias elastix="firefox  https://sip.tkpt.ru/index.php &" #noindex
 
-#- Установленные пакеты
-alias pkgs="cygcheck -c -d | tail -n +3 | nl" #noindex
+#- Открытие страницы vimwiki в браузере
+wiki() {
+	firefox $(cygpath -w //file-srv/homedir$/`whoami`/wiki/${1:-index}.html) &
+}
 
 #}}} ###########################################################################
 
