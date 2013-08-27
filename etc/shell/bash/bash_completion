@@ -169,7 +169,7 @@ have()
 
 # use GNU sed if we have it, since its extensions are still used in our code
 #
-[ $UNAME != Linux ] && have gsed && alias sed=gsed
+[[ ($UNAME != Linux) && ($UNAME != Cygwin) ]] && have gsed && alias sed=gsed
 
 # This function checks whether a given readline variable
 # is `on'.
