@@ -9,7 +9,10 @@ set keywordprg=man\ n			" Просмотр страниц руководства
 set makeprg=nagelfar\ %			" Проверка на ошибки и синтаксис
 set errorformat=%f:\ Line\ %l:\ %t\ %m	" Формат строки с информацией
 
-source /home/maks/.vim/+omnicompletion/tcl/tcl.vim
+" TODO: переименовать Tcl.vim (<- tags.tcl)
+if !has("win32unix")
+	source $HOME/.vim/+omnicompletion/tcl/tcl.vim
+endif
 
 setlocal omnifunc=TclComplete
 
