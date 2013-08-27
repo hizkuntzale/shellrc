@@ -1,6 +1,6 @@
 " ~/.vimrc
 "
-" Изменён: Вт 27 авг 2013 13:55:25
+" Изменён: Вт 27 авг 2013 20:41:43
 "
 "###############################################################################
 " {{{				НАСТРОЙКИ VIM
@@ -400,6 +400,8 @@ vmap > >gv
 " vmap <C-t> <ESC>:tabnew<cr>
 
 iabbrev chg Создан:  TIMESTAMP#Изменён: TIMESTAMP<ESC>F#xi
+
+iabbrev cpr (c) 2013 Maxim Lihachev, <envrm@yandex.ru><ESC>
 
 " Редактирование командной строки как в Emacs
 cnoremap <C-B>      <Left>
