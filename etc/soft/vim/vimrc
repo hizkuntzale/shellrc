@@ -1,6 +1,6 @@
 " ~/.vimrc
 "
-" Изменён: Вс 25 авг 2013 20:42:37
+" Изменён: Вт 27 авг 2013 13:55:25
 "
 "###############################################################################
 " {{{				НАСТРОЙКИ VIM
@@ -705,8 +705,15 @@ let g:NERDTreeWinPos = "right"
 
 " VimWiki"{{{
 let wiki                  = {}
-let wiki.path             = '~/.shellrc/vimwiki/wiki/'
-let wiki.path_html        = '~/.shellrc/vimwiki/html/'
+
+if has("win32unix")
+	let wiki.path             = '/cygdrive/d/etc/wiki/'
+	let wiki.path_html        = '/cygdrive/z/wiki/'
+else
+	let wiki.path             = '~/.shellrc/vimwiki/wiki/'
+	let wiki.path_html        = '~/.shellrc/vimwiki/html/'
+endif
+
 let wiki.template_path    = '~/.shellrc/vimwiki/style/'
 let wiki.template_default = 'template'
 let wiki.template_ext     = '.html'
