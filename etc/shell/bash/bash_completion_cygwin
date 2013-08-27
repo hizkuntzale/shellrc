@@ -1,14 +1,28 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Сб 24 авг 2013 12:15:37
+# Изменён: Вт 27 авг 2013 12:41:23
 #
 ################################################################################
+
+# Дополнение команд ------------------------------------------------------------
 
 complete -W "accounts computer config continue file \
 	group help helpmsg localgroup name pause print \
 	send session share start statistics stop time use user view" \
 net
+
+#Компоненты Панели управления Windows
+complete -W 'access appwiz desk directx hdwwiz intl \
+	inetcpl joy mmsys ncpa netsetup odbccp32 \
+	powercfg timedate teltphon wuaucpl wscui' \
+cpl
+
+#Оснастки Windows
+complete -W 'compmgmt gpedit dsa ciadv certmgr devmgmt \
+	dfrg diskmgmt eventvwr fsmgmt ntmsmgr ntmsoprq \
+	perfmon lusrmgr rsop services secpol wmimgmt' \
+msc
 
 complete -W "boot config continue control create delete description \
 	enumdepend failure failureflag getdisplayname getkeyname \
@@ -16,17 +30,31 @@ complete -W "boot config continue control create delete description \
 	queryex querylock sdset sdshow start stop" \
 sc
 
+#Запуск сервисов
+_sc_start() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- ))
+	else
+		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
+	fi
+}
 
-complete -W 'access appwiz desk directx hdwwiz intl \
-	inetcpl joy mmsys ncpa netsetup odbccp32 \
-	powercfg timedate teltphon wuaucpl wscui' \
-cpl
+complete -F _sc_start sc_start
 
-complete -W 'compmgmt gpedit dsa ciadv certmgr devmgmt \
-	dfrg diskmgmt eventvwr fsmgmt ntmsmgr ntmsoprq \
-	perfmon lusrmgr rsop services secpol wmimgmt' \
-msc
+#Приостановление и остановка работы сервисов
+_sc_set_status() {
+	if [[ $2 == "" ]]; then
+		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- ))
+	else
+		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
+	fi
+}
 
+complete -F _sc_set_status sc_stop sc_pause sc_continue
+
+#Дополнение имён хостов --------------------------------------------------------
+
+#Подключение по rdp
 _rdp () {
 	if [[ $2 == "" ]]; then
 		COMPREPLY=($(echo "cb\nts\nms\n$(qappsrv | tail -n +3 | tr '' ' ')"))
@@ -37,19 +65,7 @@ _rdp () {
 
 complete -F _rdp rdp
 
-
-_wiki() {
-	wikidir=/cygdrive/z/wiki
-
-	if [[ $2 == "" ]]; then
-		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/'))
-	else
-		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/' | grep "^$2"))
-	fi
-}
-
-complete -F _wiki wiki
-
+#Подключение по vnc
 _vnc() {
 	if [[ $2 == "" ]]; then
 		COMPREPLY=($(net view | grep -o '^\\\\[^[:space:]]*' | sed 's/^\\\\//'))
@@ -61,23 +77,19 @@ _vnc() {
 
 complete -F _vnc vnc
 
-_sc_start() {
+#Прочее ------------------------------------------------------------------------
+
+#Дополнение wiki-страниц.
+#Рабочая wiki небольшая, все файлы расположены в корне директории
+_wiki() {
+	wikidir="//file-srv/homedir$/$(whoami)/wiki/"
+
 	if [[ $2 == "" ]]; then
-		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- ))
+		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/'))
 	else
-		COMPREPLY=($(sc query type= service state= inactive | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
+		COMPREPLY=($(\ls -1 ${wikidir}/*.html  | sed 's/^.*\/\(.*\)\.html$/\1/' | grep "^$2"))
 	fi
 }
 
-complete -F _sc_start sc_start
-
-_sc_set_status() {
-	if [[ $2 == "" ]]; then
-		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- ))
-	else
-		COMPREPLY=($(sc query type= service state= all | grep SERVICE_NAME | cut -d ':' -f 2- | grep $2 ))
-	fi
-}
-
-complete -F _sc_set_status sc_stop sc_pause sc_continue
+complete -F _wiki wiki
 
