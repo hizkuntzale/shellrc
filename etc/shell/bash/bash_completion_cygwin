@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Вт 27 авг 2013 12:41:23
+# Изменён: Вт 27 авг 2013 14:19:28
 #
 ################################################################################
 
@@ -15,7 +15,7 @@ net
 #Компоненты Панели управления Windows
 complete -W 'access appwiz desk directx hdwwiz intl \
 	inetcpl joy mmsys ncpa netsetup odbccp32 \
-	powercfg timedate teltphon wuaucpl wscui' \
+	powercfg sysdm timedate teltphon wuaucpl wscui' \
 cpl
 
 #Оснастки Windows
