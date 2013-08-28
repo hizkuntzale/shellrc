@@ -1,6 +1,6 @@
 # crontab
 #
-# Изменён: Пн 26 авг 2013 18:52:06
+# Изменён: Ср 28 авг 2013 18:47:11
 #
 
 # MIN HOUR DAY MONTH DAYOFWEEK COMMAND
@@ -12,5 +12,5 @@
 * */3 * * * ~/.shellrc/bin/scripts/slacklog > ~/.shellrc/var/log/updates
 
 # Удаление файлов, к которым не обращались дольше трёх месяцев
-* * */10 * * ~/.shellrc/bin/scripts/delolder 90 ~/.shellrc/var/vim/
+* * */10 * * ~/.shellrc/bin/exec/delolder 90 ~/.shellrc/var/vim/
 
