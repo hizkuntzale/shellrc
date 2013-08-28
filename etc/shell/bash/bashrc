@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вс 25 авг 2013 03:27:22
+# Изменён: Ср 28 авг 2013 18:45:06
 #
 ################################################################################
 
@@ -174,11 +174,11 @@ PATH="."
 
 #- TODO: Slackware
 if [[ $OS != Windows* ]]; then
-	path++ $SHELLRC/etc/shell/cw/def                   PATH
-	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca       PATH
-	path++ /usr/lib/qt/bin                             PATH
-	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV PATH
-	path++ $OOoPath                                    PATH
+	path++ $SHELLRC/etc/shell/cw/def                               PATH
+	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca:$SHELLRC/bin/exec PATH
+	path++ /usr/lib/qt/bin                                         PATH
+	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV             PATH
+	path++ $OOoPath                                                PATH
 fi
 
 path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
