@@ -1,7 +1,31 @@
 #!/bin/bash
 
 #Создан:  Пт 23 авг 2013 19:57:29
-#Изменён: Вс 25 авг 2013 20:05:18
+#Изменён: Чт 29 авг 2013 13:10:28
+
+#
+# (c) 2013, Maxim Lihachev, <envrm@yandex.ru>
+#
+# Скрипт создания ссылок на файлы настроек.
+#
+# Список файлов содержится в RCLIST и заполняется по правилам:
+#
+#     # Строка комментария, который нужно вывести
+#     : Строка комментария, который не будет выведен
+#
+#     + установить_файл       /куда/устанавливать
+#     - не_устанавливать_файл /куда/устанавливать
+#     любая другая строка будет исполнена как команда оболочки
+#
+# Пустые строки выводятся.
+#
+# ИСПОЛЬЗОВАНИЕ: installrc.sh --install-all    - установка всех файлов
+#                             --uninstall-all  - удаление всех ссылок
+#                             --check-rc-files - проверка доступности файлов настроек
+#
+# При установке имеющиеся ссылки и файлы будут переименованы в файл.<дата>.
+#
+
 
 #Директория для установки
 RCDIR=$(pwd)
@@ -16,6 +40,8 @@ red="\033[1;31m"
 green="\033[1;32m"
 white="\033[1;1m"
 
+#Вывод [цветного] сообщения с заполнением строки до 30 колонки знаком "."
+#   msg1 msg2 ?color?
 report() {
 	len=$((30 - $(echo -e -n $2 | wc -m)))
 
@@ -23,6 +49,8 @@ report() {
 	eval printf "%-.s-" {1..$len}
 }
 
+#Проверка доступности файла настроек
+#   file
 check() {
 	report Поиск $(basename $1)
 
@@ -33,6 +61,8 @@ check() {
 	fi
 }
 
+#Резервирование файла
+#   file
 backup() {
 	report Сохранение $(basename $filename) $yellow
 
@@ -41,6 +71,15 @@ backup() {
 	echo -e "${green}Резервная копия: $link.$date ${rstc}"
 }
 
+#Скрытие ссылки, если она расположена в ROOTDIR
+#
+#   Если в правилах указано место установки ~, а ROOTDIR=$HOME,
+#   то ссылка будет расположена в ~/.link.
+#
+#   Если указать иную директорию, то ссылка не будет скрыта:
+#   mc ~/.config             ---> ~/.config/mc
+#
+#   file
 dotfile() {
 	if [[ "$(dirname $1)" == $ROOTDIR ]]; then
 		echo "$(dirname $1)/.$(basename $1)"
@@ -50,17 +89,22 @@ dotfile() {
 }
 
 #Создание ссылки на конфигурационный файл
+#   source destination
 mklink() {
 	SRC=$1
 	DST=$2
 
+	#Файл существует?
 	if [ -a $RCDIR/$SRC ]; then
 		filename=$(basename $SRC)
 
 		report Установка $filename
 
 		link=$(dotfile "$DST/${filename//\.$(uname -i)}")
+
+		#Файл существует?
 		if [ -a $link ]; then
+			#Файл -- ссылка?
 			if [ -L $link ]; then
 				ref=$(readlink $link)
 				if [ $ref == $RCDIR/$SRC ]; then
@@ -76,6 +120,7 @@ mklink() {
 			backup $link && \
 			mklink $SRC $DST
 		else
+			#Ссылка на файл-источник
 			ln -s $RCDIR/$SRC $(dotfile $DST/${filename//\.$(uname -i)}) 2>&- && \
 			echo -e "${green}OK${rstc}"
 		fi
@@ -84,6 +129,8 @@ mklink() {
 	fi
 }
 
+#Удаление ссылки на файл
+#    sourcefile link
 rmlink() {
 	FILE=$(basename $1)
 	LINK=$(dotfile $2/${FILE//\.$(uname -i)})
@@ -95,23 +142,26 @@ rmlink() {
 	fi
 }
 
+#Установка настроек
 installrc() {
 	while read line; do
 		if [[ "$line" =~ ^\s*\+\s*.*$ ]]; then
+			#Установить файл
 			eval $(echo -e "$line" | sed 's/^+/mklink /')
 		elif [[ "$line" =~ ^\s*-\s*.*$ ]]; then
-			# Не устанавливать файл
+			#Не устанавливать файл
 			eval $(echo -e "$line" | sed 's/^-/rmlink /')
 		elif [[ ("$line" =~ ^\#.*)  || ("$line" =~ ^\s*$) ]]; then
-			# Вывод комментариев и пустых строк
+			#Вывод комментариев и пустых строк
 			echo -e "${white}$line${rstc}" | tr '#' ' '
 		else
-			# Выполнение строки
+			#Выполнение строки
 			eval $line
 		fi
 	done < $1
 }
 
+#Разбор аргументов командной строки и выполнение скрипта
 case "$1" in
 	--install-all)    alias rmlink=mklink;;
 	--uninstall-all)  alias mklink=rmlink;;
