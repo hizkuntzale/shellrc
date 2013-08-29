@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Ср 28 авг 2013 15:20:27
+# Изменён: Чт 29 авг 2013 12:37:05
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
@@ -62,7 +62,7 @@ cpl() {
 
 #- Проводник Windows
 ex() {
-	explorer.exe $(cygpath -w ${1:-.})
+	cygstart -x ${1:-.}
 }
 
 #- ПО
@@ -130,12 +130,12 @@ alias @docs="cd //file-srv/docs$/"         #noindex
 
 #- Быстрый доступ к ресурсам
 alias beeline="iexplore https://uslugi.beeline.ru &"     #noindex
-alias elastix="firefox  https://sip.tkpt.ru/index.php &" #noindex
+alias elastix="cygstart -o https://sip.tkpt.ru/index.php &" #noindex
 
 #- Открытие страницы vimwiki в браузере
 wiki() {
 	url=$(cygpath -w //file-srv/homedir$/`whoami`/wiki/"`echo ${1:-index} | sed 's/_/ /g'`".html)
-	firefox "$url" &
+	cygstart -o "$url"
 }
 
 #}}} ###########################################################################
