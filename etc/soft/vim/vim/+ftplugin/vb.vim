@@ -2,5 +2,5 @@
 " Настройки VBS
 "-------------------------
 
-set makeprg=wscript\ %	" Проверка на ошибки и синтаксис
+set makeprg=wscript\ %	" Выполнение *.vbs в Windows
 
