@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вс 25 авг 2013 03:55:58
+# Изменён: Пн 02 сен 2013 23:30:30
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -36,7 +36,6 @@ alias date="command date '+%A, %B %e %Y %H:%M:%S'"			#noindex
 alias grep='grep -E -i'							#noindex
 alias tree="tree -CAFa"							#noindex
 alias sudo="su -c "$*""							#noindex
-alias cal="cal -m"							#noindex
 alias crontab_i="crontab $CRON"						#noindex
 alias crontab_e="$EDITOR $CRON"						#noindex
 alias dmenu="dmenu -fn '-*-fixed-*-*-*-*-15-*-*-*-*-*-*-*'"		#noindex
@@ -74,7 +73,7 @@ fi
 
 #- Подсветка текущего дня в календаре
 function cal() {
-	[ -z "$2" ] && command cal | clr `\date +%d` || command cal $*
+	[ -z "$2" ] && command cal | clr "$(\date +%_d)" || command cal $*
 }
 
 #- Запуск программ без привязки к сессии
