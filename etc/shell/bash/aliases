@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Пн 02 сен 2013 23:30:30
+# Изменён: Вт 03 сен 2013 09:18:33
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -49,7 +49,6 @@ alias src=vimcat							#noindex
 #- Замена стандартных путей для конфигурационных файлов
 alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
 alias mpdr="\mpd $SHELLRC/etc/media/mpd/mpd_remote.conf"		#noindex
-alias mcabber="mcabber -f $SHELLRC/etc/net/mcabber/mcabberrc"	#noindex
 alias vim="vim -i $SHELLRC/var/vim/viminfo -p $*"				#noindex
 alias mutt="mutt -F $SHELLRC/etc/mail/mutt/muttrc && echo "0" > $MD/new" #noindex
 alias screen="TERM=rxvt-256color screen" #noindex
