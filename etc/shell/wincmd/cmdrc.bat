@@ -1,5 +1,5 @@
 :: Создан:  Пт 16 авг 2013 13:05:48
-:: Изменён: Чт 05 сен 2013 17:37:35
+:: Изменён: Чт 05 сен 2013 17:42:18
 
 @ECHO OFF
 
@@ -85,7 +85,7 @@ MODE CON: COLS=100 LINES=50
 :: Адресная книга
 
 @DOSKEY ab=addressbook_tkpt $*
-@DOSKEY abs=addressbook_tkpt ^| find $*
+@DOSKEY abs=addressbook_tkpt ^| find ^"$*^"
 @DOSKEY abc=addressbook_check
 
 :: Cygwin
