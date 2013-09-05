@@ -1,5 +1,5 @@
 :: Создан:  Пт 16 авг 2013 13:05:48
-:: Изменён: Пт 30 авг 2013 13:04:40
+:: Изменён: Чт 05 сен 2013 17:37:35
 
 @ECHO OFF
 
@@ -81,6 +81,12 @@ MODE CON: COLS=100 LINES=50
 @DOSKEY wiki=start \\file-srv\homedir$\%USERNAME%\wiki\$1.html
 @DOSKEY beeline="%SYSTEMDRIVE%\Program Files\Internet Explorer\iexplore.exe" https://uslugi.beeline.ru
 @DOSKEY elastix=start https://sip.tkpt.ru/index.php
+
+:: Адресная книга
+
+@DOSKEY ab=addressbook_tkpt $*
+@DOSKEY abs=addressbook_tkpt ^| find $*
+@DOSKEY abc=addressbook_check
 
 :: Cygwin
 
