@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Ср 28 авг 2013 18:45:06
+# Изменён: Чт 05 сен 2013 14:02:32
 #
 ################################################################################
 
@@ -179,6 +179,8 @@ if [[ $OS != Windows* ]]; then
 	path++ /usr/lib/qt/bin                                         PATH
 	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV             PATH
 	path++ $OOoPath                                                PATH
+else
+	path++ /cygdrive/z/bin/win                                     PATH
 fi
 
 path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
