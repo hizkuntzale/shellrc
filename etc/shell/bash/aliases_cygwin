@@ -1,14 +1,15 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Пт 06 сен 2013 17:23:13
+# Изменён: Сб 07 сен 2013 14:18:47
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
 ################################################################################
 
 #- Добавление пути поиска исполнимых файлов Windows
-path++ $INIT_PATH PATH
+path++ $INIT_PATH          PATH
+path++ /cygdrive/z/bin/win PATH
 
 #- Выполнение команды с помощью cmd.exe
 alias winshell="nh cmd.exe /c"
@@ -36,7 +37,7 @@ vnc() {
 	else
 		host="$1"
 	fi
-	winshell "C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe" $host 2>&1 > /dev/null &
+	winshell 'C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe' $host 2>&1 > /dev/null &
 }
 
 #- Подключение по RDP (cb/ts/ms/etc)
