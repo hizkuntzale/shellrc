@@ -18,10 +18,38 @@
 	tool = vimdiff
 
 [help]
-	autocorrect = true
+	autocorrect = 1
 
 [credential]
 	helper = cache --timeout=3600
 
 [alias]
-	last = log -1 HEAD
+	ci = commit
+	cm = commit -m
+	cr = commit --amend
+	cv = commit --verbose
+	recommit = commit --amend
+
+	df = diff
+
+	br = branch
+
+	st = status
+
+	p = pull
+	u = push
+
+	lf = log --source --graph --stat --date=iso --pretty=medium --decorate=full
+	ls = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen[%cd]%Creset ::%C(yellow)%d%Creset %s %C(bold blue)%Creset' --abbrev-commit --date=short
+	ll = !git --no-pager log -1 HEAD && echo
+	lu = !git --no-pager log --left-right --pretty=format:'%C(yellow)%h%Creset - %Cgreen[%cd]%Creset :: %s %C(bold blue)%Creset' --abbrev-commit --graph --color --date=short origin/master...HEAD | nl
+
+	alias = !sh -c '[ ! -z $2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -
+	aliases = !git config --get-regexp 'alias.*' | sed 's/alias.//' | sed 's/ / = /'
+
+	# This produces output that can be displayed using dotty, for example:
+	#    $ git graphviz HEAD~100..HEAD~60 | dotty /dev/stdin
+	#    $ git graphviz --first-parent master | dotty /dev/stdin
+	# Note how defining a function eliminates the need to use sh -c. 
+        graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '\n}'; }; f"
+

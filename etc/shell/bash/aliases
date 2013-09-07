@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Сб 07 сен 2013 12:23:33
+# Изменён: Сб 07 сен 2013 14:03:57
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -58,6 +58,7 @@ alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zat
 alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
 alias ooo="nh soffice" #noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
+alias g=git #noindex
 
 if [ $UID -eq 0 ]; then
 	alias mc="TERM=xterm-256color mc -S modarin256root"
