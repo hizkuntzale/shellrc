@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Сб 07 сен 2013 14:19:29
+# Изменён: Вс 08 сен 2013 22:24:12
 #
 ################################################################################
 
@@ -178,7 +178,6 @@ if [[ $OS != Windows* ]]; then
 	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca:$SHELLRC/bin/exec PATH
 	path++ /usr/lib/qt/bin                                         PATH
 	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV             PATH
-	path++ $OOoPath                                                PATH
 fi
 
 path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
@@ -193,6 +192,8 @@ if [ $UID -eq 0 ]; then
 	path++ /usr/sbin       PATH
 	path++ /usr/local/sbin PATH
 else
+	path++ $OOoPath PATH
+
 	PROMPT_COLOR='\033[1;32m'
 	export HOME=/home/$(whoami)
 fi
