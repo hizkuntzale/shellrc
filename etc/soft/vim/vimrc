@@ -1,6 +1,6 @@
 " ~/.vimrc
 "
-" Изменён: Вт 27 авг 2013 20:41:43
+" Изменён: Ср 11 сен 2013 16:05:59
 "
 "###############################################################################
 " {{{				НАСТРОЙКИ VIM
@@ -709,8 +709,8 @@ let g:NERDTreeWinPos = "right"
 let wiki                  = {}
 
 if has("win32unix")
-	let wiki.path             = '/cygdrive/d/etc/wiki/'
-	let wiki.path_html        = '/cygdrive/z/wiki/'
+	let wiki.path             = '/d/etc/wiki/'
+	let wiki.path_html        = '/z/wiki/'
 else
 	let wiki.path             = '~/.shellrc/vimwiki/wiki/'
 	let wiki.path_html        = '~/.shellrc/vimwiki/html/'
