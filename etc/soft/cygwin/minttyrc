@@ -1,4 +1,5 @@
 BoldAsFont=no
+BoldAsColour=yes
 Locale=ru_RU
 Charset=UTF-8
 FontHeight=11
