@@ -45,5 +45,7 @@ export CYGWIN=winsymlinks
 mkdir -v ../var/{shell,log,mpd,scmpc,vim}
 mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
 
+chere -i -c -t mintty
+
 : ---------------------------------------------------------------
 
