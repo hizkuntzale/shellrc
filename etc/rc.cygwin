@@ -48,7 +48,8 @@ mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
 : Монтирование разделов Windows в /<drive>/
 sed 's;/cygdrive;/;' -i /etc/fstab
 
-chere -i -c -t mintty
+: Запуск bash@mintty из контекстного меню проводника Windows
+chere -i -c -f -t mintty
 
 : ---------------------------------------------------------------
 
