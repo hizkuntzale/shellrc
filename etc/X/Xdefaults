@@ -19,41 +19,73 @@ xterm*pixelsize:14
 !Цветовая схема Xterm
 xterm*background: rgb:D9/D9/D9
 xterm*foreground: rgb:00/00/00
+! black
 xterm*color0:     rgb:3B/3B/3C
+! red
 xterm*color1:     rgb:cd/00/00
+! green
 xterm*color2:     rgb:20/A3/30
+! yellow
 xterm*color3:     rgb:b8/b8/00
+! blue
 xterm*color4:     rgb:00/00/cd
+! magenta
 xterm*color5:     rgb:b2/17/b2
+! cyan
 xterm*color6:     rgb:00/b0/b0
+! white (light grey really)
 xterm*color7:     rgb:be/b2/62
+! bold black (i.e. dark grey)
 xterm*color8:     rgb:80/80/80
+! bold red
 xterm*color9:     rgb:80/00/00
+! bold green
 xterm*color10:    rgb:00/50/20
+! bold yellow
 xterm*color11:    rgb:99/55/00
+! bold blue
 xterm*color12:    rgb:00/40/80
+! bold magenta
 xterm*color13:    rgb:44/33/00
+! bold cyan
 xterm*color14:    rgb:30/60/80
+! bold white
 xterm*color15:    rgb:7F/77/76
 
 !Цветовая схема URxvt
 URxvt*background: rgb:D9/D9/D9
 URxvt*foreground: rgb:00/00/00
+! black
 URxvt*color0:     rgb:3B/3B/3C
+! red
 URxvt*color1:     rgb:cd/00/00
+! green
 URxvt*color2:     rgb:20/A3/30
+! yellow
 URxvt*color3:     rgb:b8/b8/00
+! blue
 URxvt*color4:     rgb:00/00/cd
+! magenta
 URxvt*color5:     rgb:b2/17/b2
+! cyan
 URxvt*color6:     rgb:00/b0/b0
+! white (light grey really)
 URxvt*color7:     rgb:be/b2/62
+! bold black (i.e. dark grey)
 URxvt*color8:     rgb:80/80/80
+! bold red
 URxvt*color9:     rgb:80/00/00
+! bold green
 URxvt*color10:    rgb:00/50/20
+! bold yellow
 URxvt*color11:    rgb:99/55/00
+! bold blue
 URxvt*color12:    rgb:00/40/80
+! bold magenta
 URxvt*color13:    rgb:44/33/00
+! bold cyan
 URxvt*color14:    rgb:30/60/80
+! bold white
 URxvt*color15:    rgb:7F/77/76
 
 !Настрока клавиатуры для URxvt

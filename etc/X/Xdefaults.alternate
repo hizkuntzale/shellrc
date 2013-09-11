@@ -11,19 +11,19 @@ URxvt*scrollBar_right:true
 ! цвет скроллбара
 URxvt*scrollColor: #fdb927
 ! цветовая схема используемая в URxvt
-URxvt*color0: #6c6c6c
-URxvt*color1: #e9897c
-URxvt*color2: #b6e77d
-URxvt*color3: #ecebbe
-URxvt*color4: #7993a9
-URxvt*color5: #ea96eb
-URxvt*color6: #c9caec
-URxvt*color7: #f2f2f2
-URxvt*color8: #747474
-URxvt*color9: #f99286
-URxvt*color10: #b6e77d
-URxvt*color11: #fcfbcc
-URxvt*color12: #b6defb
-URxvt*color13: #fba1fb
-URxvt*color14: #d7d9fc
-URxvt*color15: #f2f2f2
+URxvt*color0: #6c6c6c  # black
+URxvt*color1: #e9897c  # red
+URxvt*color2: #b6e77d  # green
+URxvt*color3: #ecebbe  # yellow
+URxvt*color4: #7993a9  # blue
+URxvt*color5: #ea96eb  # magenta
+URxvt*color6: #c9caec  # cyan
+URxvt*color7: #f2f2f2  # white (light grey really)
+URxvt*color8: #747474  # bold black (i.e. dark grey)
+URxvt*color9: #f99286  # bold red
+URxvt*color10: #b6e77d # bold green
+URxvt*color11: #fcfbcc # bold yellow
+URxvt*color12: #b6defb # bold blue
+URxvt*color13: #fba1fb # bold magenta
+URxvt*color14: #d7d9fc # bold cyan
+URxvt*color15: #f2f2f2 # bold white
