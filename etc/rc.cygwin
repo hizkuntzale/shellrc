@@ -42,14 +42,14 @@ export CYGWIN=winsymlinks
 
 : ---------------------------------------------------------------
 
-mkdir -v ../var/{shell,log,mpd,scmpc,vim}
-mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
+mkdir -v ../var/{shell,log,mpd,scmpc,vim} 2>&-
+mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring} 2>&-
 
-: Монтирование разделов Windows в /<drive>/
-sed 's;/cygdrive;/;' -i /etc/fstab
+: Монтирование разделов Windows в корень файловой системы
+sed 's;/cygdrive;/;' -i /etc/fstab 2>&-
 
 : Запуск bash@mintty из контекстного меню проводника Windows
-chere -i -c -f -t mintty
+chere -i -c -f -t mintty 2>&-
 
 : ---------------------------------------------------------------
 
