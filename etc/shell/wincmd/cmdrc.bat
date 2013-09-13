@@ -1,5 +1,5 @@
 :: Создан:  Пт 16 авг 2013 13:05:48
-:: Изменён: Чт 05 сен 2013 17:42:18
+:: Изменён: Пт 13 сен 2013 14:03:27
 
 @ECHO OFF
 
@@ -47,6 +47,8 @@ MODE CON: COLS=100 LINES=50
 @DOSKEY kill=taskkill $*
 @DOSKEY pgrep=tasklist /FI "imagename eq $1.exe"
 
+@DOSKEY dmesg=cscript "%SYSTEMROOT%\system32\eventquery.vbs" /FI "type ne INFORMATION" $*
+
 :: Администрирование
 
 :: Windows: административные утилиты
@@ -65,6 +67,15 @@ MODE CON: COLS=100 LINES=50
 @DOSKEY win_dev=devmgmt.msc
 :: Windows: свойства папки
 @DOSKEY win_dir=control folders
+
+:: Windows: управление принтерами
+@DOSKEY printer=echo prnmngr prndrvr prnjobs prncnfg prnport prnqctl
+@DOSKEY prnmngr=cscript "%SYSTEMROOT%\system32\prnmngr.vbs" $*
+@DOSKEY prndrvr=cscript "%SYSTEMROOT%\system32\prndrvr.vbs" $*
+@DOSKEY prnjobs=cscript "%SYSTEMROOT%\system32\prnjobs.vbs" $*
+@DOSKEY prncnfg=cscript "%SYSTEMROOT%\system32\prncnfg.vbs" $*
+@DOSKEY prnport=cscript "%SYSTEMROOT%\system32\prnport.vbs" $*
+@DOSKEY prnqctl=cscript "%SYSTEMROOT%\system32\prnqctl.vbs" $*
 
 @DOSKEY wl_updates=type %SYSTEMROOT%\WindowsUpdate.log
 

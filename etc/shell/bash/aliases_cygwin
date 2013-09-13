@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Ср 11 сен 2013 17:59:18
+# Изменён: Пт 13 сен 2013 14:05:18
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
@@ -29,6 +29,10 @@ for drive in $(\df | grep '^[A-Z]:' -o | /usr/bin/sort -u); {
 	alias $drive="cd_drive $drive"
 	alias $(echo $drive | tr A-Z a-z)="cd_drive $drive"
 }
+
+#}}} ###########################################################################
+#{{{ \033[00m\n\b------<Windows>\n
+################################################################################
 
 #- Подключение к ПК с помощью VNC
 vnc() {
@@ -109,6 +113,35 @@ alias sc_continue="sc continue"
 #- Журнал обновлений Windows
 alias wl_update="nl $(cygpath $SYSTEMROOT/WindowsUpdate.log)"
 
+dmesgw() {
+	cscript "$(cygpath -w $SYSTEMROOT/system32/eventquery.vbs)" /FI "type ne INFORMATION" $* | 8U | clr "ошибка"
+}
+
+#- Windows: управление принтерами
+prn_mngr() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prnmngr.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
+prn_drvr() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prndrvr.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
+prn_jobs() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prnjobs.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
+prn_cnfg() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prncnfg.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
+prn_port() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prnport.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
+prn_qctl() { #noindex
+	cscript "$(cygpath -w $SYSTEMROOT/system32/prnqctl.vbs)" $* 2>&1 | tail -n +4 | 8U
+}
+
 #- Список выполняемых задач
 psw() {
 	tasklist.exe $* |& 8U
@@ -123,6 +156,9 @@ killw() {
 
 #- Установленные пакеты
 alias pkgs="cygcheck -c -d | tail -n +3 | nl" #noindex
+
+#- Редактирование псевдонимов
+alias ealias="$EDITOR $CYGWIN_ALIASES" #noindex
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<TKPT>\n
