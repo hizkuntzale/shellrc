@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Пт 13 сен 2013 16:33:08
+# Изменён: Сб 14 сен 2013 12:28:41
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
@@ -182,6 +182,11 @@ alias ad_printers='cscript //nologo $(cygpath -w "`which ldapAllPrinters.vbs`") 
 #- Быстрый доступ к ресурсам
 alias beeline="iexplore https://uslugi.beeline.ru &"     #noindex
 alias elastix="cygstart -o https://sip.tkpt.ru/index.php &" #noindex
+
+#- Меню на неделю
+dinner() {
+	cscript //nologo $(cygpath -w "`which dinner.vbs`") $* | 8U
+}
 
 #- Открытие страницы vimwiki в браузере
 wiki() {

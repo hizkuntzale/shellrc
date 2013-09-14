@@ -1,5 +1,5 @@
 :: Создан:  Пт 16 авг 2013 13:05:48
-:: Изменён: Пт 13 сен 2013 14:03:27
+:: Изменён: Сб 14 сен 2013 12:30:13
 
 @ECHO OFF
 
@@ -31,6 +31,7 @@ MODE CON: COLS=100 LINES=50
 @DOSKEY :q=exit
 @DOSKEY history=doskey /HISTORY
 @DOSKEY h=doskey /HISTORY
+@DOSKEY ..=cd ..
 
 @DOSKEY ls=DIR $*
 @DOSKEY cp=COPY $*
@@ -98,6 +99,9 @@ MODE CON: COLS=100 LINES=50
 @DOSKEY ab=addressbook_tkpt $*
 @DOSKEY abs=addressbook_tkpt ^| find ^"$*^"
 @DOSKEY abc=addressbook_check
+
+:: Меню на неделю
+@DOSKEY dinner=cscript //nologo dinner.vbs $*
 
 :: Cygwin
 
