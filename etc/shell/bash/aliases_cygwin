@@ -1,7 +1,7 @@
 #!/bin/bash ####################################################################
 #
 # Создан:  Ср 14 авг 2013 12:07:22
-# Изменён: Пт 13 сен 2013 14:05:18
+# Изменён: Пт 13 сен 2013 16:33:08
 #
 ################################################################################
 #{{{ \033[00m\n\b------<Cygwin>\n
@@ -114,32 +114,32 @@ alias sc_continue="sc continue"
 alias wl_update="nl $(cygpath $SYSTEMROOT/WindowsUpdate.log)"
 
 dmesgw() {
-	cscript "$(cygpath -w $SYSTEMROOT/system32/eventquery.vbs)" /FI "type ne INFORMATION" $* | 8U | clr "ошибка"
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/eventquery.vbs)" /FI "type ne INFORMATION" $* | 8U | clr "ошибка"
 }
 
 #- Windows: управление принтерами
 prn_mngr() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prnmngr.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prnmngr.vbs)" $* 2>&1 | 8U
 }
 
 prn_drvr() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prndrvr.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prndrvr.vbs)" $* 2>&1 | 8U
 }
 
 prn_jobs() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prnjobs.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prnjobs.vbs)" $* 2>&1 | 8U
 }
 
 prn_cnfg() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prncnfg.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prncnfg.vbs)" $* 2>&1 | 8U
 }
 
 prn_port() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prnport.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prnport.vbs)" $* 2>&1 | 8U
 }
 
 prn_qctl() { #noindex
-	cscript "$(cygpath -w $SYSTEMROOT/system32/prnqctl.vbs)" $* 2>&1 | tail -n +4 | 8U
+	cscript //nologo "$(cygpath -w $SYSTEMROOT/system32/prnqctl.vbs)" $* 2>&1 | 8U
 }
 
 #- Список выполняемых задач
@@ -175,6 +175,9 @@ alias @gpo="cd //file-srv/install$/GPO/"   #noindex
 alias @it="cd //file-srv/install$//it/"    #noindex
 alias @programs="cd //file-srv/programs$/" #noindex
 alias @docs="cd //file-srv/docs$/"         #noindex
+
+#- Список принтеров, опубликованных в AD
+alias ad_printers='cscript //nologo $(cygpath -w "`which ldapAllPrinters.vbs`") | 8U'
 
 #- Быстрый доступ к ресурсам
 alias beeline="iexplore https://uslugi.beeline.ru &"     #noindex
