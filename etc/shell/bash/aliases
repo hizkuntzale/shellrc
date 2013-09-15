@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вск 15 Сен 2013 16:06:54
+# Изменён: Вск 15 Сен 2013 22:00:11
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -26,7 +26,6 @@ alias less="less -R"							#noindex
 alias ls='ls -lGhpX --color=always --group-directories-first -v'	#noindex
 alias lss='\ls --format=single-column'					#noindex
 alias nl="nl -b a"							#noindex
-alias su='su -m'							#noindex
 alias df='df -hT'							#noindex
 alias du='du -hs'							#noindex
 alias free="free -m"							#noindex
