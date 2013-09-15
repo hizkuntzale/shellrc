@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вск 01 Янв 2006 21:14:57
+# Изменён: Вск 15 Сен 2013 16:06:54
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -61,10 +61,9 @@ alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
 
 if [ $UID -eq 0 ]; then
-	# alias mc="TERM=xterm-256color mc -S modarin256root"
-	:
+	alias mc="TERM=xterm-256color mc -S dark"
 else
-	# alias mc="TERM=xterm-256color mc -S modarin256"
+	alias mc="TERM=xterm-256color mc -S dark"
 	alias htop="htop -u $(whoami)"
 fi
 

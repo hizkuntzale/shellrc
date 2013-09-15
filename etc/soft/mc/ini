@@ -163,6 +163,8 @@ rxvt-unicode=
 
 xterm-256color=
 
+xterm-256colors=
+
 [HotlistConfig]
 expanded_view_of_groups=0
 
