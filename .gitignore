@@ -18,6 +18,9 @@ etc/soft/jodconverter
 etc/soft/mc/history
 etc/soft/mc/hotlist
 etc/soft/mc/panels.ini
+etc/soft/mc_new/history
+etc/soft/mc_new/hotlist
+etc/soft/mc_new/panels.ini
 etc/soft/vim/vim/session
 etc/soft/vimperator/info
 etc/soft/zathura
