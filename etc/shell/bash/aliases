@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вск 15 Сен 2013 22:00:11
+# Изменён: Ср 18 сен 2013 11:58:23
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -462,6 +462,9 @@ gitnew() {
 	git branch stable
 	git branch experimental
 }
+
+#- Vimwiki
+alias ,ww="vim -c VimwikiIndex" #noindex
 
 #- Дневник
 alias ,w,w="vim -c VimwikiMakeDiaryNote" #noindex
