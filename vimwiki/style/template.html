@@ -14,6 +14,8 @@
 		<!-- <link href="%root_path%css/styles/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
 		<!-- <link href="%root_path%css/styles/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
 
+		<link rel="stylesheet" href="%root_path%css/pikaday/pikaday.css">
+
 		<script type="text/javascript" src="%root_path%js/scripts/shBrushScheme.js"></script>
 		<script type="text/javascript" src="%root_path%js/scripts/shBrushTcl_simple.js"></script>
 		<script type="text/javascript" src="%root_path%js/scripts/shBrushBash.js"></script>
@@ -36,6 +38,7 @@
 		</script>
 
 		<!-- Ссылки на предыдущую и следующую запись дневника -->
+		<script type="text/javascript" src="%root_path%js/pikaday.js"></script>
 		<script type="text/javascript" src="%root_path%js/date.js"></script>
 		<script type="text/javascript">
 		function wikiDiaryLinks() {
@@ -52,6 +55,7 @@
 		}
 		window.onload = wikiDiaryLinks;
 		</script>
+
 		<!-- -->
 		<!-- document.getElementById("prev").innerHTML = "&larr;"; -->
 		<!-- document.getElementById("next").innerHTML = "&rarr;"; -->
@@ -76,7 +80,6 @@
 		<div style="text-align: left;  float: left; "><a class="yesterday" href="prev" id="prev"></a></div>
 		<div style="text-align: right; float: right;"><a class="tomorrow"  href="next" id="next"></a></div>
 
-		<div class="contents">
 			%content%
 		</div>
 	</body>

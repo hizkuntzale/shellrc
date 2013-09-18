@@ -66,6 +66,7 @@ table {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
 	background: #fff;
+	/* - pikaday */
 	margin: 45px;
 	width: 480px;
 	border-collapse: collapse;
@@ -76,12 +77,14 @@ th
 	font-size: 14px;
 	font-weight: normal;
 	color: #039;
+	/* - pikaday */
 	padding: 10px 8px;
 	border-bottom: 2px solid #6678b1;
 }
 td
 {
 	color: #669;
+	/* - pikaday */
 	padding: 9px 8px 0px 8px;
 }
 tbody tr:hover td
