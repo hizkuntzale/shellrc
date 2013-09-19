@@ -37,15 +37,16 @@
 			SyntaxHighlighter.all()
 		</script>
 
-		<!-- Ссылки на предыдущую и следующую запись дневника -->
+		<script type="text/javascript" src="%root_path%js/moment.js"></script>
 		<script type="text/javascript" src="%root_path%js/pikaday.js"></script>
-		<script type="text/javascript" src="%root_path%js/date.js"></script>
+
+		<!-- Ссылки на предыдущую и следующую запись дневника -->
 		<script type="text/javascript">
 		function wikiDiaryLinks() {
-			var date = new Date.parse(document.title)
+			var date = moment(document.title, "YYYY-MM-DD");
 
-				var prev = date.prev().day().toString('yyyy-MM-dd');
-				var next = date.next().day().next().day().toString('yyyy-MM-dd');
+				var prev = date.subtract('days', 1).format('YYYY-MM-DD');
+				var next = date.add('days', 2).format('YYYY-MM-DD');
 
 				document.links["prev"].href = [prev,".html"].join("");
 				document.links["next"].href = [next,".html"].join("");
@@ -54,6 +55,14 @@
 				document.getElementById("next").innerHTML = "&#8680";
 		}
 		window.onload = wikiDiaryLinks;
+		</script>
+
+		<script type="text/javascript">
+		<!--
+		function today(){
+			return moment().format('YYYY-MM-DD');
+		}
+		//-->
 		</script>
 
 		<!-- -->
