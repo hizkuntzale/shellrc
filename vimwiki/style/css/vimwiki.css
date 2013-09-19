@@ -66,7 +66,6 @@ table {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
 	background: #fff;
-	/* - pikaday */
 	margin: 45px;
 	width: 480px;
 	border-collapse: collapse;
@@ -77,14 +76,12 @@ th
 	font-size: 14px;
 	font-weight: normal;
 	color: #039;
-	/* - pikaday */
 	padding: 10px 8px;
 	border-bottom: 2px solid #6678b1;
 }
 td
 {
 	color: #669;
-	/* - pikaday */
 	padding: 9px 8px 0px 8px;
 }
 tbody tr:hover td
@@ -122,15 +119,15 @@ del {text-decoration: line-through; color: #777777;}
 	color: #a03020;
 }
 
-.yesterday, .tomorrow {
+.icon-left-open, .icon-right-open, .icon-home, .icon-calendar-empty {
 	color: #EDEDED;
-	font-size: 80px;
+	font-size: 20px;
 	text-decoration: none;
 }
 
-.yesterday:hover, .tomorrow:hover {
+.icon-left-open:hover, .icon-right-open:hover, .icon-home:hover, .icon-calendar-empty:hover {
 	color: #8B8878;
-	font-size: 80px;
+	font-size: 20px;
 	text-decoration: none;
 }
 
