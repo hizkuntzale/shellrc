@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Ср 18 сен 2013 11:58:23
+# Изменён: Сбт 21 Сен 2013 00:55:48
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -53,7 +53,8 @@ alias mutt="mutt -F $SHELLRC/etc/mail/mutt/muttrc && echo "0" > $MD/new" #noinde
 alias screen="TERM=rxvt-256color screen" #noindex
 alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
 alias cdargs="cdargs -b -f $SHELLRC/etc/soft/cdargs/cdargs -o $SHELLRC/etc/soft/cdargs/cdargsresult" #noindex
-alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
+# alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
+alias zathura="nh zathura"	#noindex
 alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
 alias ooo="nh soffice" #noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
