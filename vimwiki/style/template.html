@@ -78,6 +78,10 @@
 				document.write('<a class="icon-calendar-empty" id="datepicker"></a>');
 				document.write('<a class="icon-right-open" href="' + next + '.html" id="prev"></a>');
 				document.write('</div>');
+			} else {
+				document.write('<div style="text-align: right;  float: right; " id="icons" class="navigation">');
+				document.write('<a class="icon-home" href="%root_path%index.html"></a>');
+				document.write('</div>');
 			}
 
 			new Pikaday(
