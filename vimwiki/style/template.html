@@ -65,7 +65,7 @@
 		<script type="text/javascript">
 			var date = moment(document.title, "YYYY-MM-DD");
 
-			if (date.format('YYYY') != '0000') {
+			if (date.format('YY') != '00') {
 				var prev = date.subtract('days', 1).format('YYYY-MM-DD');
 				var next = date.add('days', 2).format('YYYY-MM-DD');
 
