@@ -50,3 +50,10 @@ mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
 
 : ---------------------------------------------------------------
 
+xdg-mime default zathura.desktop application/pdf
+xdg-mime default geeqie.desktop  image/gif
+xdg-mime default geeqie.desktop  image/jpg
+xdg-mime default geeqie.desktop  image/png
+
+: ---------------------------------------------------------------
+
