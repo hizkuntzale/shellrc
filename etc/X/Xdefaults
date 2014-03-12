@@ -1,5 +1,5 @@
 !Общие настройки (U)Rxvt
-URxvt*font: xft:DejaVU Sans Mono:pixelsize=17
+URxvt*font: xft:DejaVU Sans Mono:pixelsize=16
 URxvt*pixelsize:14
 URxvt*scrollBar:false
 URxvt.cursorColor:  #AAAAAA
