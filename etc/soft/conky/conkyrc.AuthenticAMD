@@ -1,6 +1,6 @@
 background yes
 use_xft yes 
-xftfont DejaVu Mono:size=10
+xftfont DejaVu Sans Mono:size=9
 xftalpha 1
 update_interval 2.0
 total_run_times 0
@@ -10,14 +10,13 @@ own_window_transparent no
 own_window_colour black
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 1920 3
+minimum_size 1366 1
 draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders yes
 stippled_borders 0
 border_width 1
-default_color darkgray
 default_shade_color white
 default_outline_color darkgray
 alignment top_left
@@ -40,19 +39,18 @@ TEXT
 [ ${color darkblue}${execi 2 SHELL=/bin/sh musca -c "silent show groups" \
 	| cut -f 2- -d ' ' \
 	| sed -e :a -e '$b;N;s/\n/ | /;ba' \
-	| sed 's/- //g;s/\*/⚫/g'
+	| sed 's/- //g;s/\*/✻/g'
 } ]${offset 55}\
 ${if_mounted /}$color /: ${color brown}${fs_free /}${endif}\
 ${if_mounted /home}$color | home: ${color brown}${fs_free /home/maks}${endif}\
-${if_mounted /media/2TB}$color | 2tb: ${color brown}${fs_free /media/2TB}${endif}\
-${if_mounted /media/MEDIA}$color | media: ${color brown}${fs_free /media/MEDIA}${endif}\
 ${if_mounted /media/DATA}$color | data: ${color brown}${fs_free /media/DATA}${endif}\
+${if_mounted /media/MEDIA}$color | media: ${color brown}${fs_free /media/MEDIA}${endif}\
 ${if_mounted /media/FLASH}$color | flash: ${color brown}${fs_free /media/FLASH}${endif}\
-${offset 50}\
-${alignr}\
-${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}\
-${color darkgreen}⏏$color: ${execi 18000 cat $SHELLRC/var/log/updates | wc -l}$color | \
-${color darkred}⌧$color: ${execi 60 cat $MD/new}$color | \
+${goto 1103}\
+${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}$color\
+${if_match ${battery_percent BAT0} <= 20}${color red}${endif}\
+${battery_percent BAT0}%$color |\
+${color darkred}$color ${execi 60 cat $MD/new}$color | \
 ${color darkblue}[${execi 2 SHELL=/bin/sh skb 1}]$color | \
 ${color black}${time %H:%M} (${time %d.%m.%Y}) 
 
