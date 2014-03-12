@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Вс 25 авг 2013 01:49:26
+# Изменён: Ср 12 мар 2014 20:25:18
 #
 
 #Цветовая схема#{{{
@@ -17,24 +17,28 @@ set border_catchall_unfocus #882255
 
 #Рабочие группы#{{{
 name work
-hook on add pad 0 0 21 0
+hook on add pad 0 0 18 0
 add internet
-add im
-add rss/torrent
 add music
-
-screen (next)
+add video
 hook on add pad 0 0 0 0
-name work
-add vim
-use video
-border off
 use work
-
-screen (prev)
-hook on add pad 0 0 21 0
-use work
+hook on add pad 0 0 18 0
 refresh
+
+#Два дисплея
+#screen (next)
+#hook on add pad 0 0 0 0
+#name work
+#add vim
+#use video
+#border off
+#use work
+
+#screen (prev)
+#hook on add pad 0 0 21 0
+#use work
+#refresh
 #}}}
 
 #Использование dmenu#{{{
@@ -43,7 +47,7 @@ refresh
 bind on Mod4+t exec urxvtc
 
 # dmenu
-bind on Mod4+x shell
+bind on Mod4+x exec dmenu_exec
 
 # Файловый менеджер dmenu
 bind on Mod4+z exec dmenfm
@@ -166,8 +170,8 @@ bind on Mod4+1 use 0
 bind on Mod4+2 use 1
 bind on Mod4+3 use 2
 bind on Mod4+4 use 3
-bind on Mod4+5 use 4
-bind on Mod4+6 use 5
+#bind on Mod4+5 use 4
+#bind on Mod4+6 use 5
 #bind on Mod4+7 use 6
 #bind on Mod4+8 use 7
 #bind on Mod4+9 use 8
