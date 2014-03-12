@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вск 15 Сен 2013 21:59:57
+# Изменён: Ср 12 мар 2014 20:56:39
 #
 ################################################################################
 
@@ -56,11 +56,6 @@ export MAKEOPTS="-j 3"
 if [[ $OS != Windows* ]]; then
 	#Версия gcc
 	GCCV=$(\gcc --version | head -n 1 | cut -d ' ' -f 3)
-
-	export C_INCLUDE=/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/
-	export C_INCLUDE_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/:/usr/lib/gcc/i486-slackware-linux/$GCCV/include
-	export CPLUS_INCLUDE_PATH=/usr/lib/gcc/i486-slackware-linux/$GCCV/include-fixed/
-	export LD_LIBRARY_PATH=/usr/libexec/gcc/i486-slackware-linux/$GCCV/
 fi
 
 #Формат времени, выводимый командой time
@@ -170,12 +165,9 @@ path++ () {
 INIT_PATH=$PATH
 PATH="."
 
-#- TODO: Slackware
 if [[ $OS != Windows* ]]; then
-	path++ $SHELLRC/etc/shell/cw/def                               PATH
+	#path++ $SHELLRC/etc/shell/cw/def                               PATH
 	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca:$SHELLRC/bin/exec PATH
-	path++ /usr/lib/qt/bin                                         PATH
-	path++ /usr/libexec/gcc/i486-slackware-linux/$GCCV             PATH
 fi
 
 path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
