@@ -43,9 +43,9 @@ TEXT
 } ]${offset 55}\
 ${if_mounted /}$color /: ${color brown}${fs_free /}${endif}\
 ${if_mounted /home}$color | home: ${color brown}${fs_free /home/maks}${endif}\
-${if_mounted /media/DATA}$color | data: ${color brown}${fs_free /media/DATA}${endif}\
-${if_mounted /media/MEDIA}$color | media: ${color brown}${fs_free /media/MEDIA}${endif}\
-${if_mounted /media/FLASH}$color | flash: ${color brown}${fs_free /media/FLASH}${endif}\
+${if_mounted /mnt/DATA}$color | data: ${color brown}${fs_free /mnt/DATA}${endif}\
+${if_mounted /mnt/MEDIA}$color | media: ${color brown}${fs_free /mnt/MEDIA}${endif}\
+${if_mounted /mnt/FLASH}$color | flash: ${color brown}${fs_free /mnt/FLASH}${endif}\
 ${goto 1103}\
 ${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}$color\
 ${if_match ${battery_percent BAT0} <= 20}${color red}${endif}\
