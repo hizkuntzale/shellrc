@@ -7,6 +7,7 @@ etc/mail/procmail/procmailrc
 
 etc/media/ncmpcpp/error.log
 etc/media/scmpc/scmpc.conf
+etc/media/mpdscribble/mpdscribble.conf
 
 etc/net/snownews
 
