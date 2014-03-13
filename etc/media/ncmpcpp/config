@@ -1,23 +1,13 @@
 # ncmpcpp
 #
-<<<<<<< HEAD
-# Изменён: Вс 25 авг 2013 01:08:52
-=======
-# Изменён: Чт 13 мар 2014 14:38:00
->>>>>>> 752b4da... V5: настройка mpd & ncmpcpp & mpdscribble
+# Изменён: Чт 13 мар 2014 15:43:32
 #
 
 #Общие настройки#{{{
 
-<<<<<<< HEAD
-mpd_music_dir			= "/media/2TB/Музыка/"
-mpd_connection_timeout		= "5"
-mpd_crossfade_time		= "0"
-=======
 mpd_music_dir = "/mnt/2TB/Музыка/"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "0"
->>>>>>> 752b4da... V5: настройка mpd & ncmpcpp & mpdscribble
 
 #Задержка между песнями
 playlist_disable_highlight_delay = "0"
@@ -26,15 +16,15 @@ playlist_disable_highlight_delay = "0"
 
 #Формат плейлиста#{{{
 
-song_list_format		= "{$5(%l)$9 }{%t}{%a - %y-%b}"
-song_library_format		= "{%n - }{%t}"
-media_library_album_format	= "{%a: }{%y - }%b"
-tag_editor_album_format		= "{(%y) }%b"
-browser_playlist_prefix		= "$7playlist$9 "
-selected_item_prefix		= "$5"
-selected_item_suffix		= "$9"
-song_window_title_format	= "{%a - %b}{%t}|{%f}"
-song_columns_list_format	= "(17)[green]{a} (3)[blue]{n} (24)[blue]{t} (5)[green]{y} (22)[green]{b} (23)[blue]{g} (4)[green]{C} (6)[blue]{l}"
+song_list_format = "{$5(%l)$9 }{%t}{%a - %y-%b}"
+song_library_format = "{%n - }{%t}"
+media_library_album_format = "{%a: }{%y - }%b"
+tag_editor_album_format = "{(%y) }%b"
+browser_playlist_prefix = "$7playlist$9 "
+selected_item_prefix = "$5"
+selected_item_suffix = "$9"
+song_window_title_format = "{%a - %b}{%t}|{%f}"
+song_columns_list_format = "(17)[green]{a} (3)[blue]{n} (24)[blue]{t} (5)[green]{y} (22)[green]{b} (23)[blue]{g} (4)[green]{C} (6)[blue]{l}"
 alternative_header_first_line_format  = "{%t}"
 alternative_header_second_line_format = "$7{%a} - $5{%b} $3{(%y)}"
 
