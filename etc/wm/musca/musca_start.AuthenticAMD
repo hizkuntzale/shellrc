@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Ср 12 мар 2014 20:25:18
+# Изменён: Чт 13 мар 2014 16:08:45
 #
 
 #Цветовая схема#{{{
@@ -21,6 +21,7 @@ hook on add pad 0 0 18 0
 add internet
 add music
 add video
+border off
 hook on add pad 0 0 0 0
 use work
 hook on add pad 0 0 18 0
