@@ -1,7 +1,20 @@
 # xbindkeysrc.AuthenticAMD
 #
-# Изменён: Вс 25 авг 2013 01:55:59
+# Изменён: Чт 13 мар 2014 14:16:34
 #
+
+#ACPI#{{{
+
+"amixer -q set Master 2-"
+	XF86AudioLowerVolume
+
+"amixer -q set Master 2+"
+	XF86AudioRaiseVolume
+
+"amixer -q set Master toggle"
+	XF86AudioMute
+
+#}}}
 
 #Запуск программ#{{{
 
@@ -20,18 +33,6 @@
 "import screenshot.png"
 	m:0x10 + c:107
         Mod2 + Print
-
-"serial"
-	m:0x40 + c:33
-	Mod4 + p
-
-"dmenfm"
-	m:0x40 + c:52
-	Mod4 + z
-
-"moveWindow"
-	m:0x40 + c:57
-	Mod4 + n
 
 #}}}
 

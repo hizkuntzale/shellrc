@@ -426,7 +426,7 @@ shell/i/.svg
 	Open=/usr/libexec/mc/ext.d/image.sh open svg
 
 include/image
-	Open=geeqie
+	Open=/usr/libexec/mc/ext.d/image.sh open ALL_FORMATS
 	View=%view{ascii} /usr/libexec/mc/ext.d/image.sh view ALL_FORMATS
 
 
@@ -516,7 +516,7 @@ type/WebM
     Include=video
 
 include/video
-	Open=vlc %p
+	Open=/usr/libexec/mc/ext.d/video.sh open ALL_FORMATS
 	View=%view{ascii} /usr/libexec/mc/ext.d/video.sh view ALL_FORMATS
 
 
@@ -524,19 +524,13 @@ include/video
 
 # Postscript
 type/^PostScript
-	Include=zathura
+	Open=/usr/libexec/mc/ext.d/doc.sh open ps
+	View=%view{ascii} /usr/libexec/mc/ext.d/doc.sh view ps
 
 # PDF
 type/^PDF
-	Include=zathura
-
-# DjVu
-regex/i/\.djvu?$
-	Include=zathura
-
-include/zathura
-	Open=nohup zathura -c %var{SHELLRC:~/.shellrc}/etc/soft/zathura/ -d %var{SHELLRC:~/.shellrc}/etc/soft/zathura/ -p %var{SHELLRC:~/.shellrc}/etc/soft/zathura/plugins %p &>/dev/null &
-	View=%view{ascii} /usr/libexec/mc/ext.d/doc.sh view djvu
+	Open=/usr/libexec/mc/ext.d/doc.sh open pdf
+	View=%view{ascii} /usr/libexec/mc/ext.d/doc.sh view pdf
 
 # html
 regex/i/\.html?$
@@ -600,6 +594,11 @@ shell/i/.dvi
 # TeX
 shell/i/.tex
 	Include=editor
+
+# DjVu
+regex/i/\.djvu?$
+	Open=/usr/libexec/mc/ext.d/doc.sh open djvu
+	View=%view{ascii} /usr/libexec/mc/ext.d/doc.sh view djvu
 
 # Comic Books
 regex/i/\.cb[zr]$
@@ -683,6 +682,11 @@ shell/i/.arc
 
 # zip
 type/i/^zip\ archive
+	Open=%cd %p/uzip://
+	View=%view{ascii} /usr/libexec/mc/ext.d/archive.sh view zip
+
+# jar(zip)
+type/i/^Java\ Jar\ file\ data\ \(zip\)
 	Open=%cd %p/uzip://
 	View=%view{ascii} /usr/libexec/mc/ext.d/archive.sh view zip
 
