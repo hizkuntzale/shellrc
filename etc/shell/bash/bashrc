@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 13 мар 2014 12:47:05
+# Изменён: Чт 13 мар 2014 18:59:29
 #
 ################################################################################
 
@@ -166,7 +166,7 @@ INIT_PATH=$PATH
 PATH="."
 
 if [[ $OS != Windows* ]]; then
-	#path++ $SHELLRC/etc/shell/cw/def                               PATH
+	path++ $SHELLRC/etc/shell/cw/def                               PATH
 	path++ $SHELLRC/bin/dmenu:$SHELLRC/bin/musca:$SHELLRC/bin/exec PATH
 fi
 
