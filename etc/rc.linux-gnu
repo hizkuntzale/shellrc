@@ -22,7 +22,8 @@
 
 # [ Net ]
 
-+ net/rtorrent/rtorrent.rc         ~
+- net/rtorrent/rtorrent.rc         ~
++ net/lftp/lftprc                  ~
 + net/snownews                     ~
 + mail/mailcap/mailcap             ~
 + mail/procmail/procmailrc         ~
@@ -38,8 +39,8 @@
 + soft/mc                          ~/.config
 + soft/vim/vim                     ~
 + soft/vim/vimrc                   ~
-+ soft/vimperator                  ~
-+ soft/vimperator/vimperatorrc     ~
+- soft/vimperator                  ~
+- soft/vimperator/vimperatorrc     ~
 + soft/git/gitconfig               ~
 + soft/git/gitk                    ~
 
@@ -51,9 +52,9 @@ mkdir -v ../var/vim/{backup,undo,mru,swp,view,yankring}
 : ---------------------------------------------------------------
 
 xdg-mime default zathura.desktop application/pdf
-xdg-mime default geeqie.desktop  image/gif
-xdg-mime default geeqie.desktop  image/jpg
-xdg-mime default geeqie.desktop  image/png
+xdg-mime default gpicview.desktop  image/gif
+xdg-mime default gpicview.desktop  image/jpg
+xdg-mime default gpicview.desktop  image/png
 
 : ---------------------------------------------------------------
 
