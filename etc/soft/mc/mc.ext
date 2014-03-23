@@ -663,7 +663,7 @@ shell/i/.lyx
 
 # torrent
 shell/i/.torrent
-	View=%view{ascii} /usr/libexec/mc/ext.d/misc.sh view torrent
+	View=%view{ascii} ctorrent -x %f
 
 ### Plain compressed files ###
 
