@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Чт 13 мар 2014 16:08:45
+# Изменён: Вс 30 мар 2014 17:01:35
 #
 
 #Цветовая схема#{{{
@@ -54,8 +54,8 @@ bind on Mod4+x exec dmenu_exec
 bind on Mod4+z exec dmenfm
 bind on Mod4+Shift+z exec dmenfm
 
-#Выбор сериала для просмотра
-bind on Mod4+p exec serial
+#Управление mpd
+bind on Mod4+p exec dmpc
 
 #Выбор виртуальной машины для запуска
 bind on Mod4+Shift+V exec VM
