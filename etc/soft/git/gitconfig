@@ -56,3 +56,5 @@
 	# http://gitboard.net
 	board = !gitboard 2>&-
 
+	hub = !git remote -v | grep fetch | grep -o 'https.* ' | xargs xdg-open 
+
