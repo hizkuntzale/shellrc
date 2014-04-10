@@ -9,7 +9,7 @@
 + shell/guile/guile                ~
 + shell/tcl/tclshrc                ~
 + shell/tcl/wishrc                 ~
-- shell/screen/screenrc            ~
++ shell/screen/screenrc            ~
 
 # [ X.org ]
 
