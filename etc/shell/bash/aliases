@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 13 мар 2014 15:25:48
+# Изменён: Вс 23 мар 2014 14:22:55
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -55,7 +55,8 @@ alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
 alias cdargs="cdargs -b -f $SHELLRC/etc/soft/cdargs/cdargs -o $SHELLRC/etc/soft/cdargs/cdargsresult" #noindex
 # alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
 alias zathura="nh zathura"	#noindex
-alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
+alias z="nh zathura"		#noindex
+# alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
 alias ooo="nh soffice" #noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
@@ -472,6 +473,9 @@ alias ,w,w="vim -c VimwikiMakeDiaryNote" #noindex
 
 #- Vim со списком последних файлов
 alias ,m="vim -c MRU"                    #noindex
+
+#- Загрузка текста на ix.io
+alias ix="curl -F 'f:1=<-' ix.io"
 
 #}}} ###########################################################################
 
