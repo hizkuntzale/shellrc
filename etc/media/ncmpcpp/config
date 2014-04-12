@@ -1,11 +1,12 @@
 # ncmpcpp
 #
-# Изменён: Чт 13 мар 2014 15:43:32
+# Изменён: Пн 17 мар 2014 21:09:07
 #
 
 #Общие настройки#{{{
 
-mpd_music_dir = "/mnt/2TB/Музыка/"
+# mpd_music_dir = "/mnt/2TB/Музыка/"
+mpd_music_dir = "/mnt/DATA/_Музыка/"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "0"
 
