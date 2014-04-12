@@ -1,6 +1,7 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вс 23 мар 2014 14:22:55
+# Изменён: Сб 12 апр 2014 11:17:39
+# Изменён: Чт. 10 апр. 2014 10:35:05
 #
 ################################################################################
 #{{{				Псевдонимы
@@ -34,7 +35,6 @@ alias ps="ps -aux"							#noindex
 alias date="command date '+%A, %B %e %Y %H:%M:%S'"			#noindex
 alias grep='grep -E -i'							#noindex
 alias tree="tree -CAFa"							#noindex
-alias sudo="su -c "$*""							#noindex
 alias crontab_i="crontab $CRON"						#noindex
 alias crontab_e="$EDITOR $CRON"						#noindex
 alias dmenu="dmenu -fn '-*-fixed-*-*-*-*-15-*-*-*-*-*-*-*'"		#noindex

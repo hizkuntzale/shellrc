@@ -1,0 +1,207 @@
+[~/.musca_start]
+
+#
+# Изменён: Чт. 10 апр. 2014 10:39:09
+#
+
+#Цветовая схема#{{{
+set border_focus DarkGrey
+set border_unfocus Grey
+
+set border_dedicate_focus #3283CD
+set border_dedicate_unfocus #225888
+
+set border_catchall_focus #CD327F
+set border_catchall_unfocus #882255
+#}}}
+
+#Рабочие группы#{{{
+name work
+hook on add pad 0 0 18 0
+add web
+add skype
+add α
+add β
+add γ
+add δ
+border off
+hook on add pad 0 0 0 0
+use work
+hook on add pad 0 0 18 0
+refresh
+
+#Два дисплея
+#screen (next)
+#hook on add pad 0 0 0 0
+#name work
+#add vim
+#use video
+#border off
+#use work
+
+#screen (prev)
+#hook on add pad 0 0 21 0
+#use work
+#refresh
+#}}}
+
+#Использование dmenu#{{{
+
+# Терминал
+bind on Mod4+t exec urxvtc
+
+# dmenu
+bind on Mod4+x exec dmenu_exec
+
+# Файловый менеджер dmenu
+bind on Mod4+z exec dmenfm
+bind on Mod4+Shift+z exec dmenfm
+
+#Управление mpd
+bind on Mod4+p exec dmpc
+
+#Выбор виртуальной машины для запуска
+bind on Mod4+Shift+V exec VM
+
+#Монтирование устройств
+bind on Mod4+Shift+m exec mountmenu
+
+# dmenu с перечнем всех окон
+bind on Mod4+Shift+w switch window
+
+# dmenu с перечнем всех групп
+bind on Mod4+Shift+g switch group
+
+#}}}
+
+#Комбинации клавиш#{{{
+
+# Деление фрейма на две части
+bind on Mod4+h hsplit 1/2
+bind on Mod4+v vsplit 1/2
+
+# Удаление фрейма
+bind on Mod4+Shift+r remove
+
+# Удаление всех фреймов
+bind on Mod4+Shift+o only
+
+# Аварийное завершение работы текущего окна
+bind on Mod4+q kill
+bind on Mod1+F4 kill
+
+# Переключение между окнами текущей группы
+bind on Mod4+c cycle local next
+bind on Mod4+Shift+c cycle local prev
+bind on Control+Tab cycle prev
+bind on Mod1+Shif+Tab cycle prev
+
+# Выбор текущего фрейма в группе
+# --- Курсорные клавиши
+bind on Mod4+Left focus left
+bind on Mod4+Right focus right
+bind on Mod4+Up focus up
+bind on Mod4+Down focus down
+
+# --- Vi-like клавиши
+bind on Mod4+Control+h focus left
+bind on Mod4+Control+l focus right
+bind on Mod4+Control+k focus up
+bind on Mod4+Control+j focus down
+
+# Переключение между группами
+bind on Mod4+Next use (next)
+bind on Mod4+Prior use (prev)
+#bind on Mod4+Tab use (next)
+bind on Mod4+Control+Tab use (prev)
+
+# Переход на другой монитор
+bind on Mod4+Tab screen (next)
+
+# Пометить фрейм как занятый для открывающихся окон
+bind on Mod4+Shift+d dedicate flip
+
+# Пометить фрейм для размещения в нём всех новых окон
+bind on Mod4+Shift+a catchall flip
+
+# Отмена последней манипуляции с musca (!)
+bind on Mod4+Shift+u undo
+
+# Переключение в режим плавающих окон
+bind on Mod4+Shift+s stack flip
+
+# Перетаскивания окна между фреймами
+# --- Курсорные клавиши
+bind on Mod4+Shift+Left swap left
+bind on Mod4+Shift+Right swap right
+bind on Mod4+Shift+Up swap up
+bind on Mod4+Shift+Down swap down
+
+# --- Vi-like клавиши
+bind on Mod4+Shift+h swap left
+bind on Mod4+Shift+l swap right
+bind on Mod4+Shift+k swap up
+bind on Mod4+Shift+j swap down
+
+# Изменение размеров текущего фрейма
+# --- Курсорные клавиши
+bind on Mod4+Control+Left resize left
+bind on Mod4+Control+Right resize right
+bind on Mod4+Control+Up resize up
+bind on Mod4+Control+Down resize down
+
+# --- Vim-like клавиши
+bind on Mod4+Mod1+h resize left
+bind on Mod4+Mod1+l resize right
+bind on Mod4+Mod1+k resize up
+bind on Mod4+Mod1+j resize down
+
+# Перерисовка текущего окна
+bind on Mod4+f refresh
+
+# Создание группы
+bind on Mod4+Insert add work
+
+# Удаление группы
+bind on Mod4+Delete drop work
+
+# Включение/выключение рамки окна
+bind on Mod4+b border on
+bind on Mod4+Shift+b border off
+
+# Открытие группы по номеру
+bind on Mod4+1 use 0
+bind on Mod4+2 use 1
+bind on Mod4+3 use 2
+bind on Mod4+4 use 3
+bind on Mod4+5 use 4
+bind on Mod4+6 use 5
+bind on Mod4+7 use 6
+#bind on Mod4+8 use 7
+#bind on Mod4+9 use 8
+
+# Выход из musca
+bind on Mod4+Shift+q exec poweroff
+
+#}}}
+
+#Прочие настройки#{{{
+
+# Нефреймовые окна
+manage off Conky
+
+# По умолчанию новое окно открывается в пустом фрейме
+set window_open_frame empty
+
+# Формат запуска dmenu
+set dmenu dmenu -i -fn '-*-fixed-*-*-*-*-15-*-*-*-*-*-*-*'
+#}}}
+
+# Запуск программ#{{{
+exec conky
+exec xbindkeys -f $SHELLRC/etc/X/xbindkeysrc.$(uname -i)
+exec urxvtd -q -o -f
+
+#exec xmodmap $SHELLRC/etc/X/Xmodmaprc.AuthenticAMD
+#}}}
+
