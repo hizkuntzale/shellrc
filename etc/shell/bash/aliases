@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Сб 12 апр 2014 11:17:39
+# Изменён: Вс 13 апр 2014 12:47:33
 # Изменён: Чт. 10 апр. 2014 10:35:05
 #
 ################################################################################
@@ -32,7 +32,6 @@ alias du='du -hs'							#noindex
 alias free="free -m"							#noindex
 alias wget='wget -c -T 5'						#noindex
 alias ps="ps -aux"							#noindex
-alias date="command date '+%A, %B %e %Y %H:%M:%S'"			#noindex
 alias grep='grep -E -i'							#noindex
 alias tree="tree -CAFa"							#noindex
 alias crontab_i="crontab $CRON"						#noindex
@@ -113,6 +112,11 @@ command_not_found_handle() {						#noindex
 			echo >&2 "$redКоманда ${green}${1}${red} не найдена.$rstc"
 		fi
 	fi
+}
+
+#- Дата
+function date() { #noindex
+     command date ${*:-'+%A, %d %B %Y, %H:%M'}
 }
 
 #- Список функций и псевдонимов
