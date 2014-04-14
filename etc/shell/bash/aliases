@@ -366,10 +366,10 @@ dowhich() { #noindex
 }
 
 #- Редактирование скриптов
-alias vimwhich="dowhich vim"
-alias nlwhich="dowhich nl"
-alias catwhich="dowhich cat"
-alias vcatwhich="dowhich vcat"
+alias vimwhich="dowhich vim"   #noindex
+alias nlwhich="dowhich nl"     #noindex
+alias catwhich="dowhich cat"   #noindex
+alias vcatwhich="dowhich vcat" #noindex
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Администрирование>\n
