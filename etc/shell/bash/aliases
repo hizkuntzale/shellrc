@@ -41,7 +41,6 @@ alias pstree="pstree -U -h"						#noindex
 alias mkdir="mkdir -p -v"						#noindex
 alias j="jobs -l"							#noindex
 alias dirs="dirs -v"							#noindex
-alias vcat=vimcat							#noindex
 alias src=vimcat							#noindex
 
 #- Замена стандартных путей для конфигурационных файлов
@@ -342,6 +341,17 @@ fucheck() {
 			echo -ne '\000'
 		fi
 	} | xargs -0 -n2 mv -v
+}
+
+#- Вывод файлов с подсветкой синтаксиса
+vcat() {
+	source-highlight \
+		-f esc \
+		-i "$1" \
+		-o STDOUT \
+		--line-number=' ' \
+		--style-file=$SHELLRC/etc/soft/source-hl/default.style 
+	echo
 }
 
 #- Поиск пути к исполняемому файлу, просмотр кода функций и псевдонимов
