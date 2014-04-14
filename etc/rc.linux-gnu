@@ -22,6 +22,7 @@
 
 # [ Net ]
 
++ net/ssh                          ~
 - net/rtorrent/rtorrent.rc         ~
 + net/lftp/lftprc                  ~
 + net/snownews                     ~

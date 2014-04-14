@@ -11,6 +11,11 @@ etc/media/mpdscribble/mpdscribble.conf
 
 etc/net/snownews
 
+etc/net/ssh/id_rsa
+etc/net/ssh/id_rsa.pub
+etc/net/ssh/known_hosts
+etc/net/ssh/sessions
+
 etc/shell/cw
 
 etc/soft/antiword

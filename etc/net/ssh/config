@@ -1,0 +1,30 @@
+Host *
+	ControlMaster auto
+	ControlPath   /home/%u/.ssh/sessions/%h_%p_%r
+
+Host kb
+	User root
+	HostName 193.169.52.214
+
+Host t-o
+	User root
+	HostName 85.192.165.42
+	Port 1023
+
+Host atpl
+	User root
+	HostName 193.169.52.221
+
+Host atpl-v-sites
+	User root
+	HostName 192.168.115.50
+	ProxyCommand ssh -t -t atpl -W %h:%p
+
+Host office
+	User root
+	HostName 192.168.0.12
+
+Host pi
+	User pi
+	HostName 192.168.0.49
+
