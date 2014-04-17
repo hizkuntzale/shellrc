@@ -63,13 +63,25 @@ blockquote cite:before {
 }
 
 table {
+        /* counter-reset: row; */
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	background: #fff;
+	font-size: 14px;
+	/* background: #fff; */
 	margin: 45px;
 	border-collapse: collapse;
 	text-align: left;
 }
+
+table tr { counter-increment: row }
+
+table tr td:first-child::before {
+	content: counters(row, ".", decimal-leading-zero);
+	min-width: 1em;
+	margin-right: 0.5em;
+	margin-left: -2.0em;
+	text-align: center;
+}
+
 th
 {
 	font-size: 14px;
