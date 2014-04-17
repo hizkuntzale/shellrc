@@ -11,6 +11,13 @@ Host t-o
 	HostName 85.192.165.42
 	Port 1023
 
+Host dc
+	User taxi
+	HostName 193.169.52.76
+
+Host dc-v-sites
+	HostName 193.169.52.78
+
 Host atpl
 	User root
 	HostName 193.169.52.221
@@ -27,4 +34,9 @@ Host office
 Host pi
 	User pi
 	HostName 192.168.0.49
+
+Host aws
+	User ubuntu
+	HostName 54.72.210.58
+	IdentityFile ~/.ssh/aws.pem
 
