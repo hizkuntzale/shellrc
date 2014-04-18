@@ -51,11 +51,8 @@ alias mutt="mutt -F $SHELLRC/etc/mail/mutt/muttrc && echo "0" > $MD/new" #noinde
 alias screen="TERM=rxvt-256color screen" #noindex
 alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
 alias cdargs="cdargs -b -f $SHELLRC/etc/soft/cdargs/cdargs -o $SHELLRC/etc/soft/cdargs/cdargsresult" #noindex
-# alias zathura="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
 alias zathura="nh zathura"	#noindex
 alias z="nh zathura"		#noindex
-# alias z="nh zathura -c $SHELLRC/etc/soft/zathura/ -d $SHELLRC/etc/soft/zathura/ -p $SHELLRC/etc/soft/zathura/plugins"	#noindex
-alias ooo="nh soffice" #noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
 
@@ -177,7 +174,7 @@ pnext() {
 }
 
 #- Конвертирование аудио в mp3
-a2mp3() { lame -b $2 --noreplaygain -q 0 -m s -k -p "$1"; }
+a2mp3() { lame -b ${2:-320} --noreplaygain -q 0 -m s -k -p "$1"; }
 
 #- Лог scmpc/last.fm
 lastfmlog() { watch -n 1 "tail $SHELLRC/var/log/mpdscribble.log"; }
@@ -385,8 +382,6 @@ alias vcatwhich="dowhich vcat" #noindex
 #{{{ \033[00m\n\b------<Администрирование>\n
 ################################################################################
 
-#- gslapt
-alias gslapt="CDPATH='.' su -c gslapt" #noindex
 #- Установленные пакеты
 alias pkgs="ls /var/log/packages/ | tail -n +2 | nl"
 #- Просмотр обновлений системы
@@ -411,7 +406,7 @@ lnbin() {
 
 #- Генератор паролей
 passgen() {
-	for i in `seq 10`; {
+	for i in `seq ${2:-10}`; {
 		</dev/urandom tr -dc A-Za-z0-9_ | head -c ${1:-8}
 		echo ""
 	}
