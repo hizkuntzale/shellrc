@@ -2,19 +2,6 @@ Host *
 	ControlMaster auto
 	ControlPath   /home/%u/.ssh/sessions/%h_%p_%r
 
-#------ [ KB ]
-
-Host kb
-	User root
-	HostName 193.169.52.214
-
-#------ [ TX ]
-
-Host tx-o
-	User root
-	HostName 85.192.165.42
-	Port 1023
-
 #------ [ DC ]
 
 Host dc
@@ -23,6 +10,46 @@ Host dc
 
 Host dc-v-sites
 	HostName 193.169.52.78
+
+#------ [ TX ]
+
+Host tx-o
+	User root
+	HostName 85.192.165.42
+	Port 1023
+
+#------ [ AWS ]
+
+Host aws
+	User ubuntu
+	HostName 54.72.210.58
+	IdentityFile ~/.ssh/aws.pem
+
+#------ [ KB ]
+
+Host kb
+	User root
+	HostName 193.169.52.214
+
+Host kb-v-kb
+	User root
+	HostName 192.168.115.10
+	ProxyCommand ssh -t -t kb -W %h:%p
+
+Host kb-v-pb
+	User root
+	HostName 192.168.115.15
+	ProxyCommand ssh -t -t kb -W %h:%p
+
+Host kb-v-pb-old
+	User root
+	HostName 192.168.115.105
+	ProxyCommand ssh -t -t kb -W %h:%p
+
+Host kb-v-pb-dev
+	User root
+	HostName 192.168.115.115
+	ProxyCommand ssh -t -t kb -W %h:%p
 
 #------ [ Atpl ]
 
@@ -35,12 +62,10 @@ Host atpl-v-sites
 	HostName 192.168.115.50
 	ProxyCommand ssh -t -t atpl -W %h:%p
 
-#------ [ AWS ]
-
-Host aws
-	User ubuntu
-	HostName 54.72.210.58
-	IdentityFile ~/.ssh/aws.pem
+Host atpl-v-sql
+	User root
+	HostName 192.168.115.102
+	ProxyCommand ssh -t -t atpl -W %h:%p
 
 #------ [ Office ]
 
