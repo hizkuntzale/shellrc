@@ -14,8 +14,9 @@ alias pd="pushd"							#noindex
 alias po="popd"								#noindex
 
 #- Удаление, перемещение и копирование с подтверждением
-alias mv='mv -i -v'							#noindex
-alias cp='cp -i -v -r'							#noindex
+#+ Строка прогресса: http://beatex.org/web/advancedcopy.html
+alias mv='mv -g -i -v'							#noindex
+alias cp='cp -g -i -v -r'						#noindex
 alias rm="rm -i -v"							#noindex
 alias rmdir="rmdir -v"							#noindex
 
@@ -55,6 +56,8 @@ alias zathura="nh zathura"	#noindex
 alias z="nh zathura"		#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
+
+alias fm="PAGER=autoex fm" #noindex
 
 if [ $UID -eq 0 ]; then
 	alias mc="TERM=xterm-256color mc -S modarin256root"
