@@ -86,6 +86,11 @@ Host office-v-jenkins
 	HostName 192.168.0.20
 	ProxyCommand ssh -t -t office-v -W %h:%p
 
+Host office-v-zabbix
+	User asp3ctus
+	HostName 192.168.0.26
+	ProxyCommand ssh -t -t office-v -W %h:%p
+
 Host office-pi
 	User pi
 	HostName 192.168.0.49
