@@ -20,10 +20,15 @@ Host tx-o
 
 #------ [ AWS ]
 
-Host aws
+Host aws-tx
 	User ubuntu
 	HostName 54.72.210.58
-	IdentityFile ~/.ssh/aws.pem
+	IdentityFile ~/.ssh/aws-tx.pem
+
+Host aws-kb
+	User ubuntu
+	HostName 54.72.33.227
+	IdentityFile ~/.ssh/aws-kb.pem
 
 #------ [ KB ]
 
