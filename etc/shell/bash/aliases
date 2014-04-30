@@ -72,7 +72,7 @@ fi
 
 #- Подсветка текущего дня в календаре
 function cal() {
-	[ -z "$1" ] && command cal -m | clr "$(\date +%_d)" || command cal -m $*
+	[ -z "$1" ] && command cal -m $(\date +%m) | clr "$(\date +%_d)" || command cal -m $*
 }
 
 #- Запуск программ без привязки к сессии
