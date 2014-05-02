@@ -18,6 +18,12 @@ Host tx-o
 	HostName 85.192.165.42
 	Port 1023
 
+Host tx-o-w
+	User root
+	HostName 85.192.165.42
+	Port 1023
+	ProxyCommand ~/.ssh/scripts/tx-o.sh
+
 #------ [ AWS ]
 
 Host aws-tx
