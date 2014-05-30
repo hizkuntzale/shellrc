@@ -36,32 +36,6 @@ Host aws-kb
 	HostName 54.72.33.227
 	IdentityFile ~/.ssh/aws-kb.pem
 
-#------ [ KB ]
-
-Host kb
-	User root
-	HostName 193.169.52.214
-
-Host kb-v-kb
-	User root
-	HostName 192.168.115.10
-	ProxyCommand ssh -t -t kb -W %h:%p
-
-Host kb-v-pb
-	User root
-	HostName 192.168.115.15
-	ProxyCommand ssh -t -t kb -W %h:%p
-
-Host kb-v-pb-old
-	User root
-	HostName 192.168.115.105
-	ProxyCommand ssh -t -t kb -W %h:%p
-
-Host kb-v-pb-dev
-	User root
-	HostName 192.168.115.115
-	ProxyCommand ssh -t -t kb -W %h:%p
-
 #------ [ Atpl ]
 
 Host atpl
@@ -88,6 +62,10 @@ Host office-pbx
 	User asp3ctus
 	HostName 192.168.0.27
 
+Host office-web
+	User root
+	HostName 192.168.0.12
+
 Host office-v
 	User asp3ctus
         HostName 192.168.0.98
@@ -106,6 +84,10 @@ Host office-v-pg
 	User asp3ctus
 	HostName 192.168.0.28
 	ProxyCommand ssh -t -t office-v -W %h:%p
+
+Host office-wiki
+	User asp3ctus
+	HostName 192.168.0.21
 
 Host office-pi
 	User pi
