@@ -149,7 +149,7 @@ endfun
 " }}}
 " {{{ The Dict(word) function call a dict command for word
 fun! Dict(word)
-    call OpenHelpWin("sdcv ".a:word." 2>/dev/null", 'dict', a:word)
+    call OpenHelpWin("sdcv -n --data-dir ~/.shellrc/etc/soft/sdcv/dictionaries/ ".a:word." 2>/dev/null", 'dict', a:word)
 	normal G2kzvztk0
 endfun
 " }}}
