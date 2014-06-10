@@ -81,13 +81,13 @@
 				var next = date.add('days', 2).format('YYYY-MM-DD');
 
 				document.write('<div style="text-align: left;  float: left; " id="icons" class="navigation">');
-				document.write('<a class="icon-left-open" href="' + prev + '.html" id="prev"></a>');
+				document.write('<a class="icon-left-open" href="' + prev + '.html" id="nav-prev"></a>');
 				document.write('<a class="icon-home" href="%root_path%index.html"></a>');
 				document.write('</div>');
 
 				document.write('<div style="text-align: right;  float: right; " id="icons" class="navigation">');
 				document.write('<a class="icon-calendar-empty" id="datepicker"></a>');
-				document.write('<a class="icon-right-open" href="' + next + '.html" id="prev"></a>');
+				document.write('<a class="icon-right-open" href="' + next + '.html" id="nav-next"></a>');
 				document.write('</div>');
 			} else {
 				document.write('<div style="text-align: right;  float: right; " id="icons" class="navigation">');
@@ -118,6 +118,28 @@
 				}
 			});
 		</script> 
+
+		<script>
+		$(function() { 
+			//Перелистывание страниц
+			$(document).keydown(function(e) {
+				var unicode = e.charCode ? e.charCode : e.keyCode;
+				// Следующая страница
+				if (unicode == 39) {
+					var tc = document.getElementById("nav-next");
+					var ary = tc ? tc.getAttribute("href") : [];
+
+					window.open(ary,"_self");
+					// Предыдущая страница
+				} else if (unicode == 37) {
+					var tc = document.getElementById("nav-prev");
+					var ary = tc ? tc.getAttribute("href") : [];
+
+					window.open(ary,"_self");
+				}
+			})
+		});
+</script>
 
 		<div class="contents">
 			%content%
