@@ -56,6 +56,7 @@ alias zathura="nh zathura"	#noindex
 alias z="nh zathura"		#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
+alias sdcv="sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/"
 
 alias fm="PAGER=autoex fm" #noindex
 
