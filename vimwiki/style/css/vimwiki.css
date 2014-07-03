@@ -1,10 +1,26 @@
 body {
+	/* font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif; */
 	font-family: Tahoma, sans-serif;
-	margin: 1em 2em 1em 2em;
+	/* line-height: 1.4em; */
 	font-size: 100%;
-	line-height: 130%;
-	background-color: #FEFEF2;
+        line-height: 130%;
+	background: #eaeaea url('bg.png');
+	color: #4d4d4d;
+	margin: 1em 2em 1em 2em;
+	/* margin: 0 auto; */
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
+
+/* body { */
+	/* font-family: Tahoma, sans-serif; */
+	/* line-height: 130%; */
+	/* background-color: #FEFEF2; */
+/* } */
+
 h1, h2, h3, h4, h5, h6 {font-family: Trebuchet MS, serif; margin-top: 1.5em; margin-bottom: 0.5em;}
 h1 {font-size: 2.0em; color: #8B8878;}
 h2 {font-size: 1.6em; color: #779977;}
@@ -37,7 +53,7 @@ blockquote {
 	line-height: 1.45;
 	position: relative;
 	color: #383838;
-	background-color: #FDFCDC;
+	/* background-color: #FDFCDC; */
 }
 
 blockquote:before {

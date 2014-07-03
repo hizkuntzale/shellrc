@@ -1,0 +1,189 @@
+<html>
+	<head>
+		<link rel="Stylesheet" type="text/css" href="%root_path%css/vimwiki.css" />
+
+		<title>%title%</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<script type="text/javascript" src="%root_path%js/scripts/shCore.js"></script>
+
+		<link rel="stylesheet" href="%root_path%js/todo/todomvc-common/base.css">
+
+		<link href="%root_path%css/styles/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="%root_path%css/styles/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="%root_path%css/styles/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="%root_path%css/styles/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="%root_path%css/styles/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<link rel="stylesheet" href="%root_path%css/pikaday/pikaday.css">
+
+		<link rel="stylesheet" href="%root_path%css/fontello/fontello.css">
+		<link rel="stylesheet" href="%root_path%css/fontello/animation.css">
+
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushScheme.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushErlang.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushPlain.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushLatex.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushProlog.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushDiff.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushVim.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushBat.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="%root_path%js/scripts/shBrushCss.js"></script>
+
+		<script type="text/javascript" src="%root_path%js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+
+		<script type="text/javascript" src="%root_path%js/sorttable.js"></script>
+
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+		<script type="text/javascript" src="%root_path%js/abcjs_plugin_1.10-min.js"></script>
+
+                <script type="text/javascript">
+                  ABCJS.plugin["show_midi"] = false;
+                  ABCJS.plugin["hide_abc"] = true;
+                </script>
+
+		<script type="text/javascript" src="%root_path%js/moment.js"></script>
+		<script type="text/javascript" src="%root_path%js/pikaday.js"></script>
+
+		<script type="text/javascript" src="%root_path%js/pl/swfobject.js"></script>
+		<script type="text/javascript" src="%root_path%js/pl/1bit.js"></script>
+
+		<script type="text/javascript">
+			oneBit = new OneBit('%root_path%js/pl/1bit.swf');
+			oneBit.ready(function() {
+				oneBit.specify('color', '#000000');
+				oneBit.specify('background', '#FFFFFF');
+				oneBit.specify('playerSize', '10');
+				oneBit.specify('position', 'after');
+				oneBit.specify('analytics', false);
+				oneBit.apply('a');
+			});
+		</script>
+
+	</head>
+	<body>
+
+		<!-- Ссылки на предыдущую и следующую запись дневника -->
+		<script type="text/javascript">
+			var date = moment(document.title, "YYYY-MM-DD");
+
+			if (date.format('YY') != '00') {
+				var prev = date.subtract('days', 1).format('YYYY-MM-DD');
+				var next = date.add('days', 2).format('YYYY-MM-DD');
+
+				document.write('<div style="text-align: left;  float: left; " id="icons" class="navigation">');
+				document.write('<a class="icon-left-open" href="' + prev + '.html" id="nav-prev"></a>');
+				document.write('<a class="icon-home" href="%root_path%index.html"></a>');
+				document.write('</div>');
+
+				document.write('<div style="text-align: right;  float: right; " id="icons" class="navigation">');
+				document.write('<a class="icon-calendar-empty" id="datepicker"></a>');
+				document.write('<a class="icon-right-open" href="' + next + '.html" id="nav-next"></a>');
+				document.write('</div>');
+			} else {
+				document.write('<div style="text-align: right;  float: right; " id="icons" class="navigation">');
+				document.write('<a class="icon-home" href="%root_path%index.html"></a>');
+				document.write('</div>');
+			}
+
+			new Pikaday(
+			{
+				field:   document.getElementById('datepicker'),
+				trigger: document.getElementById('datepicker'),
+				firstDay: 1,
+				minDate: new Date('2010-11-13'),
+				maxDate: new Date('2015-02-06'),
+				yearRange: [2010,2015],
+				i18n: {
+					previousMonth : 'Предыдущий месяц',
+					nextMonth     : 'Следующий месяц',
+					months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+					weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+					weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+				},
+				defaultDate: function() {
+					return moment().format('YYYY-MM-DD');
+				},
+				onSelect: function() {
+					document.location.href = this.getMoment().format('YYYY-MM-DD') + '.html';
+				}
+			});
+		</script> 
+
+		<script>
+		$(function() { 
+			//Перелистывание страниц
+			$(document).keydown(function(e) {
+				var unicode = e.charCode ? e.charCode : e.keyCode;
+				// Следующая страница
+				if (unicode == 39) {
+					var tc = document.getElementById("nav-next");
+					var ary = tc ? tc.getAttribute("href") : [];
+
+					window.open(ary,"_self");
+					// Предыдущая страница
+				} else if (unicode == 37) {
+					var tc = document.getElementById("nav-prev");
+					var ary = tc ? tc.getAttribute("href") : [];
+
+					window.open(ary,"_self");
+				}
+			})
+		});
+</script>
+		<div class="contents" style="float: left">
+			<!-- TODO -->
+			<section id="todoapp">
+				<h1>Список дел</h1>
+				<header id="header">
+					<input id="new-todo" placeholder="" autofocus>
+				</header>
+				<section id="main">
+					<input id="toggle-all" type="checkbox">
+					<label for="toggle-all">Завершить все</label>
+					<ul id="todo-list"></ul>
+				</section>
+				<footer id="footer">
+					<span id="todo-count">Осталось: <strong>0</strong></span>
+					<button id="clear-completed">Очистить выполненное</button>
+				</footer>
+			</section>
+
+			<script id="todo-template" type="text/x-handlebars-template">
+			{{#this}}
+			<li {{#if completed}}class="completed"{{/if}} data-id="{{id}}">
+				<div class="view">
+					<input class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
+					<label>{{title}}</label>
+					<button class="destroy"></button>
+				</div>
+				<input class="edit" value="{{title}}">
+			</li>
+			{{/this}}
+			</script>
+			<script id="footer-template" type="text/x-handlebars-template">
+			<span id="todo-count"><strong>{{activeTodoCount}}</strong> {{activeTodoWord}} left</span>
+			{{#if completedTodos}}<button id="clear-completed">Очистить выполненное ({{completedTodos}})</button>{{/if}}
+			</script>
+			<script src="js/todo/todomvc-common/base.js"></script>
+			<script src="js/todo/handlebars/handlebars.js"></script>
+			<script src="js/todo/todo.js"></script>
+
+			<!-- /TODO -->
+
+			%content%
+		</div>
+
+	</body>
+</html>
