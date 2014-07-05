@@ -78,7 +78,7 @@ blockquote cite:before {
 	content: "\2014 \2009";
 }
 
-table {
+table:not(.pika-table) {
         /* counter-reset: row; */
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 14px;
@@ -88,9 +88,9 @@ table {
 	text-align: left;
 }
 
-table tr { counter-increment: row }
+table:not(.pika-table) tr { counter-increment: row }
 
-table tr td:first-child::before {
+table:not(.pika-table) tr td:first-child::before {
 	content: counters(row, ".", decimal-leading-zero);
 	min-width: 1em;
 	margin-right: 0.5em;
@@ -147,13 +147,13 @@ del {text-decoration: line-through; color: #777777;}
 }
 
 .icon-left-open, .icon-right-open, .icon-home, .icon-calendar-empty {
-	color: #EDEDED;
+	color: #8B8878;
 	font-size: 20px;
 	text-decoration: none;
 }
 
 .icon-left-open:hover, .icon-right-open:hover, .icon-home:hover, .icon-calendar-empty:hover {
-	color: #8B8878;
+	color: #8B0078;
 	font-size: 20px;
 	text-decoration: none;
 }
