@@ -36,22 +36,6 @@ Host aws-kb
 	HostName 54.72.33.227
 	IdentityFile ~/.ssh/aws-kb.pem
 
-#------ [ Atpl ]
-
-Host atpl
-	User root
-	HostName 193.169.52.221
-
-Host atpl-v-sites
-	User root
-	HostName 192.168.115.50
-	ProxyCommand ssh -t -t atpl -W %h:%p
-
-Host atpl-v-sql
-	User root
-	HostName 192.168.115.102
-	ProxyCommand ssh -t -t atpl -W %h:%p
-
 #------ [ Office ]
 
 Host office
