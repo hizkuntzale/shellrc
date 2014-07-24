@@ -149,6 +149,8 @@ endfun
 " }}}
 " {{{ The Dict(word) function call a dict command for word
 fun! Dict(word)
+    let dict = $HOME . "/.shellrc/var/memory/dictionary"
+    call writefile(readfile(dict)+[a:word], dict)
     call OpenHelpWin("sdcv -n --data-dir ~/.shellrc/etc/soft/sdcv/dictionaries/ ".a:word." 2>/dev/null", 'dict', a:word)
 	normal G2kzvztk0
 endfun

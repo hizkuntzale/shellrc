@@ -484,6 +484,12 @@ gitnew() {
 	git branch experimental
 }
 
+#- Перевод слов/выражений с сохранением слова в файл
+t() {
+	echo "$*" >> $SHELLRC/var/memory/dictionary
+	sdcv "$*"
+}
+
 #- Vimwiki
 alias ,ww="vim -c VimwikiIndex" #noindex
 
