@@ -73,7 +73,7 @@ fi
 
 #- Подсветка текущего дня в календаре
 function cal() {
-	[ -z "$1" ] && command cal -m $(\date +%m) | clr "$(\date +%_d)" || command cal -m $*
+	[ -z "$1" ] && command cal -m | clr "$(\date +%_d)" || command cal -m $*
 }
 
 #- Запуск программ без привязки к сессии
@@ -87,8 +87,6 @@ alias ealias="$EDITOR $ALIASES"						#noindex
 alias reload=". ~/.bashrc"
 #- Выход из сеанса
 alias :q="exit"
-#- Очистка экрана
-alias c='clear'
 #- ls с цифровым видом прав
 alias lls="ls -l | sed 's/--x/1/g; s/-w-/2/g; s/-wx/3/g; s/r--/4/g;
 			s/r-x/5/g; s/rw-/6/g; s/rwx/7/g; s/---/0/g'"
@@ -166,17 +164,6 @@ alias w1="watch -n 1" #noindex
 #{{{ \033[00m\n\b------<Мультимедийные_функции>\n
 ################################################################################
 
-#- Просмотр фильмов в алфавитном порядке
-pnext() {
-	case $1 in
-		-clear) rm -i ./done.txt ;;
-		-last) vlc "$(tail -n 1 ./done.txt)" ;;
-		*) diff -N <(\ls -1 *.avi *.mkv *.mp4 *.flv *.mov 2>&-) done.txt \
-				| sed "s/< //;2q;d" \
-				| tee -a ./done.txt | xargs vlc
-	esac
-}
-
 #- Конвертирование аудио в mp3
 a2mp3() { lame -b ${2:-320} --noreplaygain -q 0 -m s -k -p "$1"; }
 
@@ -186,27 +173,6 @@ lastfmlog() { watch -n 1 "tail $SHELLRC/var/log/mpdscribble.log"; }
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Сетевые_функции>\n
 ################################################################################
-
-#- Список открытых портов
-alias ports="netstat -lp --inet"
-#- Просмотр ARP-таблицы
-alias arpt="arp -an | column -t"
-#- Информация о сети
-netinfo() {
-	echo -e "$yellow—————— Сетевая информация ——————$rstc"
-	ifconfig | awk /'Bcast/ {print $3}; /HWaddr/ {print $4,$5}'
-	lynx -dump http://checkip.dyndns.org:8245/ | sed 's/^   //g; 1q;d'
-	echo -e "$yellow————————————————————————————————$rstc"
-}
-
-#- Отображение заголовка HTML страницы
-headers() {
-	local port=${2:-80}
-	exec 5<> /dev/tcp/$1/$port
-	printf "GET / HTTP/1.0\n\n" >&5
-	cat <&5
-	exec 5>&-
-}
 
 #- Загрузка проекта с github.com
 githubdl() {
@@ -219,13 +185,6 @@ githubdl() {
 
 #- Vim
 alias :e="vim"
-
-# alias c+r="chmod +r"
-# alias c+w="chmod +w"
-# alias c+x="chmod +x"
-# alias c-r="chmod -r"
-# alias c-w="chmod -w"
-# alias c-x="chmod -x"
 
 #- Переход с поиском выше по дереву директорий
 up() {
@@ -254,35 +213,9 @@ alias 2U="iconv -c -t utf8"
 #- Конвертирование обложки в png
 alias cover2png="mv *.jpg cover.jpg; convert cover.jpg cover.png && rm -f cover.jpg"
 
-#- Копирование файлов с прогрессом
-alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h"
-#- Перемещение файлов с прогрессом
-alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
-
-#- Вывод колонки текста
-alias cln="cut -d ' ' -f"
-
-#- Копирование файла в директорию книг для прочтения
-toread() { #noindex
-	READDIR=/media/MEDIA/Книги/Прочитать/
-	\cp -v -i "$@" $READDIR
-}
-
 lnt() { #noindex
 	ln -s "$(pwd)/$1" "$HOME/Downloads/TORRENTS/${2:-}"
 }
-
-#- Файловое дерево -> html
-ls2html() {
-	\tree --dirsfirst -C -L $1 -H "$(pwd)" \
-	--charset=utf8 -o $(sed -r "s/\///; s/\//_/g" <(pwd)).html
-}
-
-#- Пропуск N строк с начала файла и вывод в консоль
-skip () { tail -n $(( $( grep -c . $2)-$1 )) "$2"; }
-
-#- Показ строки файла по номеру
-str() { sed ""$1"q;d"; }
 
 #- Создание резервной копии файла
 backup() { cp $1{,.$(\date "+%d-%m-%Y.%T").bak}; }
@@ -301,9 +234,6 @@ sortf() { #noindex
 	mkdir -p ./Wine     ; mv *{.exe,.EXE} ./Wine
 	mkdir -p ./Vim      ; mv *{.vim,.vba} ./Vim
 } 2>&-
-
-#- mc TORRENTS Music/new
-alias mcm="mc $HOME/Downloads/TORRENTS/ /media/2TB/Music/new/"
 
 #- Вывод размера файлов в отсортированном виде
 dus() {
@@ -386,13 +316,6 @@ alias vcatwhich="dowhich vcat" #noindex
 #{{{ \033[00m\n\b------<Администрирование>\n
 ################################################################################
 
-#- Установленные пакеты
-alias pkgs="ls /var/log/packages/ | tail -n +2 | nl"
-#- Просмотр обновлений системы
-alias updates="cat $SHELLRC/var/log/updates"
-#- Последние версии ядра
-alias kernel="finger @kernel.org"
-
 #- Копирование файла $1 в $SHELLRC/bin/$2
 cpbin() {
 	cp $1 $SHELLRC/bin/$2/
@@ -420,15 +343,10 @@ passgen() {
 alias uuids="ls /dev/disk/by-uuid/"
 #- Монтирование образов
 alias mntiso="mount -o loop -t iso9660 $1 $2"
-#- Поиск suid-файлов
-alias fsuid='find / -perm +6000 -type f -exec ls -ld {} \; | column -t | nl'
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Сборка_и_установка_ПО>\n
 ################################################################################
-
-#- Запуск шелла perl -MCPAN
-alias pcpan='perl -MCPAN -e shell'
 
 #- Создание документации robodoc
 robodoc2html() {
@@ -450,8 +368,6 @@ robodoc2html() {
 
 #- Поиск процесса по имени
 alias pgrep="pgrep -l"
-#- Завершение процесса по имени
-pskill() { kill -9 `pgrep $1`; }
 #- Запуск сервиса
 start() { su -c "sh $1 start"; }
 #- Остановка сервиса
@@ -470,19 +386,8 @@ calc() { echo "$*" | bc -l; }
 #{{{ \033[00m\n\b------<Прочее>\n
 ################################################################################
 
-#- Проверка правописания по словарю
-spell() { echo "$@" | aspell -a | clr $@; }
 #- Подсветка выражений
 clr() { sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g"; }
-
-#- Создание git-репозитория с ветками master/stable/experimental
-gitnew() {
-	git init
-	git add .
-	git commit -m "Create GIT repository"
-	git branch stable
-	git branch experimental
-}
 
 #- Перевод слов/выражений с сохранением слова в файл
 t() {
