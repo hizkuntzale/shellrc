@@ -6,44 +6,44 @@
 
 + shell/bash/bash_profile          ~
 + shell/bash/bashrc                ~
-+ shell/guile/guile                ~
+- shell/guile/guile                ~
 + shell/tcl/tclshrc                ~
 + shell/tcl/wishrc                 ~
-+ shell/screen/screenrc            ~
+- shell/screen/screenrc            ~
 
 # [ X.org ]
 
 + X/Xdefaults                      ~
 + X/xinitrc.$(uname -i)            ~
-+ wm/gtk/gtkrc-2.0                 ~
-+ wm/gtk/gtk-bookmarks             ~
+- wm/gtk/gtkrc-2.0                 ~
+- wm/gtk/gtk-bookmarks             ~
 + wm/musca/musca_start.$(uname -i) ~
-+ wm/fonts/fonts.conf              ~
+- wm/fonts/fonts.conf              ~
 
 # [ Net ]
 
 + net/ssh                          ~
 - net/rtorrent/rtorrent.rc         ~
 + net/lftp/lftprc                  ~
-+ net/snownews                     ~
+- net/snownews                     ~
 + mail/mailcap/mailcap             ~
 + mail/procmail/procmailrc         ~
 
 # [ Soft ]
 
 + media/ncmpcpp                    ~
-+ media/scmpc                      ~
+- media/scmpc                      ~
 - soft/bar/barrc                   ~
 + soft/conky/conkyrc.$(uname -i)   ~
-+ soft/ctags/ctags                 ~
+- soft/ctags/ctags                 ~
 + soft/htop                        ~/.config
-+ soft/mc                          ~/.config
+- soft/mc                          ~/.config
 + soft/vim/vim                     ~
 + soft/vim/vimrc                   ~
 - soft/vimperator                  ~
 - soft/vimperator/vimperatorrc     ~
 + soft/git/gitconfig               ~
-+ soft/git/gitk                    ~
+- soft/git/gitk                    ~
 
 : ---------------------------------------------------------------
 
@@ -53,10 +53,10 @@ mkdir -v net/ssh/sessions
 
 : ---------------------------------------------------------------
 
-xdg-mime default zathura.desktop application/pdf
-xdg-mime default gpicview.desktop  image/gif
-xdg-mime default gpicview.desktop  image/jpg
-xdg-mime default gpicview.desktop  image/png
+#xdg-mime default zathura.desktop application/pdf
+#xdg-mime default gpicview.desktop  image/gif
+#xdg-mime default gpicview.desktop  image/jpg
+#xdg-mime default gpicview.desktop  image/png
 
 : ---------------------------------------------------------------
 
