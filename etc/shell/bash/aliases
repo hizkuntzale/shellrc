@@ -56,7 +56,6 @@ alias zathura="nh zathura"	#noindex
 alias z="nh zathura"		#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
-alias sdcv="sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/"
 
 alias fm="PAGER=autoex fm" #noindex
 
@@ -391,8 +390,7 @@ clr() { sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g"; }
 
 #- Перевод слов/выражений с сохранением слова в файл
 t() {
-	echo "$*" >> $SHELLRC/var/memory/dictionary
-	sdcv "$*"
+	sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/ "$*"
 }
 
 #- Vimwiki

@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вс 27 апр 2014 16:27:51
+# Изменён: Вс 27 июл 2014 10:46:23
 #
 ################################################################################
 
@@ -12,6 +12,10 @@ export BASH_ENV="$HOME/.bashrc"			#Файл настроек интерпрет�
 export SHELLRC="$HOME/.shellrc"			#Путь к директории настроек
 export BASHRC="$SHELLRC/etc/shell/bash"		#Путь к настройкам bash
 export INPUTRC="$BASHRC/inputrc"		#Файл inputrc
+
+export STARDICT_DATA_DIR=$SHELLRC/etc/soft/sdcv/dictionaries/
+export SDCV_HISTSIZE=10000
+#export SDCV_PAGER=less
 
 export TERM=xterm
 
