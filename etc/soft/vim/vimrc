@@ -1,6 +1,6 @@
 " ~/.vimrc
 "
-" Изменён: Чт 06 мар 2014 12:23:31
+" Изменён: Вс 10 авг 2014 19:26:14
 "
 "###############################################################################
 " {{{				НАСТРОЙКИ VIM
@@ -776,19 +776,6 @@ nmap <Leader>qr <Plug>(quickhl-reset)
 vmap <Leader>qr <Plug>(quickhl-reset)
 "}}}
 
-" Textmanip {{{
-nmap <Leader>pP <Plug>(textmanip-duplicate-up)
-vmap <Leader>pP <Plug>(textmanip-duplicate-up)
-
-nmap <Leader>pp <Plug>(textmanip-duplicate-down)
-vmap <Leader>pp <Plug>(textmanip-duplicate-down)
-
-vmap <Leader>k <Plug>(textmanip-move-up)
-vmap <Leader>j <Plug>(textmanip-move-down)
-vmap <Leader>l <Plug>(textmanip-move-right)
-vmap <Leader>h <Plug>(textmanip-move-left)
-"}}}
-
 " CommentToggle"{{{
 nmap <C-C> <Plug>CommentToggle
 imap <C-C> <ESC><Plug>CommentToggle
@@ -825,10 +812,6 @@ xmap <C-o>     <Plug>(neosnippet_expand_target)
 if has('conceal')
 	set conceallevel=2 concealcursor=i
 endif
-"}}}
-
-"Scratch {{{
-nmap <Leader><Space> :Sscratch<CR>
 "}}}
 
 " Timestamp {{{
