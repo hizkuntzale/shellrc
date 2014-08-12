@@ -391,11 +391,29 @@ calc() { echo "$*" | bc -l; }
 ################################################################################
 
 #- Подсветка выражений
-clr() { sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g"; }
+clr() {
+	case "$1" in
+		-bb) sed -r -e "s/$2/`echo -e "\033"`[7;34m&`echo -e "\033"`[1;0m/g";;
+		-bc) sed -r -e "s/$2/`echo -e "\033"`[7;36m&`echo -e "\033"`[1;0m/g";;
+		-bg) sed -r -e "s/$2/`echo -e "\033"`[7;32m&`echo -e "\033"`[1;0m/g";;
+		-br) sed -r -e "s/$2/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g";;
+		-by) sed -r -e "s/$2/`echo -e "\033"`[7;33m&`echo -e "\033"`[1;0m/g";;
+		-fb) sed -r -e "s/$2/`echo -e "\033"`[1;34m&`echo -e "\033"`[1;0m/g";;
+		-fc) sed -r -e "s/$2/`echo -e "\033"`[1;36m&`echo -e "\033"`[1;0m/g";;
+		-fg) sed -r -e "s/$2/`echo -e "\033"`[1;32m&`echo -e "\033"`[1;0m/g";;
+		-fr) sed -r -e "s/$2/`echo -e "\033"`[1;31m&`echo -e "\033"`[1;0m/g";;
+		-fy) sed -r -e "s/$2/`echo -e "\033"`[1;33m&`echo -e "\033"`[1;0m/g";;
+		* ) sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g";;
+	esac
+}
 
 #- Перевод слов/выражений с сохранением слова в файл
 t() {
-	sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/ "$*"
+	sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/ "$*" \
+		| clr -bg --.* \
+		| clr -fg '\[.*\]' \
+		| clr -fy '=|~|[[:space:]]+[0-9a-zA-Zа-яА-Я]{1,2}\)|^[0-9]\.|^I+[[:space:]]' \
+		| clr -fc "'"
 }
 
 #- Vimwiki
