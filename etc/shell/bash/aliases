@@ -311,6 +311,11 @@ alias nlwhich="dowhich nl"     #noindex
 alias catwhich="dowhich cat"   #noindex
 alias vcatwhich="dowhich vcat" #noindex
 
+#- Список уникальных слов с количеством вхождений
+wcu() {
+	cat "$1" | tr -cs A-Za-z\' '\n' | tr A-Z a-z | sort | uniq -c | sort -nr | nl
+}
+
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Администрирование>\n
 ################################################################################
