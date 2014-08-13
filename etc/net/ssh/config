@@ -2,15 +2,6 @@ Host *
 	ControlMaster auto
 	ControlPath   /home/%u/.ssh/sessions/%h_%p_%r
 
-#------ [ DC ]
-
-Host dc
-	User taxi
-	HostName 193.169.52.76
-
-Host dc-v-sites
-	HostName 193.169.52.78
-
 #------ [ TX ]
 
 Host tx-o
@@ -35,6 +26,12 @@ Host aws-kb
 	User ubuntu
 	HostName 54.72.33.227
 	IdentityFile ~/.ssh/aws-kb.pem
+
+#------ [ VPS ]
+
+Host vps-kb
+	User root
+	HostName 188.120.250.231
 
 #------ [ Office ]
 
