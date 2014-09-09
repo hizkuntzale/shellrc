@@ -415,7 +415,8 @@ t() {
 		| clr -bg --.* \
 		| clr -fm '\[.*\]' \
 		| clr -fy '=|~|[[:space:]]+[0-9a-zA-Zа-яА-Я]{1,2}\)|^[0-9]\.|^I+[[:space:]]' \
-		| clr -fc "'"
+		| clr -fc "'" \
+		| sed "s/\&apos;/'/g"
 }
 
 #- Vimwiki
