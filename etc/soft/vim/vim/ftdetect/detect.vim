@@ -42,3 +42,6 @@ au BufReadPre		*.pdf set ro
 au BufReadPre		*.pdf set hlsearch!
 au BufReadPost		*.pdf %!pdftotext -nopgbrk "%" - | fmt -csw78
 au BufReadPost		*.pdf set filetype=txt
+
+au BufRead,BufNewFile *.rsc set filetype=rsc
+
