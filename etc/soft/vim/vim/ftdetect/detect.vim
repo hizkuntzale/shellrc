@@ -3,8 +3,8 @@ au BufNewFile,BufRead	*.hs set foldmethod=expr
 
 au BufNewFile,BufRead	*.test set filetype=tcl
 au BufNewFile,BufRead	*.txt set textwidth=80
+au BufNewFile,BufRead	*.txt set filetype=txt
 
-au BufRead,BufNewFile	* setfiletype txt
 au BufRead,BufNewFile	*.tex set filetype=tex
 au BufRead,BufNewFile	*.pro set filetype=prolog
 au BufRead,BufNewFile	*.xpt.vim set filetype=xpt.vim
