@@ -402,10 +402,6 @@ vmap > >gv
 " imap <C-t> <ESC>:tabnew<cr>
 " vmap <C-t> <ESC>:tabnew<cr>
 
-iabbrev chg Создан:  TIMESTAMP#Изменён: TIMESTAMP<ESC>F#xi
-
-iabbrev cpr (c) 2013 Maxim Lihachev, <envrm@yandex.ru><ESC>
-
 " Редактирование командной строки как в Emacs
 cnoremap <C-B>      <Left>
 cnoremap <C-E>      <End>
@@ -589,6 +585,10 @@ iabbrev rUV  USED VARIABLES
 iabbrev rV   VARIABLE
 iabbrev rVS  VARIABLES
 iabbrev rW   WARNING
+
+iabbrev chg Создан:  TIMESTAMP#Изменён: TIMESTAMP<ESC>F#xi
+
+iabbrev cpr (c) 2014 Maxim Lihachev, <envrm@yandex.ru><ESC>
 
 " }}}###########################################################################
 " {{{			ВВОД КОМАНД В РУССКОЙ РАСКЛАДКЕ
