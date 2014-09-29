@@ -4,7 +4,7 @@
 
 # [ Shell ]
 
-+ shell/bash/bash_profile          ~
+- shell/bash/bash_profile          ~
 + shell/bash/bashrc                ~
 - shell/guile/guile                ~
 + shell/tcl/tclshrc                ~
@@ -39,7 +39,7 @@
 + soft/htop                        ~/.config
 - soft/mc                          ~/.config
 + soft/vim/vim                     ~
-+ soft/vim/vimrc                   ~
+- soft/vim/vimrc                   ~
 - soft/vimperator                  ~
 - soft/vimperator/vimperatorrc     ~
 + soft/git/gitconfig               ~
