@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Пн 29 сен 2014 23:43:15
+# Изменён: Вт 30 сен 2014 00:15:12
 #
 ################################################################################
 
@@ -46,6 +46,7 @@ export IGNOREEOF=3				#Закрывать оболочку по 3м C-d
 export LOGDIR=$SHELLRC/var/log			#Директория журналов скриптов
 export TODO=$SHELLRC/etc/soft/calcurse/todo  #Список дел
 export MD=$SHELLRC/var/mail/			#Директория почты
+export MAILCAPS=$SHELLRC/etc/mail/mailcap/mailcap #~/.mailcap
 export CRON=$SHELLRC/etc/cron/crontab	#Задания cron
 export TMP="/tmp"				#Директория временных файлов
 

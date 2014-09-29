@@ -24,9 +24,9 @@
 
 + net/ssh                          ~
 - net/rtorrent/rtorrent.rc         ~
-+ net/lftp/lftprc                  ~
+- net/lftp/lftprc                  ~
 - net/snownews                     ~
-+ mail/mailcap/mailcap             ~
+- mail/mailcap/mailcap             ~
 + mail/procmail/procmailrc         ~
 
 # [ Soft ]

@@ -57,6 +57,7 @@ alias z="nh zathura"		#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
 alias startx="xinit -- /usr/bin/X" #noindex
+alias lftp="LFTP_HOME=$SHELLRC/etc/net/lftp lftp"
 
 alias fm="PAGER=autoex fm" #noindex
 
