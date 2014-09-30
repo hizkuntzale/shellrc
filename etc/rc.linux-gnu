@@ -4,7 +4,7 @@
 
 # [ Shell ]
 
-- shell/bash/bash_profile          ~
++ shell/bash/bash_profile          ~
 + shell/bash/bashrc                ~
 - shell/guile/guile                ~
 + shell/tcl/tclshrc                ~
