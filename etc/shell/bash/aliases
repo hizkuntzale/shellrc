@@ -47,7 +47,7 @@ alias src=vimcat							#noindex
 #- Замена стандартных путей для конфигурационных файлов
 alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
 alias mpdr="\mpd $SHELLRC/etc/media/mpd/mpd_remote.conf"		#noindex
-alias vim="vim -N -u $SHELLRC/etc/soft/vim/vimrc -i $SHELLRC/var/vim/viminfo -p $*"	#noindex
+alias vim="vim -N -i $SHELLRC/var/vim/viminfo -p $*"	#noindex
 alias mutt="mutt -F $SHELLRC/etc/mail/mutt/muttrc && echo "0" > $MD/new" #noindex
 alias screen="TERM=rxvt-256color screen" #noindex
 alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
