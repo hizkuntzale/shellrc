@@ -401,6 +401,7 @@ clr() {
 		-br) sed -r -e "s/$2/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g";;
 		-by) sed -r -e "s/$2/`echo -e "\033"`[7;33m&`echo -e "\033"`[1;0m/g";;
 		-bm) sed -r -e "s/$2/`echo -e "\033"`[7;35m&`echo -e "\033"`[1;0m/g";;
+		-fo) sed -r -e "s/$2/`echo -e "\033"`[1;91m&`echo -e "\033"`[1;0m/g";;
 		-fb) sed -r -e "s/$2/`echo -e "\033"`[1;34m&`echo -e "\033"`[1;0m/g";;
 		-fc) sed -r -e "s/$2/`echo -e "\033"`[1;36m&`echo -e "\033"`[1;0m/g";;
 		-fg) sed -r -e "s/$2/`echo -e "\033"`[1;32m&`echo -e "\033"`[1;0m/g";;
@@ -417,6 +418,7 @@ t() {
 		| clr -bg --.* \
 		| clr -fm '\[.*\]' \
 		| clr -fy '=|~|[[:space:]]+[0-9a-zA-Zа-яА-Я]{1,2}\)|^[0-9]\.|^I+[[:space:]]' \
+		| clr -fo 'амер(иканизм|\.)?' \
 		| clr -fc "'" \
 		| sed "s/\&apos;/'/g"
 }
