@@ -1,5 +1,5 @@
 :: Создан:  Пт 16 авг 2013 13:05:48
-:: Изменён: Сб 14 сен 2013 12:30:13
+:: Изменён: Пн 13 окт 2014 11:13:17
 
 @ECHO OFF
 
@@ -105,7 +105,7 @@ MODE CON: COLS=100 LINES=50
 
 :: Cygwin
 
-if exist D:\etc\bin\cygwin\bin\mintty.exe (
+if exist C:\cygwin64\bin\mintty.exe (
 	@DOSKEY sh=start D:\etc\bin\cygwin\bin\mintty.exe
 )
 
