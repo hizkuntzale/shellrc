@@ -42,7 +42,8 @@ alias pstree="pstree -U -h"						#noindex
 alias mkdir="mkdir -p -v"						#noindex
 alias j="jobs -l"							#noindex
 alias dirs="dirs -v"							#noindex
-alias src=vimcat							#noindex
+alias src=vcat								#noindex
+alias tt=ctorrent							#noindex
 
 #- Замена стандартных путей для конфигурационных файлов
 alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
