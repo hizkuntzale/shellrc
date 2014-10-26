@@ -58,7 +58,7 @@ alias z="nh zathura"		#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
 alias startx="xinit -- /usr/bin/X" #noindex
-alias lftp="LFTP_HOME=$SHELLRC/etc/net/lftp lftp"
+alias lftp="LFTP_HOME=$SHELLRC/etc/net/lftp lftp" #noindex
 
 alias fm="PAGER=autoex fm" #noindex
 
@@ -74,7 +74,7 @@ fi
 ################################################################################
 
 #- Подсветка текущего дня в календаре
-function cal() {
+function cal() { #noindex
 	[ -z "$1" ] && command cal -m | clr "$(\date +%_d)" || command cal -m $*
 }
 
@@ -84,17 +84,17 @@ nh() {
 }
 
 #- Правка псевдонимов в Vim
-alias ealias="$EDITOR $ALIASES"						#noindex
+alias ealias="$EDITOR $ALIASES" #noindex
 #- Перезагрузка конфигов баша
-alias reload=". ~/.bashrc"
+alias reload=". ~/.bashrc" #noindex
 #- Выход из сеанса
-alias :q="exit"
+alias :q="exit" #noindex
 #- ls с цифровым видом прав
 alias lls="ls -l | sed 's/--x/1/g; s/-w-/2/g; s/-wx/3/g; s/r--/4/g;
 			s/r-x/5/g; s/rw-/6/g; s/rwx/7/g; s/---/0/g'"
 
 #- История bash
-h() { [ -z "$1" ] && history || history | grep "$1"; }
+h() { [ -z "$1" ] && history || history | grep "$1"; } #noindex
 
 #Переназначение функции, вызываемой неизвестной командой
 command_not_found_handle() {						#noindex
@@ -120,7 +120,7 @@ function date() { #noindex
 }
 
 #- Список функций и псевдонимов
-:h() {
+:h() { #noindex
 printf "$white
 -----------------------[ Функции и псевдонимы ]-----------------------$rstc\n"
 for file in ${HELPSRC[@]}; {
@@ -186,7 +186,7 @@ githubdl() {
 ################################################################################
 
 #- Vim
-alias :e="vim"
+alias :e="vim" #noindex
 
 #- Переход с поиском выше по дереву директорий
 up() {
