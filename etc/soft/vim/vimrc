@@ -615,10 +615,10 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_linecolumn_prefix = '/ '
 let g:airline_branch_prefix = '⇵ '
-let g:airline_paste_symbol = '⬎'
+let g:airline_paste_symbol = ''
 let g:airline_whitespace_symbol = '∅'
 
-let g:airline_section_c = '%t%m%r%h%w%{VicleStatus()}'
+let g:airline_section_c = '%t%m%r%h%w'
 let g:airline_section_z = '%L:%03l,%03v %p%%'
 
 " enable/disable fugitive/lawrencium integration
@@ -649,18 +649,8 @@ let g:airline_theme='wombat'
 let g:airline_powerline_fonts=0
 
 " define the set of text to display for each mode.
-let g:airline_mode_map = { 'i': '+', 'n': '⚫', 'v': '⋕', 'V': '⇄', '': '⇅', 'R': '✂', 'c': '#', 's': 'SELECT', '^S': 'S-BLOCK', 'S': 'S-LINE' }
+let g:airline_mode_map = { 'i': '+', 'n': ' ', 'v': '⇄', 'V': '⇄', '': '⇅', 'R': '✂', 'c': '#', 's': 'SELECT', '^S': 'S-BLOCK', 'S': 'S-LINE' }
 
-" }}}
-
-" Vicle {{{
-function VicleStatus()
-  if exists('t:vicle_screen_sn')
-	  return ' :: ' . t:vicle_screen_sn
-  else
-	  return ''
-  endif
-endfunction
 " }}}
 
 " GIT"{{{
@@ -684,12 +674,6 @@ au BufWinEnter * call GetGitBranches()
 au! BufEnter * if bufname("") !~ ".*COMMIT_EDITMSG.*" | lcd %:p:h | endif
 
 "}}}
-
-" {{{ Gitv
-map <Leader>gv :Gitv --all<cr>
-
-let g:Gitv_OpenHorizontal = 1
-" }}}
 
 " VimWiki"{{{
 let wiki                  = {}
