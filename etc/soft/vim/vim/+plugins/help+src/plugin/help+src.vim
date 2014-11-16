@@ -55,7 +55,7 @@ command! -nargs=1 GoToSection	call GoToSection(<f-args>)
 " {{{ Mappings
 nmap fs			:call Src(expand("<cword>"))<CR>
 nmap fm			:call Help(expand("<cword>"))<CR>
-nmap fw			:call Dict(expand("<cword>"))<CR>
+" nmap fw			:call Dict(expand("<cword>"))<CR>
 nmap <F1>		:call Help(expand("<cword>"))<CR>
 nmap <F1><F1>		:call Dict(expand("<cword>"))<CR>
 imap <F1><F1> 		<ESC>:call Dict(expand("<cword>"))<CR>

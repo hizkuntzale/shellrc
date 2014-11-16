@@ -824,5 +824,9 @@ let g:figletFont = 'slant'
 vnoremap <silent> <Enter> :EasyAlign<cr>
 " }}}
 
+" Help/Src {{{
+nmap fw			,qq<ESC>:call Dict(expand("<cword>"))<CR>
+" }}}
+
 " }}}###########################################################################
 
