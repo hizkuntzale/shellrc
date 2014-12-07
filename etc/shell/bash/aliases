@@ -116,7 +116,7 @@ command_not_found_handle() {						#noindex
 
 #- Дата
 function date() { #noindex
-     command date "${@:-'+%A, %d %B %Y, %H:%M'}"
+     command date ${@:-'+%A, %d %B %Y, %H:%M'}
 }
 
 #- Список функций и псевдонимов
