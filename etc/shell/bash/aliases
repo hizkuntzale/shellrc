@@ -116,7 +116,11 @@ command_not_found_handle() {						#noindex
 
 #- Дата
 function date() { #noindex
-     command date ${@:-'+%A, %d %B %Y, %H:%M'}
+	if [ -z "$1" ]; then
+		command date '+%A, %d %B %Y, %H:%M'
+	else
+		command date "$@"
+	fi
 }
 
 #- Список функций и псевдонимов
