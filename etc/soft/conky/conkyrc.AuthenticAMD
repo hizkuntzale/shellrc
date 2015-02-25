@@ -46,7 +46,7 @@ ${if_mounted /home}$color | home: ${color brown}${fs_free /home/maks}${endif}\
 ${if_mounted /mnt/DATA}$color | data: ${color brown}${fs_free /mnt/DATA}${endif}\
 ${if_mounted /mnt/MEDIA}$color | media: ${color brown}${fs_free /mnt/MEDIA}${endif}\
 ${if_mounted /mnt/FLASH}$color | flash: ${color brown}${fs_free /mnt/FLASH}${endif}\
-${if_mpd_playing}${offset 50}${color darkgreen}[$mpd_smart - $mpd_length/$mpd_percent%]$color${endif}\
+#${if_mpd_playing}${offset 50}${color darkgreen}[$mpd_smart - $mpd_length/$mpd_percent%]$color${endif}
 ${goto 1103}\
 ${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}$color\
 ${if_match ${battery_percent BAT0} <= 20}${color red}${endif}\
