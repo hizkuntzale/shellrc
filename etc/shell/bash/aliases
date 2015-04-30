@@ -177,13 +177,13 @@ a2mp3() { lame -b ${2:-320} --noreplaygain -q 0 -m s -k -p "$1"; }
 lastfmlog() { watch -n 1 "tail $SHELLRC/var/log/mpdscribble.log"; }
 
 #- Поворот изображения вправо на 90 градусов
-imgRR() { echo "$i"; convert -rotate 90 "$1" "$1"; }
+imgRR() { echo "$1"; convert -rotate 90 "$1" "$1"; }
 
 #- Поворот изображения влево на 90 градусов
-imgRL() { echo "$i"; convert -rotate -90 "$1" "$1"; }
+imgRL() { echo "$1"; convert -rotate -90 "$1" "$1"; }
 
 #- Уменьшение размера изображения на 50%
-img50() { echo "$i"; convert -resize 50% "$1" "$1"; }
+img50() { echo "$1"; convert -resize 50% "$1" "$1"; }
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Сетевые_функции>\n
