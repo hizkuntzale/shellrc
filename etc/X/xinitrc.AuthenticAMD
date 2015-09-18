@@ -2,7 +2,7 @@ display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).1.jpg -display :0.0
 display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).2.jpg -display :0.1
 
 setxkbmap -model pc104 -layout us,ru -variant ,
-setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle
+setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle,compose:ralt
 
 xmodmap $SHELLRC/etc/X/Xmodmaprc.$(uname -i)
 xmodmap -e "keysym Menu = Super_R"
