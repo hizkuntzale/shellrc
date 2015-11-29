@@ -1,0 +1,3 @@
+[submodule "etc/soft/vim/vim/+plugins/look-up"]
+	path = etc/soft/vim/vim/+plugins/look-up
+	url = git://github.com/envrm/look-up.git
