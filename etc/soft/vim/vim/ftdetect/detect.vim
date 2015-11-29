@@ -38,6 +38,11 @@ au BufReadPre		*.odt set hlsearch!
 au BufReadPost		*.odt %!odt2txt "%"
 au BufReadPost		*.odt set filetype=txt
 
+au BufReadPre		*.rtf set ro
+au BufReadPre		*.rtf set hlsearch!
+au BufReadPost		*.rtf %!catdoc "%"
+au BufReadPost		*.rtf set filetype=txt
+
 au BufReadPre		*.pdf set ro
 au BufReadPre		*.pdf set hlsearch!
 au BufReadPost		*.pdf %!pdftotext -nopgbrk "%" - | fmt -csw78

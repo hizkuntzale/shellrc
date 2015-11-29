@@ -564,7 +564,8 @@ type/^Microsoft\ Word
 
 # RTF document
 shell/i/.rtf
-	Open=/usr/libexec/mc/ext.d/doc.sh open msdoc
+	Open=catdoc
+	View=%view{ascii} catdoc
 
 # Microsoft Excel Worksheet
 regex/i/\.xl[sw]$
