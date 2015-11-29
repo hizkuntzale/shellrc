@@ -55,7 +55,6 @@ command! -nargs=1 GoToSection	call GoToSection(<f-args>)
 " {{{ Mappings
 nmap fs			:call Src(expand("<cword>"))<CR>
 nmap fm			:call Help(expand("<cword>"))<CR>
-" nmap fw			:call Dict(expand("<cword>"))<CR>
 nmap <F1>		:call Help(expand("<cword>"))<CR>
 nmap <F1><F1>		:call Dict(expand("<cword>"))<CR>
 imap <F1><F1> 		<ESC>:call Dict(expand("<cword>"))<CR>
@@ -145,17 +144,6 @@ fun! Man(page, ...)
 	if go_to != ''
 		call GoToSection(go_to)
 	endif
-endfun
-" }}}
-" {{{ The Dict(word) function call a dict command for word
-fun! Dict(word)
-    if filereadable(expand('%:p'))
-        let dict = expand('%:p') . ".dict"
-        call writefile(readfile(dict)+[a:word], dict)
-    endif
-
-    call OpenHelpWin("sdcv -n --data-dir ~/.shellrc/etc/soft/sdcv/dictionaries/ ".a:word." 2>/dev/null", 'dict', a:word)
-	normal G2kzvztk0
 endfun
 " }}}
 " {{{ The Pydoc(word) function gets a python documentation for word
