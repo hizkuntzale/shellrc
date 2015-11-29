@@ -239,15 +239,15 @@ backup() { cp $1{,.$(\date "+%d-%m-%Y.%T").bak}; }
 unhtml() { cat $1 | sed -e :a -e 's/<[^>]*>//g;/</N;//ba'; }
 
 sortf() { #noindex
-	mkdir -p ./Archives ; mv *{.rar,.tar.*,.bz2,.gz,.tar,.t?z?,.zip,.7z,.tgz} ./Archives
-	mkdir -p ./Images   ; mv *{.jpg,.JPG,.jpeg,.bmp,.gif,.png} ./Images
-	mkdir -p ./Video    ; mv *{.avi,.mpg,.mp4,.dvx,.flv} ./Video
-	mkdir -p ./Docs     ; mv *{.doc,.odt,.pdf,.txt,.rtf} ./Docs
-	mkdir -p ./Audio    ; mv *{.ogg,.mp3,.wav,.m3u,.midi,.mid,.gp?} ./Audio
-	mkdir -p ./TFiles   ; mv *.torrent* ./TFiles
-	mkdir -p ./Scripts  ; mv *{.sh,.py,.rb,.tcl} ./Scripts
-	mkdir -p ./Wine     ; mv *{.exe,.EXE} ./Wine
-	mkdir -p ./Vim      ; mv *{.vim,.vba} ./Vim
+	mkdir -p ./Archives ; command mv *{.rar,.tar.*,.bz2,.gz,.tar,.t?z?,.zip,.7z,.tgz} ./Archives
+	mkdir -p ./Images   ; command mv *{.jpg,.JPG,.jpeg,.bmp,.gif,.png} ./Images
+	mkdir -p ./Video    ; command mv *{.avi,.mpg,.mp4,.dvx,.flv} ./Video
+	mkdir -p ./Docs     ; command mv *{.doc,.docx,.odt,.pdf,.txt,.rtf,.fb2,.epub,.djv,.djvu,.chm,.html} ./Docs
+	mkdir -p ./Audio    ; command mv *{.ogg,.mp3,.wav,.m3u,.midi,.mid,.gp?} ./Audio
+	mkdir -p ./TFiles   ; command mv *.torrent* ./TFiles
+	mkdir -p ./Scripts  ; command mv *{.sh,.py,.rb,.tcl} ./Scripts
+	mkdir -p ./Wine     ; command mv *{.exe,.EXE} ./Wine
+	mkdir -p ./Vim      ; command mv *{.vim,.vba} ./Vim
 } 2>&-
 
 #- Вывод размера файлов в отсортированном виде
