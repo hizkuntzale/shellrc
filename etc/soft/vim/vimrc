@@ -824,8 +824,12 @@ let g:figletFont = 'slant'
 vnoremap <silent> <Enter> :EasyAlign<cr>
 " }}}
 
-" Help/Src {{{
-nmap fw			,qq<ESC>:call Dict(expand("<cword>"))<CR>
+" vim-sdcv {{{
+let g:sdcv_save = 1
+let g:sdcv_cmd = "sdcv -n --data-dir ~/.shellrc/etc/soft/sdcv/dictionaries/ "
+
+nmap fw		,qq<ESC>:call Dict(expand("<cword>"))<CR>
+vmap fw		,qq<Esc>gv:call Dict(@*)<CR>
 " }}}
 
 " }}}###########################################################################
