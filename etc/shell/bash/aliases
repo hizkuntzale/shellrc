@@ -289,6 +289,11 @@ fucheck() {
 	} | xargs -0 -n2 mv -v
 }
 
+#- Ссылка на книгу для чтения
+toread() {
+	ln -s "`realpath "$1"`" "/home/maks/FILES/_Книги/Прочесть/$1"
+}
+
 #- Вывод файлов с подсветкой синтаксиса
 vcat() {
 	source-highlight \
