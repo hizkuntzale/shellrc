@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Пн 13 янв 2014 21:36:49
+# Изменён: Вт 12 янв 2016 10:41:53
 #
 
 #Цветовая схема#{{{
@@ -19,7 +19,6 @@ set border_catchall_unfocus #882255
 name work
 hook on add pad 0 0 21 0
 add internet
-add im
 add music
 use video
 pad 0 0 0 0
@@ -34,7 +33,7 @@ refresh
 bind on Mod4+t exec urxvtc
 
 # dmenu
-bind on Mod4+x shell
+bind on Mod4+x exec ~/.shellrc/bin/dmenu/dmenu_exec
 
 # Файловый менеджер dmenu
 bind on Mod4+z exec dmenfm

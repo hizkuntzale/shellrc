@@ -10,7 +10,7 @@ own_window_transparent no
 own_window_colour black
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 1366 3
+minimum_size 1277 3
 draw_shades no
 draw_outline no
 draw_borders no
@@ -40,19 +40,12 @@ TEXT
 [ ${color darkblue}${execi 2 SHELL=/bin/sh musca -c "silent show groups" \
 	| cut -f 2- -d ' ' \
 	| sed -e :a -e '$b;N;s/\n/ | /;ba' \
-	| sed 's/- //g;s/\*/⚫/g'
+	| sed 's/- //g;s/\*/+/g'
 } ]${offset 55}\
 ${alignc} \
 ${if_mounted /}$color /: ${color brown}${fs_free /}${endif}\
-${if_mounted /home/maks}$color | home: ${color brown}${fs_free /home/maks}${endif}\
-${if_mounted /media/2TB}$color | 2TB: ${color brown}${fs_free /media/2TB}${endif}\
-${if_mounted /media/MEDIA}$color | media: ${color brown}${fs_free /media/MEDIA}${endif}\
-${if_mounted /media/DATA}$color | data: ${color brown}${fs_free /media/DATA}${endif}\
-${if_mounted /media/FLASH}$color | flash: ${color brown}${fs_free /media/FLASH}${endif}\
+${if_mounted /home}$color | home: ${color brown}${fs_free /home}${endif}\
+${if_mounted /mnt/data}$color | home: ${color brown}${fs_free /mnt/data}${endif}\
 ${alignr}\
-${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}\
-${color brown}⚠$color ${battery_percent}%$color | \
-${color darkgreen}⏏$color: ${execi 18000 cat $SHELLRC/var/log/updates | wc -l}$color | \
-${color darkred}⌧$color: ${execi 60 cat $MD/new}$color | \
-${color darkblue}[${execi 2 SHELL=/bin/sh skb 1}]$color | \
+${color darkblue}[${execi 2 SHELL=/bin/sh ~/.shellrc/bin/skb 1}]$color | \
 ${color black}${time %H:%M} (${time %d.%m.%Y}) 

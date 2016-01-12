@@ -1,6 +1,6 @@
 # xbindkeysrc.GehuineIntel
 #
-# Изменён: Вс 25 авг 2013 01:57:58
+# Изменён: Вт 12 янв 2016 10:19:05
 #
 
 #Запуск программ#{{{
@@ -12,6 +12,26 @@
 "serial"
 	m:0x40 + c:33
 	Mod4 + p
+
+#}}}
+
+#Запуск программ#{{{
+
+"xkill"
+	m:0xc + c:9
+	Control+Alt + Escape
+
+"import screenshot.png"
+	m:0x0 + c:107
+        Print
+
+"xkill"
+	m:0x10c + c:9
+	Control+Alt+Mod2 + Escape
+
+"import screenshot.png"
+	m:0x10 + c:107
+        Mod2 + Print
 
 #}}}
 
