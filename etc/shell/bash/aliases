@@ -253,10 +253,21 @@ alias tt=ctorrent							#noindex
 
 #- Переименовывание torrent-файла
 ttr() {
-	echo mv -i -v \"$1\" \"$(dumptorrent -b "$1" \
+	echo mv -i -v \"$1\" \"tt_$(dumptorrent -b "$1" \
 				| cut -d ':' -f 2 \
 				| sed 's/^  *//').torrent\" \
 	| sh
+}
+
+#- type с подсветкой синтаксиса
+function type() { #noindex
+	command type "$1" | source-highlight \
+		--src-lang=sh \
+		-f esc \
+		-o STDOUT \
+		--line-number=' ' \
+		--style-file=$SHELLRC/etc/soft/source-hl/default.style
+	echo
 }
 
 #- Вывод размера файлов в отсортированном виде
