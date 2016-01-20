@@ -43,7 +43,6 @@ alias mkdir="mkdir -p -v"						#noindex
 alias j="jobs -l"							#noindex
 alias dirs="dirs -v"							#noindex
 alias src=vcat								#noindex
-alias tt=ctorrent							#noindex
 
 #- Замена стандартных путей для конфигурационных файлов
 alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
@@ -249,6 +248,16 @@ sortf() { #noindex
 	mkdir -p ./Wine     ; command mv *{.exe,.EXE} ./Wine
 	mkdir -p ./Vim      ; command mv *{.vim,.vba} ./Vim
 } 2>&-
+
+alias tt=ctorrent							#noindex
+
+#- Переименовывание torrent-файла
+ttr() {
+	echo mv -i -v \"$1\" \"$(dumptorrent -b "$1" \
+				| cut -d ':' -f 2 \
+				| sed 's/^  *//').torrent\" \
+	| sh
+}
 
 #- Вывод размера файлов в отсортированном виде
 dus() {
