@@ -311,7 +311,11 @@ fucheck() {
 
 #- Ссылка на книгу для чтения
 toread() {
-	ln -s "`realpath "$1"`" "/home/maks/FILES/_Книги/Прочесть/$1"
+	BASEDIR="$HOME/FILES/_Книги/Прочесть"
+
+	[ ! -z "$2" ] && mkdir -p "$BASEDIR/$2"
+
+	ln -s "`realpath "$1"`" "$BASEDIR/${2:-.}/$1"
 }
 
 #- Вывод файлов с подсветкой синтаксиса
