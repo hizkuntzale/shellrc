@@ -11,6 +11,9 @@ etc/media/mpdscribble/mpdscribble.conf
 
 etc/net/snownews
 
+etc/net/lftp/cwd_history
+etc/net/lftp/rl_history
+
 etc/net/ssh/*
 !config
 
