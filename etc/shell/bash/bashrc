@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 28 янв 2016 19:19:52
+# Изменён: Чт 28 янв 2016 19:41:26
 #
 ################################################################################
 
@@ -227,7 +227,8 @@ fi
 
 [ -n "$SSH_CLIENT" ] && PROMPT_SHH="[${red}ssh${PROMPT_COLOR}]"
 
-PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR└─[$PROMPT_COLOR\t]\$ $rstc"
+PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─(${yellow}\j${PROMPT_COLOR})$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR└─[$PROMPT_COLOR\t]\$ $rstc"
+
 PS2="$green-> $rstc"
 PS3="$green+> $rstc"
 PS4="$green++ $rstc"
