@@ -32,9 +32,9 @@
 ##<Вниз> - Поиск вперед по истории
 "\e[B": history-search-forward
 # Поиск назад по истории
-"\C-p": history-search-backward
+# "\C-p": history-search-backward
 # Поиск вперед по истории
-"\C-n": history-search-forward
+# "\C-n": history-search-forward
 
 #Опции интерпретатора
 
