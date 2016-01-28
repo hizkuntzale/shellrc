@@ -86,6 +86,8 @@ nh() {
 alias ealias="$EDITOR $ALIASES" #noindex
 #- Перезагрузка конфигов баша
 alias reload=". ~/.bashrc" #noindex
+#- Перезагрузка конфигов X.org
+alias reloadx="xrdb -merge ~/.Xdefaults" #noindex
 #- Выход из сеанса
 alias :q="exit" #noindex
 #- ls с цифровым видом прав
