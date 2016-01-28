@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Вт 30 сен 2014 00:15:12
+# Изменён: Чт 28 янв 2016 18:46:21
 #
 ################################################################################
 
@@ -234,12 +234,14 @@ PS4="$green++ $rstc"
 
 PROMPT_COMMAND="history -a; history -n;"
 
-export CDPATH=".:~/Programs:~/Programs/Projects:~/Downloads"
+export CDPATH=".:~/FILES:~/FILES/Projects:~/Downloads"
 export PROMPT_DIRTRIM=3			#В приглашении показывать 3 директории
 
 # }}} ##########################################################################
 # {{{				Настройка автодополнения
 ################################################################################
+
+export BASH_COMPLETION="$BASHRC/bash_completion"
 
 [ -f $BASHRC/bash_completion ] && . $BASHRC/bash_completion
 [ -f $BASHRC/bash_completion_custom ] && . $BASHRC/bash_completion_custom
@@ -291,6 +293,13 @@ shopt -s extglob		#Расширенное сопоставление с обра
 # !(шаблон) Всё, кроме одного появления указанного шаблона
 
 [[ (-f $BASHRC/cdargs-bash.sh) && (`uname -o` != Cygwin) ]] && . $BASHRC/cdargs-bash.sh
+
+#Привычные комбинации клавиш для режима vi
+bind -m vi-command ".":insert-last-argument
+bind -m vi-insert "\C-l.":clear-screen
+bind -m vi-insert "\C-a.":beginning-of-line
+bind -m vi-insert "\C-e.":end-of-line
+bind -m vi-insert "\C-w.":backward-kill-word
 
 # }}} ##########################################################################
 

@@ -31,9 +31,9 @@
 "\e[A": history-search-backward
 ##<Вниз> - Поиск вперед по истории
 "\e[B": history-search-forward
-#Поиск назад по истории
+# Поиск назад по истории
 "\C-p": history-search-backward
-#Поиск вперед по истории
+# Поиск вперед по истории
 "\C-n": history-search-forward
 
 #Опции интерпретатора
@@ -82,4 +82,8 @@ set dabbrev-expand on
 
 #Автоматическая подстановка директорий в cd
 set autocd on
+
+set editing-mode vi
+set keymap vi-command
+set show-mode-in-prompt on
 
