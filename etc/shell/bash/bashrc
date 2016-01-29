@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 28 янв 2016 19:41:26
+# Изменён: Пт 29 янв 2016 18:01:05
 #
 ################################################################################
 
@@ -304,6 +304,9 @@ bind -m vi-insert "\C-w.":backward-kill-word
 bind -m vi-insert "\C-o":history-search-backward
 bind -m vi-insert "\C-k":kill-line
 # bind -m vi-insert "\C-n":history-search-forward
+
+#commacd
+source $SHELLRC/etc/shell/bash/commacd
 
 # }}} ##########################################################################
 
