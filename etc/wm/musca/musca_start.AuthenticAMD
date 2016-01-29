@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Вс 30 мар 2014 17:01:35
+# Изменён: Пт 29 янв 2016 14:26:53
 #
 
 #Цветовая схема#{{{
@@ -56,6 +56,9 @@ bind on Mod4+Shift+z exec dmenfm
 
 #Управление mpd
 bind on Mod4+p exec dmpc
+
+# Радио
+bind on Mod4+r exec radio
 
 #Выбор виртуальной машины для запуска
 bind on Mod4+Shift+V exec VM
