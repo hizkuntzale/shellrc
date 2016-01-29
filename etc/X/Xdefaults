@@ -21,7 +21,7 @@ URxvt.keysym.C-End:  \033[8;8^
 URxvt.keysym.Home: \033[7~
 
 !Настрока шрифтов
-Xft.antialias: false
+Xft.antialias: 1
 Xft.dpi: 96
 ! Xft.dpi: 120
 Xft.hinting: 1
