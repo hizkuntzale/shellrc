@@ -25,7 +25,7 @@
 + net/ssh                          ~
 - net/rtorrent/rtorrent.rc         ~
 - net/lftp/lftprc                  ~
-- net/snownews                     ~
++ net/snownews                     ~
 - mail/mailcap/mailcap             ~
 + mail/procmail/procmailrc         ~
 
