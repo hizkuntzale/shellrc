@@ -208,6 +208,11 @@ vdoc() {
 	vim "$1" && libreoffice --convert-to doc --invisible "$1"
 }
 
+#- Копирование содержимого файла в буфер обмена
+xc() {
+	cat "$@" | xclip -selection clipboard
+}
+
 #- Переход с поиском выше по дереву директорий
 up() {
 	[[ "$1" == "" ]] && cd .. \
