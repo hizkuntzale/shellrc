@@ -44,6 +44,7 @@ alias j="jobs -l"							#noindex
 alias dirs="dirs -v"							#noindex
 alias src=vcat								#noindex
 alias ping="pingp --nolegend"						#noindex
+alias gq="geeqie . &"
 
 #- Замена стандартных путей для конфигурационных файлов
 alias mpd="mpd $SHELLRC/etc/media/mpd/mpd.conf"		        #noindex
