@@ -110,7 +110,7 @@ command_not_found_handle() {						#noindex
 			ex="$(echo -n $@ | \
 			sed "y/йцукенгшщзхъфывапролджэячсмитьбю\.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,/qwertyuiop\[\]asdfghjkl;\'zxcvbnm,\.\/QWERTYUIOP\{\}ASDFGHJKL:\"ZXCVBNM<>\?/")"
 			echo "$red[$@] -> $green[$ex]$rstc"
-			$ex
+			bash --rcfile ~/.bashrc -c "$ex"
 		else
 			echo >&2 "$redКоманда ${green}${1}${red} не найдена.$rstc"
 		fi
