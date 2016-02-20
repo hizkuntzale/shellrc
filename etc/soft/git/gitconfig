@@ -60,3 +60,5 @@
 
 	pk = !git archive HEAD --format=zip > `basename $PWD`_`\\date '+%Y.%M.%d'`.zip
 
+[push]
+	default = simple
