@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Сб 20 фев 2016 20:03:39
+# Изменён: Сб 20 фев 2016 23:30:22
 #
 ################################################################################
 
@@ -181,6 +181,9 @@ fi
 path++ $SHELLRC/bin:$SHELLRC/bin/scripts PATH
 path++ /bin:/usr/bin:/usr/local/bin      PATH
 
+#Android SDK
+path++ /opt/android-sdk-linux/platforms/:/opt/android-sdk-linux/tools/ PATH
+
 if [ $UID -eq 0 ]; then
 	TMOUT=600
 	PROMPT_COLOR='\033[1;31m'
@@ -226,7 +229,7 @@ fi
 
 [ -n "$SSH_CLIENT" ] && PROMPT_SHH="[${red}ssh${PROMPT_COLOR}]"
 
-PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─(${yellow}\j${PROMPT_COLOR})$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR └─[$PROMPT_COLOR\t]\$ $rstc"
+PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─(${yellow}\j${PROMPT_COLOR})$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR└─[$PROMPT_COLOR\t]\$ $rstc"
 
 PS2="$green-> $rstc"
 PS3="$green+> $rstc"

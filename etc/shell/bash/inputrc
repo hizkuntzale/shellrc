@@ -85,5 +85,5 @@ set autocd on
 
 set editing-mode vi
 set keymap vi-command
-set show-mode-in-prompt on
+set show-mode-in-prompt off
 
