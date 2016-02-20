@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Пт 29 янв 2016 14:26:53
+# Изменён: Сб 20 фев 2016 20:07:11
 #
 
 #Цветовая схема#{{{
@@ -19,8 +19,8 @@ set border_catchall_unfocus #882255
 name work
 hook on add pad 0 0 18 0
 add internet
-add music
-add video
+add books
+add other
 border off
 hook on add pad 0 0 0 0
 use work
