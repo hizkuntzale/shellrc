@@ -1,5 +1,4 @@
-display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).1.jpg -display :0.0
-display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).2.jpg -display :0.1
+display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).jpg -display :0.0
 
 setxkbmap -model pc104 -layout us,ru -variant ,
 setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle,compose:ralt
