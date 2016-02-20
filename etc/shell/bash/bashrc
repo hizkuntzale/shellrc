@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Пт 29 янв 2016 18:01:05
+# Изменён: Сб 20 фев 2016 20:03:39
 #
 ################################################################################
 
@@ -99,7 +99,6 @@ grey="\033[0;37m"
 white="\033[1;1m"
 
 #Подсветка результатов grep
-export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;31'
 
 #Цвета ls
@@ -227,7 +226,7 @@ fi
 
 [ -n "$SSH_CLIENT" ] && PROMPT_SHH="[${red}ssh${PROMPT_COLOR}]"
 
-PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─(${yellow}\j${PROMPT_COLOR})$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR└─[$PROMPT_COLOR\t]\$ $rstc"
+PS1="$PROMPT_COLOR┌─[$yellow\h$PROMPT_COLOR]─(${yellow}\j${PROMPT_COLOR})$PROMPT_SHH─[$yellow\w$PROMPT_COLOR]\n$PROMPT_COLOR └─[$PROMPT_COLOR\t]\$ $rstc"
 
 PS2="$green-> $rstc"
 PS3="$green+> $rstc"
