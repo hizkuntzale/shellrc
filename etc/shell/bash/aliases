@@ -26,6 +26,7 @@ alias g++="g++ -Os -Wall"						#noindex
 alias echo="echo -e"							#noindex
 alias less="less -R"							#noindex
 alias ls='ls -lGhpX --color=always --group-directories-first -v'	#noindex
+alias lst='ls -al --time-style=+%D | grep $(\date +%D)'			#noindex
 alias lss='\ls --format=single-column'					#noindex
 alias nl="nl -b a"							#noindex
 alias df='df -hT'							#noindex
