@@ -37,7 +37,7 @@
 + soft/conky/conkyrc.$(uname -i)   ~
 - soft/ctags/ctags                 ~
 + soft/htop                        ~/.config
-- soft/mc                          ~/.config
++ soft/mc                          ~/.config
 + soft/vim/vim                     ~
 + soft/vim/vimrc                   ~
 - soft/vimperator                  ~
