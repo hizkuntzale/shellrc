@@ -58,6 +58,7 @@ alias figlet="figlet -f $SHELLRC/etc/soft/figlet/fonts/standard.flf" #noindex
 alias cdargs="cdargs -b -f $SHELLRC/etc/soft/cdargs/cdargs -o $SHELLRC/etc/soft/cdargs/cdargsresult" #noindex
 alias zathura="nh zathura"	#noindex
 alias z="nh zathura"		#noindex
+alias kz="killall zathura"	#noindex
 alias sendemail="sendemail -l $LOGDIR/sendemail" #noindex
 alias g=git #noindex
 alias startx="xinit -- /usr/bin/X" #noindex
