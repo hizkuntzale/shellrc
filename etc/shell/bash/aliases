@@ -26,6 +26,7 @@ alias g++="g++ -Os -Wall"						#noindex
 alias echo="echo -e"							#noindex
 alias less="less -R"							#noindex
 alias ls='ls -lGhpX --color=always --group-directories-first -v'	#noindex
+alias lsl='ls -L'							#noindex
 alias lst='ls -al --time-style=+%D | grep $(\date +%D)'			#noindex
 alias lss='\ls --format=single-column'					#noindex
 alias nl="nl -b a"							#noindex
@@ -205,6 +206,10 @@ vls() { vlc --rate 1.2 -I ncurses ${1:-*.mp3}; } #noindex
 #- Загрузка проекта с github.com
 githubdl() {
 	git clone git://github.com/${1}.git
+}
+#- php-сервер
+phps() {
+	php -S ${2:-localhost}:${3:-80} -t ${1:-.}
 }
 
 #}}} ###########################################################################
