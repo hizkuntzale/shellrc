@@ -44,7 +44,6 @@ alias pstree="pstree -U -h"						#noindex
 alias mkdir="mkdir -p -v"						#noindex
 alias j="jobs -l"							#noindex
 alias dirs="dirs -v"							#noindex
-alias src=vcat								#noindex
 alias ping="pingp --nolegend"						#noindex
 alias gq="geeqie . &"							#noindex
 alias emerge="emerge --ask"						#noindex
@@ -347,16 +346,21 @@ toread() {
 	ln -s "`realpath "$1"`" "$BASEDIR/${2:-.}/$1"
 }
 
+alias srchl="source-highlight -f esc --line-number=' ' --style-file=$SHELLRC/etc/soft/source-hl/default.style" #noindex
+
 #- Вывод файлов с подсветкой синтаксиса
 vcat() {
-	source-highlight \
-		-f esc \
-		-i "$1" \
-		-o STDOUT \
-		--line-number=' ' \
-		--style-file=$SHELLRC/etc/soft/source-hl/default.style 
+        if [[ "${1##*/}" == .* ]]; then
+		srchl -i "$1" --src-lang=sh
+        else
+		srchl -i "$1"
+        fi 2> /dev/null  || srchl -i "$1" --src-lang=lisp
+
 	echo
 }
+
+#- ++less noindex
+src() { vcat "$1" | less -R; }
 
 #- Поиск пути к исполняемому файлу, просмотр кода функций и псевдонимов
 which() { #noindex
