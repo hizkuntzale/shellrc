@@ -1,0 +1,26 @@
+" Выход с переходом в текущую директорию
+command! Q :execute '!echo %d > ~/.vifm/lastdir' | quit
+
+command df dfc %m 2> /dev/null
+command dus noc dus %d/* %m
+
+command vlc vlc %f
+command vlp vlp %f
+command vls vls %f
+
+command tig tig %d
+
+command ext ext %f
+
+command diff vimdiff %f %F
+command run !! ./%f
+command term !i3-sensible-terminal %a
+command tree !!tree %f -aF
+command vim !vim %a
+command git !!git %a
+
+command config :vim $MYVIFMRC
+
+" aliases
+command man :apropos %a
+

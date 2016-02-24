@@ -218,6 +218,29 @@ phps() {
 #- Vim
 alias :e="vim" #noindex
 
+#- Переход в последнюю директорию vifm noindex
+vicd() {
+	local dst="$(command vifm --choose-dir -)"
+	if [ -z "$dst" ]; then
+		echo 'Directory picking cancelled/failed'
+		return 1
+	fi
+	cd "$dst"
+}
+
+#- noindex
+function vifm() {
+	if [ -f ~/.vifm/lastdir ]; then
+		\rm ~/.vifm/lastdir
+	fi
+
+	# "command" prevents recursive call
+	TERM=xterm-256color command vifm .
+	if [ -f ~/.vifm/lastdir ]; then
+		cd `cat ~/.vifm/lastdir`
+	fi
+}
+
 #- Создание doc-файла в vim
 vdoc() {
 	vim "$1" && libreoffice --convert-to doc --invisible "$1"
@@ -344,19 +367,6 @@ toread() {
 	[ ! -z "$2" ] && mkdir -p "$BASEDIR/$2"
 
 	ln -s "`realpath "$1"`" "$BASEDIR/${2:-.}/$1"
-}
-
-alias srchl="source-highlight -f esc --line-number=' ' --style-file=$SHELLRC/etc/soft/source-hl/default.style" #noindex
-
-#- Вывод файлов с подсветкой синтаксиса
-vcat() {
-        if [[ "${1##*/}" == .* ]]; then
-		srchl -i "$1" --src-lang=sh
-        else
-		srchl -i "$1"
-        fi 2> /dev/null  || srchl -i "$1" --src-lang=lisp
-
-	echo
 }
 
 #- ++less noindex
@@ -486,6 +496,19 @@ clr() {
 		-fm) sed -r -e "s/$2/`echo -e "\033"`[0;35m&`echo -e "\033"`[1;0m/g";;
 		* ) sed -e "s/$1/`echo -e "\033"`[7;31m&`echo -e "\033"`[1;0m/g";;
 	esac
+}
+
+#- Выполнение команды без цветного вывода
+noc() {
+	rstc=""
+	yellow=""
+	blue=""
+	red=""
+	green=""
+	grey=""
+	white=""
+
+	eval "$@"
 }
 
 #- Перевод слов/выражений с сохранением слова в файл

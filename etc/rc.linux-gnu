@@ -39,6 +39,7 @@
 + soft/htop                        ~/.config
 + soft/mc                          ~/.config
 + soft/vim/vim                     ~
++ soft/vifm                        ~
 + soft/vim/vimrc                   ~
 - soft/vimperator                  ~
 - soft/vimperator/vimperatorrc     ~

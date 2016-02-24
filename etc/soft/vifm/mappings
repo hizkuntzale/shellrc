@@ -1,0 +1,21 @@
+nmap S  :sort<cr>
+nmap w  :view<cr>
+nmap s  :sync<cr>
+nmap cr :rsync -r --progress %c %D<cr>
+nmap cd :cd<space>
+nmap nf :touch<space>
+nmap nd :mkdir<space>
+" nmap gr :grep<space>
+
+nmap ot :term &<cr>
+nmap ov :term -e vim &<cr>
+nmap cv :term -e vim %f &<cr>
+
+" path
+nmap yp :!echo %c:p | xclip<cr>
+" name
+nmap yn :!echo %c | xclip<cr>
+
+nmap <C-o> :!bash<cr>
+nmap <C-u> <C-w>x<tab>
+

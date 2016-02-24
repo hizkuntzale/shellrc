@@ -1,0 +1,1828 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/maks/FILES/_Книги/Прочесть/Английский
+	..
+0
+d/mnt/WINDOWS
+	BACKUP
+3
+d/mnt/WINDOWS/BACKUP
+	[ ] Языки
+8
+d/mnt/WINDOWS/BACKUP/[ ] Языки
+	[ ] Английский
+2
+d/mnt/WINDOWS/BACKUP/[ ] Языки/[ ] Английский
+	Аудиокниги
+6
+d/mnt/WINDOWS/BACKUP/[ ] Языки/[ ] Английский/Аудиокниги
+	Jekyll
+5
+d/home/maks/.vifm/colors
+	..
+0
+d/mnt/DATA
+	FILES
+2
+d/mnt/DATA/FILES
+	Книги
+8
+d/mnt/DATA/FILES/Книги
+	..
+0
+d/mnt/DATA/FILES
+	Книги
+8
+d/home/maks/Downloads/TFiles
+	..
+0
+d/home/maks/vifm-colors
+	..
+0
+d/home/maks/.vifm
+	..
+0
+d/home/maks
+	Downloads
+15
+d/home/maks/Downloads
+	Docs
+2
+d/home/maks/Downloads/Docs
+	..
+0
+d/home/maks/Downloads
+	en_US
+9
+d/home/maks/Downloads/en_US
+	html
+1
+d/home/maks/Downloads/en_US/html
+	..
+0
+d/home/maks/Downloads/en_US
+	..
+0
+d/home/maks/Downloads
+	eng
+10
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	eng
+4
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	eng
+4
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	Downloads
+31
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	FILES
+30
+d/home/maks/FILES
+	Projects
+2
+d/home/maks/FILES/Projects
+	scripts-linux
+9
+d/home/maks/FILES/Projects/scripts-linux
+	..
+0
+d/home/maks/FILES/Projects
+	scripts
+8
+d/home/maks/FILES/Projects/scripts
+	parsers
+1
+d/home/maks/FILES/Projects/scripts/parsers
+	Euler
+1
+d/home/maks/FILES/Projects/scripts/parsers/Euler
+	..
+0
+d/home/maks/FILES/Projects/scripts/parsers
+	Euler
+1
+d/home/maks/FILES/Projects/scripts/parsers/Euler
+	..
+0
+d/home/maks/FILES/Projects/scripts/parsers
+	..
+0
+d/home/maks/FILES/Projects/scripts
+	tmp_scripts
+2
+d/home/maks/FILES/Projects/scripts/tmp_scripts
+	..
+0
+d/home/maks/FILES/Projects/scripts
+	..
+0
+d/home/maks/FILES/Projects
+	..
+0
+d/home/maks/FILES
+	..
+0
+d/home/maks
+	dotfiles
+31
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	dotfiles
+30
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	Downloads
+28
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	..
+0
+d/home
+	..
+0
+d/
+	proc
+16
+d/home/maks
+	dotfiles
+24
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	FILES
+23
+d/home/maks/FILES
+	_Книги
+5
+d/home/maks/FILES/_Книги
+	[ ] Языки
+6
+d/home/maks/FILES/_Книги/[ ] Языки
+	[ ] Испанский
+2
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Испанский
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки
+	[ ] Латинский
+3
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Латинский
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки
+	[ ] Сербский
+4
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский
+	[ ] Аудио
+1
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	!сербский
+1
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/!сербский
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	Glas Rusije - Rusija
+2
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/Glas Rusije - Rusija
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	Glas Rusije - Rusija
+2
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/Glas Rusije - Rusija
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	[ ] Аудиокниги
+3
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_I
+2
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_I
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_II
+3
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_II
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_III
+4
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_III
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Deci s ljubavlju-Muzicari pricaju bajke
+5
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Deci s ljubavlju-Muzicari pricaju bajke
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Desanka Maksimovic - Poezija-2009
+6
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Desanka Maksimovic - Poezija-2009
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Небесная литургия
+7
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Небесная литургия
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	!Narodne pripovetke-Vuk Karadzich
+1
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/!Narodne pripovetke-Vuk Karadzich
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Языки
+	..
+0
+d/home/maks/FILES/_Книги
+	..
+0
+d/home/maks/FILES
+	..
+0
+d/home/maks
+	Downloads
+22
+d/home/maks/Downloads
+	Archives
+1
+d/home/maks/Downloads/Archives
+	..
+0
+d/home/maks/Downloads
+	Docs
+2
+d/home/maks/Downloads/Docs
+	..
+0
+d/home/maks/Downloads
+	Images
+3
+d/home/maks/Downloads/Images
+	..
+0
+d/home/maks/Downloads
+	Scripts
+4
+d/home/maks/Downloads/Scripts
+	..
+0
+d/home/maks/Downloads
+	TFiles
+5
+d/home/maks/Downloads/TFiles
+	..
+0
+d/home/maks/Downloads
+	Video
+6
+d/home/maks/Downloads/Video
+	..
+0
+d/home/maks/Downloads
+	Vim
+7
+d/home/maks/Downloads/Vim
+	..
+0
+d/home/maks/Downloads
+	Wine
+8
+d/home/maks/Downloads/Wine
+	..
+0
+d/home/maks/Downloads
+	eng
+7
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	eng
+7
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	Downloads
+4
+d/home/maks/Downloads
+	Docs
+2
+d/home/maks/Downloads/Docs
+	..
+0
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	Downloads
+4
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	FILES
+5
+d/home/maks/FILES
+	_Книги
+5
+d/home/maks/FILES/_Книги
+	Прочесть
+7
+d/home/maks/FILES/_Книги/Прочесть
+	..
+0
+d/home/maks/FILES/_Книги
+	[ ] Традиция
+5
+d/home/maks/FILES/_Книги/[ ] Традиция
+	[ ] Элиаде М.
+3
+d/home/maks/FILES/_Книги/[ ] Традиция/[ ] Элиаде М.
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Традиция
+	..
+0
+d/home/maks/FILES/_Книги
+	[ ] Гностицизм
+2
+d/home/maks/FILES/_Книги/[ ] Гностицизм
+	!!! РАЗОБРАТЬ
+1
+d/home/maks/FILES/_Книги/[ ] Гностицизм/!!! РАЗОБРАТЬ
+	..
+0
+d/home/maks/FILES/_Книги/[ ] Гностицизм
+	..
+0
+d/home/maks/FILES/_Книги
+	..
+0
+d/home/maks/FILES
+	..
+0
+d/home/maks
+	Downloads
+4
+d/home/maks/Downloads
+	Archives
+1
+d/home/maks/Downloads/Archives
+	..
+0
+d/home/maks/Downloads
+	Docs
+2
+d/home/maks/Downloads/Docs
+	..
+0
+d/home/maks/Downloads
+	..
+0
+d/home/maks
+	FILES
+9
+d/home/maks/FILES
+	MUSIC_DONE
+1
+d/home/maks/FILES/MUSIC_DONE
+	..
+0
+d/home/maks/FILES
+	..
+0
+d/home/maks
+	Downloads
+4
+d/home/maks/Downloads
+	Archives
+1
+d/home/maks/Downloads/Archives
+	..
+0
+d/home/maks/Downloads
+	Архимандрит Тихон (Агриков) - Преподобный Иоанн Лествичник
+15
+d/home/maks
+	Downloads
+4
+d/home/maks/Downloads
+	upload
+14
+d/home/maks/Downloads/upload
+	..
+0
+d/home/maks/Downloads
+	en_US
+6
+d/home/maks/Downloads/en_US
+	..
+0
+d/home/maks/Downloads
+	eng
+7
+d/home/maks/Downloads/eng
+	..
+0
+d/home/maks/Downloads
+	eng
+7
+d/home/maks/Downloads/eng
+	WS-7eZ5Jq1g.jpg
+4
+d/home/maks/Downloads
+	eng
+7
+d/home/maks/Downloads/eng
+	_qkYmkeZ-t0.jpg
+5
+d/home/maks/Downloads
+	!Apdeyt_konservatizma.pdf
+26
+d/home/maks
+	FILES
+25
+d/
+	dev
+6
+d/dev
+	fuse
+12
+d/
+	home
+8
+d/home
+	maks
+3
+d/home/maks
+	Downloads
+30
+d/home/maks/Downloads
+	resources
+13
+d/home/maks/Downloads/resources
+	..
+0
+d/home/maks/Downloads
+	resources
+12
+d/home/maks/Downloads/resources
+	default_app
+1
+d/home/maks/Downloads
+	gitmagic
+9
+d/home/maks
+	FILES
+5
+d/home/maks/FILES
+	MUSIC_DONE
+1
+d/home/maks/FILES/MUSIC_DONE
+	Staff
+2
+d/home/maks/FILES/MUSIC_DONE/Staff
+	Готово
+1
+d/home/maks/FILES/MUSIC_DONE/Staff/Готово
+	.Unnamed.mscz,
+1
+d/home/maks/FILES/MUSIC_DONE/Staff
+	..
+0
+d/home/maks/FILES/MUSIC_DONE
+	Okroshka
+1
+d/home/maks/FILES/MUSIC_DONE/Okroshka
+	Okroshka - Bamboleo.mp3
+5
+d/home/maks/FILES/MUSIC_DONE
+	Okroshka
+1
+d/home/maks/FILES
+	TMP
+3
+d/home/maks
+	.sword
+17
+d/home/maks/.trash
+	000_Video
+1
+d/home/maks/.trash/000_Video
+	..
+0
+d/home/maks/.trash
+	000_Vim
+2
+d/home/maks/.trash/000_Vim
+	..
+0
+d/home/maks/.trash
+	000_Wine
+3
+d/home/maks/.trash/000_Wine
+	..
+0
+d/home/maks/.trash
+	000_Wine
+3
+d/home/maks/.trash/000_Wine
+	..
+0
+d/home/maks/.trash
+	..
+0
+d/home/maks
+	.trash
+19
+d/home/maks/.trash
+	..
+0
+d/home/maks
+	Downloads
+25
+d/home/maks/FILES/_Книги/Прочесть/Сербский
+	..
+0
+d/home/maks/FILES/_Книги/Прочесть
+	Отложено
+6
+d/home/maks/.shellrc
+	bin
+2
+d/home/maks/.shellrc/bin
+	.git
+1
+d/home/maks/.shellrc/bin/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git/.git/.git/.git
+	..
+0
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git/.git/.git
+	..
+0
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git/.git
+	branches
+2
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git/.git
+	.git
+1
+d/home/maks/.shellrc/bin/.git
+	.git
+1
+d/home/maks/.shellrc/bin
+	.git
+1
+d/home/maks/.shellrc/bin/.git
+	.git
+1
+d/home/maks/.shellrc/bin
+	dmenu
+2
+d/home/maks/.shellrc
+	bin
+2
+d/home/maks/.shellrc/bin
+	dmenu
+1
+d/home/maks/.shellrc
+	.git
+1
+d/home/maks/.shellrc/bin
+	..
+0
+d/home/maks/.shellrc
+	bin
+2
+d/home/maks/.shellrc/bin
+	..
+0
+d/home/maks/.shellrc
+	.git
+1
+d/home/maks/.shellrc/bin
+	..
+0
+d/home/maks/.shellrc
+	..
+0
+d/home/maks
+	dotfiles
+27
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	FILES
+26
+d/home/maks/FILES
+	Projects
+2
+d/home/maks/FILES/Projects
+	web
+13
+d/home/maks/FILES/Projects/web
+	OpenCart
+1
+d/home/maks/FILES/Projects/web/OpenCart
+	SEO-on-the-fly
+1
+d/home/maks/FILES/Projects/web/OpenCart/SEO-on-the-fly
+	..
+0
+d/home/maks/FILES/Projects/web/OpenCart
+	SEO-on-the-fly
+1
+d/home/maks/FILES/Projects/web/OpenCart/SEO-on-the-fly
+	..
+0
+d/home/maks/FILES/Projects/web/OpenCart
+	..
+0
+d/home/maks/FILES/Projects/web
+	blog.vk.com
+3
+d/home/maks/.shellrc/bin
+	dmenu
+1
+d/home/maks/.shellrc/bin/dmenu
+	dmpc
+9
+d/home/maks/.shellrc/bin
+	exec
+2
+d/home/maks/.shellrc/bin/exec
+	delolder
+1
+d/home/maks/.shellrc/bin
+	musca
+3
+d/home/maks
+	Downloads
+11
+d/home/maks/Downloads
+	locales
+11
+d/home/maks
+	vifm-colors
+5
+d/home/maks/vifm-colors
+	Default.vifm
+2
+d/home/maks
+	vifm-colors
+5
+d/home
+	maks
+3
+d/home/maks
+	.wishrc
+27
+d/home/maks/.shellrc/etc/shell/tcl
+	..
+0
+d/home/maks/.shellrc/etc/shell
+	tcl
+5
+d/home/maks/.shellrc/etc
+	shell
+6
+d/home/maks/.shellrc
+	etc
+3
+d/home/maks
+	dotfiles
+3
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	tmux-colors-solarized
+4
+d/home/maks/tmux-colors-solarized
+	..
+0
+d/home/maks
+	tmux-colors-solarized
+4
+d/home/maks/tmux-colors-solarized
+	tmuxcolors-light.conf
+4
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks/FILES/Projects
+	scripts-linux
+9
+d/home/maks/FILES/Projects/scripts-linux
+	imgview
+13
+d/home/maks/FILES/Projects
+	scripts-routeros
+10
+d/home/maks/FILES/Projects/scripts-routeros
+	change-route-ip.rsc
+1
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks/FILES/Projects
+	scripts-linux
+9
+d/home/maks/FILES/Projects/scripts-linux
+	lsi
+18
+d/home/maks
+	Развитие.png
+20
+d/mnt
+	DATA
+1
+d/home/maks
+	FILES
+2
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	Downloads
+1
+d/home/maks/Downloads
+	locales
+11
+d/home/maks
+	FILES
+2
+d/mnt
+	DATA
+1
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks
+	FILES
+2
+d/mnt/DATA
+	FILES
+2
+d/mnt/DATA/FILES
+	РАЗНОЕ
+9
+d/mnt/DATA/FILES/РАЗНОЕ
+	..
+0
+d/mnt/DATA/FILES
+	Документы
+6
+d/mnt/DATA/FILES/Документы
+	games
+1
+d/mnt/DATA/FILES/Документы/games
+	..
+0
+d/mnt/DATA/FILES/Документы
+	pkg
+2
+d/mnt/DATA/FILES/Документы/pkg
+	..
+0
+d/mnt/DATA/FILES/Документы
+	Военкомат
+3
+d/mnt/DATA/FILES/Документы/Военкомат
+	..
+0
+d/mnt/DATA/FILES/Документы
+	pkg
+2
+d/mnt/DATA/FILES/Документы/pkg
+	constructor3.tar.bz2
+1
+d/mnt/DATA/FILES/Документы
+	Ноты
+7
+d/mnt/DATA/FILES/Документы/Ноты
+	Play
+1
+d/mnt/DATA/FILES/Документы/Ноты/Play
+	Jordan__Stanley___Touch_Of_Blues.gp4
+13
+d/mnt/DATA/FILES/Документы/Ноты
+	Табы
+2
+d/mnt/DATA/FILES/Документы/Ноты/Табы
+	Led Zeppelin - Stairway to Heaven (5).gp3
+4
+d/mnt/DATA/FILES/Документы/Ноты
+	Табы
+2
+d/mnt/DATA/FILES/Документы
+	Ноты
+7
+d/home/maks
+	tmux-colors-solarized
+4
+d/home/maks/tmux-colors-solarized
+	tmuxcolors-light.conf
+4
+d/home/maks
+	vifm-colors
+5
+d/home/maks/vifm-colors
+	Default.vifm
+2
+d/home/maks
+	1000.txt
+5
+d/home/maks/.local/share/vifm/Trash
+	..
+0
+d/home/maks/.local/share/vifm
+	Trash
+1
+d/home/maks/.local/share/vifm/Trash
+	..
+0
+d/home/maks/.local/share/vifm
+	..
+0
+d/home/maks/.local/share
+	vifm
+12
+d/home/maks/.local
+	share
+1
+d/home/maks
+	.snownews
+24
+d/home/maks/.snownews
+	..
+0
+d/home/maks
+	.snownews
+24
+d/home/maks/.snownews
+	error.log
+5
+d/home/maks
+	.snownews
+24
+d/home/maks/.snownews
+	error.log
+5
+d/home/maks
+	.shellrc
+23
+d/home/maks/.shellrc
+	etc
+3
+d/home/maks/.shellrc/etc
+	shell
+6
+d/home/maks
+	.shellrc
+23
+d/home/maks/.shellrc
+	etc
+3
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks
+	dotfiles
+3
+d/home/maks/dotfiles
+	..
+0
+d/home/maks
+	dotfiles
+3
+d/home/maks/dotfiles
+	.git
+1
+d/home/maks/dotfiles/.git
+	..
+0
+d/home/maks/dotfiles
+	.i3
+2
+d/home/maks/dotfiles/.i3
+	..
+0
+d/home/maks/dotfiles
+	.vim
+4
+d/home/maks/dotfiles/.vim
+	..
+0
+d/home/maks/dotfiles
+	.vifm
+3
+d/home/maks
+	FILES
+2
+d/home/maks/FILES
+	Projects
+2
+d/home/maks/FILES/Projects
+	web
+13
+d/home/maks/FILES/Projects/web
+	OpenCart
+1
+d/home/maks/FILES/Projects/web/OpenCart
+	opencart-2.1.0.2
+2
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2
+	upload
+1
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload
+	system
+5
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	helper
+3
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system/helper
+	json.php
+2
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	helper
+3
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system/helper
+	..
+0
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	helper
+3
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system/helper
+	..
+0
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	engine
+2
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload
+	system
+5
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	config
+1
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload
+	catalog
+3
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/catalog
+	controller
+1
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/catalog/controller
+	common
+7
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/catalog/controller/common
+	header.php
+8
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/catalog/controller
+	common
+7
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/catalog
+	language
+2
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload
+	system
+5
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload/system
+	modification.xml
+8
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2/upload
+	system
+5
+d/home/maks/FILES/Projects/web/OpenCart/opencart-2.1.0.2
+	upload
+1
+d/home/maks/FILES/_Книги/Прочесть
+	Отложено
+6
+d/mnt/WINDOWS/BACKUP/[ ] Языки/[ ] Английский/Аудиокниги/Jekyll
+	..
+0
+d/mnt/WINDOWS/BACKUP/[ ] Языки/[ ] Английский/Аудиокниги
+	Brave New World
+3
+d/mnt/WINDOWS/BACKUP/[ ] Языки/[ ] Английский/Аудиокниги/Brave New World
+	Brave New World - Chapter 01.mp3
+1
+d/home/maks
+	..
+0
+d/home/maks/.shellrc/etc
+	media
+4
+d/home/maks
+	.urxvt
+29
+d/home/maks/.urxvt
+	urxvtd-darkstar
+1
+d/home/maks
+	.sword
+27
+d/home/maks/.sword
+	InstallMgr
+1
+d/home/maks/.sword/InstallMgr
+	20081216195754
+1
+d/home/maks/.sword/InstallMgr/20081216195754
+	mods.d
+1
+d/home/maks/.sword/InstallMgr/20081216195754/mods.d
+	..
+0
+d/home/maks/.sword/InstallMgr/20081216195754
+	mods.d
+1
+d/home/maks/.sword/InstallMgr
+	20081216195754
+1
+d/home/maks/.sword
+	InstallMgr
+1
+d/home/maks
+	.sword
+27
+d/home/maks/.sword
+	mods.d
+2
+d/home/maks/.sword/mods.d
+	..
+0
+d/home/maks/.sword
+	mods.d
+2
+d/home/maks/.sword/mods.d
+	2babdict.conf
+1
+d/home/maks/.sword
+	modules
+3
+d/home/maks/.sword/modules
+	comments
+1
+d/home/maks/.sword/modules/comments
+	zcom
+1
+d/home/maks/.sword/modules/comments/zcom
+	abbott
+1
+d/home/maks/.sword/modules/comments/zcom/abbott
+	nt.bzs
+1
+d/home/maks/.sword/modules/comments/zcom
+	abbott
+1
+d/home/maks/.sword/modules/comments
+	zcom
+1
+d/home/maks/.sword/modules
+	comments
+1
+d/home/maks/.sword
+	modules
+3
+d/home/maks
+	.stardict
+26
+d/home/maks/.stardict
+	..
+0
+d/home/maks
+	.snownews
+24
+d/home/maks/.snownews
+	error.log
+5
+d/home/maks
+	.shellrc
+23
+d/home/maks/.shellrc
+	bin
+2
+d/home/maks/.shellrc/bin
+	musca
+3
+d/home/maks/.shellrc
+	etc
+3
+d/home/maks/.shellrc/etc
+	media
+4
+d/home/maks/.shellrc
+	var
+4
+d/home/maks/.shellrc/var
+	..
+0
+d/home/maks/.shellrc
+	vimwiki
+5
+d/home/maks/.shellrc/vimwiki
+	..
+0
+d/home/maks/.shellrc
+	vimwiki
+5
+d
+
+# Right window history (oldest to newest):
+D/home/maks/FILES/_Книги/Прочесть/Английский
+	Jekyll
+1
+D/home/maks/FILES/_Книги/Прочесть/Английский/Jekyll
+	..
+0
+D/home/maks/FILES/_Книги/Прочесть/Английский
+	Jekyll
+1
+D/home/maks/FILES/_Книги/Прочесть/Английский/Jekyll
+	05.00.mp3
+1
+D/home/maks/Downloads/TFiles
+	..
+0
+D/home/maks/vifm-colors
+	..
+0
+D/home/maks/Downloads/Docs
+	..
+0
+D/home/maks/Downloads/en_US
+	html
+1
+D/home/maks/Downloads/en_US/html
+	..
+0
+D/home/maks/Downloads/en_US
+	..
+0
+D/home/maks/Downloads/eng
+	..
+0
+D/home/maks/FILES
+	Projects
+2
+D/home/maks/FILES/Projects
+	scripts-linux
+9
+D/home/maks/FILES/Projects/scripts-linux
+	..
+0
+D/home/maks/FILES/Projects
+	scripts
+8
+D/home/maks/FILES/Projects/scripts
+	parsers
+1
+D/home/maks/FILES/Projects/scripts/parsers
+	Euler
+1
+D/home/maks/FILES/Projects/scripts/parsers/Euler
+	..
+0
+D/home/maks/FILES/Projects/scripts/parsers
+	Euler
+1
+D/home/maks/FILES/Projects/scripts/parsers/Euler
+	..
+0
+D/home/maks/FILES/Projects/scripts/parsers
+	..
+0
+D/home/maks/FILES/Projects/scripts
+	tmp_scripts
+2
+D/home/maks/FILES/Projects/scripts/tmp_scripts
+	..
+0
+D/home/maks/FILES/Projects/scripts
+	..
+0
+D/home/maks/FILES/Projects
+	..
+0
+D/home/maks/FILES
+	..
+0
+D/home/maks/dotfiles
+	..
+0
+D/home
+	..
+0
+D/
+	proc
+16
+D/home/maks/dotfiles
+	..
+0
+D/home/maks/FILES
+	_Книги
+5
+D/home/maks/FILES/_Книги
+	[ ] Языки
+6
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Испанский
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Латинский
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/!сербский
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_I
+2
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_I
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_II
+3
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_II
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Bajke_za_decu_audio_III
+4
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Bajke_za_decu_audio_III
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Deci s ljubavlju-Muzicari pricaju bajke
+5
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Deci s ljubavlju-Muzicari pricaju bajke
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Desanka Maksimovic - Poezija-2009
+6
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Desanka Maksimovic - Poezija-2009
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	Небесная литургия
+7
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/Небесная литургия
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	!Narodne pripovetke-Vuk Karadzich
+1
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги/!Narodne pripovetke-Vuk Karadzich
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/[ ] Аудиокниги
+	..
+0
+D/home/maks/FILES/_Книги
+	..
+0
+D/home/maks/FILES
+	..
+0
+D/home/maks/Downloads/Archives
+	..
+0
+D/home/maks/Downloads/Docs
+	..
+0
+D/home/maks/Downloads/Images
+	..
+0
+D/home/maks/Downloads/Scripts
+	..
+0
+D/home/maks/Downloads/TFiles
+	..
+0
+D/home/maks/Downloads/eng
+	..
+0
+D/home/maks/Downloads/Docs
+	..
+0
+D/home/maks/FILES
+	_Книги
+5
+D/home/maks/FILES/_Книги
+	Прочесть
+7
+D/home/maks/FILES/_Книги/Прочесть
+	..
+0
+D/home/maks/FILES/_Книги
+	[ ] Традиция
+5
+D/home/maks/FILES/_Книги/[ ] Традиция
+	[ ] Элиаде М.
+3
+D/home/maks/FILES/_Книги/[ ] Традиция/[ ] Элиаде М.
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Традиция
+	..
+0
+D/home/maks/FILES/_Книги
+	[ ] Гностицизм
+2
+D/home/maks/FILES/_Книги/[ ] Гностицизм
+	!!! РАЗОБРАТЬ
+1
+D/home/maks/FILES/_Книги/[ ] Гностицизм/!!! РАЗОБРАТЬ
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Гностицизм
+	..
+0
+D/home/maks/FILES/_Книги
+	..
+0
+D/home/maks/FILES
+	..
+0
+D/home/maks/Downloads/Archives
+	..
+0
+D/home/maks/Downloads/Docs
+	..
+0
+D/home/maks/FILES
+	MUSIC_DONE
+1
+D/home/maks/FILES/MUSIC_DONE
+	..
+0
+D/home/maks/FILES
+	..
+0
+D/home/maks/Downloads/Archives
+	..
+0
+D/home/maks/Downloads/upload
+	..
+0
+D/home/maks/Downloads/en_US
+	..
+0
+D/home/maks/Downloads/eng
+	..
+0
+D/
+	dev
+6
+D/dev
+	fuse
+12
+D/
+	home
+8
+D/home
+	maks
+3
+D/home/maks/Downloads/resources
+	..
+0
+D/home/maks/FILES
+	MUSIC_DONE
+1
+D/home/maks/FILES/MUSIC_DONE
+	Staff
+2
+D/home/maks/FILES/MUSIC_DONE/Staff
+	Готово
+1
+D/home/maks/FILES/MUSIC_DONE/Staff/Готово
+	.Unnamed.mscz,
+1
+D/home/maks/FILES/MUSIC_DONE/Staff
+	..
+0
+D/home/maks/FILES/MUSIC_DONE
+	Okroshka
+1
+D/home/maks/FILES/MUSIC_DONE/Okroshka
+	Okroshka - Bamboleo.mp3
+5
+D/home/maks/FILES/MUSIC_DONE
+	Okroshka
+1
+D/home/maks/FILES
+	TMP
+3
+D/home/maks/.trash
+	000_Video
+1
+D/home/maks/FILES/_Книги/Прочесть/Сербский
+	..
+0
+D/home/maks/FILES/_Книги/Прочесть
+	Отложено
+6
+D/home/maks/.shellrc
+	bin
+2
+D/home/maks/.shellrc/bin
+	.git
+1
+D/home/maks/.shellrc
+	bin
+2
+D/home/maks/.shellrc/bin
+	dmenu
+1
+D/home/maks/.shellrc
+	.git
+1
+D/home/maks/.shellrc/bin
+	..
+0
+D/home/maks/.shellrc
+	bin
+2
+D/home/maks/.shellrc/bin
+	..
+0
+D/home/maks/.shellrc
+	.git
+1
+D/home/maks/.shellrc/bin
+	..
+0
+D/home/maks/.shellrc
+	..
+0
+D/home/maks/dotfiles
+	..
+0
+D/home/maks/FILES
+	Projects
+2
+D/home/maks/FILES/Projects
+	web
+13
+D/home/maks/FILES/Projects/web
+	OpenCart
+1
+D/home/maks/FILES/Projects/web/OpenCart
+	SEO-on-the-fly
+1
+D/home/maks/FILES/Projects/web/OpenCart/SEO-on-the-fly
+	..
+0
+D/home/maks/FILES/Projects/web/OpenCart
+	SEO-on-the-fly
+1
+D/home/maks/FILES/Projects/web/OpenCart/SEO-on-the-fly
+	..
+0
+D/home/maks/FILES/Projects/web/OpenCart
+	..
+0
+D/home/maks/FILES/Projects/web
+	blog.vk.com
+3
+D/home/maks/.shellrc/bin
+	dmenu
+1
+D/home/maks/.shellrc/bin/dmenu
+	dmpc
+9
+D/home/maks/.shellrc/bin
+	exec
+2
+D/home/maks/.shellrc/bin/exec
+	delolder
+1
+D/home/maks/.shellrc/bin
+	musca
+3
+D/home/maks/.vifm
+	..
+0
+D/home/maks
+	.vifm
+31
+D/home/maks/.vifm
+	colors
+1
+D/home/maks/.vifm/colors
+	..
+0
+D/home/maks/.vifm
+	colors
+1
+D/home/maks/.vifm/colors
+	zenburn_1.vifm
+13
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио/Glas Rusije - Rusija
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский/[ ] Аудио
+	..
+0
+D/home/maks/FILES/_Книги/[ ] Языки/[ ] Сербский
+	[ ] Аудио
+1
+D/home/maks/FILES/_Книги/[ ] Языки
+	Испанский
+5
+D/mnt/DATA
+	FILES
+2
+D/mnt/DATA/FILES
+	Книги
+8
+D/mnt/DATA/FILES/Книги
+	..
+0
+D/mnt/DATA/FILES
+	Книги
+8
+D/home/maks
+	Downloads
+31
+D/home/maks/Downloads
+	..
+0
+D/home/maks
+	.urxvt
+26
+D/home/maks/.urxvt
+	..
+0
+D/home/maks
+	..
+0
+D/home/maks/.shellrc
+	..
+0
+D/home/maks
+	..
+0
+D/home/maks/FILES
+	Projects
+2
+D/home/maks
+	FILES
+2
+D/home/maks/FILES
+	_Книги
+5
+D/home/maks/FILES/_Книги
+	Прочесть
+7
+D/home/maks/FILES/_Книги/Прочесть
+	Английский
+2
+D/home/maks/FILES/_Книги/Прочесть/Английский
+	Jekyll
+1
+D/home/maks/FILES/_Книги/Прочесть/Английский/Jekyll
+	05.00.mp3
+1
+D/home/maks/FILES/_Книги/Прочесть/Английский
+	Jekyll
+1
+D/home/maks/FILES/_Книги/Прочесть
+	Английский
+2
+D/home/maks/FILES/_Книги
+	Прочесть
+7
+D
+
+# Command line history (oldest to newest):
+:cd  /
+:.!toread 
+:.!toread %c Английский
+:screen ls
+:screen :ls
+:filter *.doc
+:set vimhelp
+:help filter
+:rm
+:colorscheme desert
+:colorscheme g80
+:colorscheme matrix
+:colorscheme mc-like
+:colorscheme solarized-dark
+:colorscheme zenburn
+:colorscheme zenburn_1
+:copy
+:term
+:dfc
+:dirsize
+:tree
+:cd
+:ds
+:.!dus *
+:.!dus %d
+:.!dus %d/*
+:.!echo dus %d/*
+:tig
+:vlp
+:.!sh %d
+:filter /.*\.pdf/
+:filter .*\.pdf
+:filter
+:colorscheme darkdesert
+:colorscheme default
+:colorscheme light
+:cabbrev
+:chown
+:ls
+:asdg
+:adg
+:du
+:clone
+:cd /
+:w
+:cd  /mnt/DATA/
+:colorscheme custom
+:mv
+:move
+:ncdt %f
+:.!ncdt %f
+:!bash
+:df
+:.!ping ya.ru %m
+:delete
+:restore
+:cd 
+:find pdf
+:find *.jpg
+:.!vim %c%c 
+:q%c 
+:Q%c ZZ
+:q%c ZZ
+:.!ls %c 
+:nmap <C-u>
+:change
+:nmap <C-u> <C-W>x
+:find 
+:grep txt
+:grep COLOUR
+:cd /mnt/
+:cd /mnt/DATA/
+:ext
+:view
+:trashes
+:dus
+:.s
+:config
+:sync
+:vi
+:only
+:split
+:vsplit
+:vls
+:q
+:Q
+
+# Search history (oldest to newest):
+/odt
+/rtf
+/vin
+/bin
+/rar
+/Down
+/TFiles
+/Dow
+/Дойл
+/k
+
+# Prompt history (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0

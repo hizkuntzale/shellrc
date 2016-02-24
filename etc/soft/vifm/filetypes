@@ -1,0 +1,71 @@
+" Директории
+fileviewer */ \tree %f
+fileviewer .git/ git-info --no-pager --color=always %d
+
+" Текстовые форматы
+fileviewer *.doc antiword %f
+fileviewer *.odt odt2txt %f
+fileviewer *.rtf catdoc %f
+fileviewer *.fb2,*.fb2.zip fb2 %f
+
+" Бинарные файлы
+fileviewer *.bin,*.dat file %f
+fileviewer *.so,*.so.* file %f
+
+" torrent
+fileviewer *.torrent dumptorrent -v %f
+
+" txt
+filetype *.txt vim %f
+
+" img
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif geeqie %c
+filextype *.svg sensible-browser %f &
+" fileviewer *.jpg imgv %px %py %pw %ph %c
+" fileviewer *.jpg lsi %f
+
+" audio
+filextype *.mp3,*.wav,*.flac,*.ogg,*.m4a vlc %f &
+
+fileviewer *.mp3 mp3info %f
+
+" video
+filextype *.avi,*.mp4,*.wmv,*.3gp,*.ogv,*.mkv,*.mpg,*.vob,*.flv,*.mov
+  \ vlc %f &
+
+" playlist
+filextype *.m3u vlc %f &
+
+" office
+filextype *.doc,*.docx,*.xls,*.xlsx,*.rtf,*.ppt,*.pptx,*.pps,*.odt,*.ott,*.sxw,*.stw,*.vsd
+  \ libreoffice %f &
+
+" pdf
+filetype *.pdf zathura %f &
+fileviewer *.pdf pdftotext -nopgbrk %f -
+
+" djvu
+filextype *.djvu
+  \ qpdfview %f &,
+  \ djview %f &
+filetype *.djvu apvlv %f &
+
+" ebook
+filextype *.fb2,*.mobi,*.epub,*.chm fbreader %f &
+
+" web-страницы
+filetype *.html,*.htm xdg-open %f
+fileviewer *.html,*.htm w3m %f
+
+" Архивы
+fileviewer *.tgz,*.tar.gz,*.tbz2,*.tar.bz2 tar -tjf %c
+fileviewer *.gz gzip -l %c
+fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
+fileviewer *.7z	7z l %c
+fileviewer *.rar unrar l %c
+
+" Табулатуры
+fileviewer *.gp,*.gp3,*.gp4,*.gp5 gptinfo %c
+
+fileviewer *[^/] vcat %c
+
