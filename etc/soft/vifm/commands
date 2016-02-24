@@ -26,5 +26,7 @@ command git !!git %a
 
 command cal cal -y %m
 
+command xc xc %c
+
 command config :vim $MYVIFMRC
 
