@@ -513,17 +513,23 @@ noc() {
 
 #- Перевод слов/выражений с сохранением слова в файл
 t() {
-	sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/ "$*" \
-		| sed 's/[^ ]*\.wav//g' \
-		| sed 's/BrE\|NAmE/\n&/g' \
-		| sed '$!N; /^\(.*\)\n\1$/!P; D' \
-		| clr -fm '\[[^]]*\]' \
-		| clr -fy '=|~|[[:space:]]+[0-9a-zA-Zа-яА-Я]{1,2}\)|^[0-9]\.|^I+[[:space:]]' \
-		| clr -fo 'амер(иканизм|\.)?|\(US [^)]+\)|NAmE' \
-		| clr -fc 'BrE|via|from| f. |Word.Origin:' \
-		| clr -fb 'Syn\.:.[A-Z., ]+' \
-		| clr -bg --\>.* \
-		| sed "s/\&apos;/'/g"
+	sdcvc="sdcv --data-dir $SHELLRC/etc/soft/sdcv/dictionaries/"
+	if [ "$1" == "-p" ]; then
+		shift 1
+		eval $sdcvc \"$*\"
+		return
+	fi
+
+	eval $sdcvc \"$*\"  | sed 's/[^ ]*\.wav//g' \
+			| sed 's/BrE\|NAmE/\n&/g' \
+			| sed '$!N; /^\(.*\)\n\1$/!P; D' \
+			| clr -fm '\[[^]]*\]' \
+			| clr -fy '=|~|[[:space:]]+[0-9a-zA-Zа-яА-Я]{1,2}\)|^[0-9]\.|^I+[[:space:]]' \
+			| clr -fo 'амер(иканизм|\.)?|\(US [^)]+\)|NAmE' \
+			| clr -fc 'BrE|via|from| f. |Word.Origin:' \
+			| clr -fb 'Syn\.:.[A-Z., ]+' \
+			| clr -bg --\>.* \
+			| sed "s/\&apos;/'/g"
 }
 
 #- Vimwiki
