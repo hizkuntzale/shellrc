@@ -3,6 +3,13 @@ command! Q :execute '!echo %d > ~/.vifm/lastdir' | quit
 
 command df dfc %m 2> /dev/null
 command dus noc dus %d/* %m
+command dmesg dmesg %m
+
+command man man %a %m
+
+command t t -p %a %m
+
+command nt nt %a %m
 
 command vlc vlc %f
 command vlp vlp %f
@@ -14,13 +21,10 @@ command ext ext %f
 
 command diff vimdiff %f %F
 command run !! ./%f
-command term !i3-sensible-terminal %a
-command tree !!tree %f -aF
 command vim !vim %a
 command git !!git %a
 
-command config :vim $MYVIFMRC
+command cal cal -y %m
 
-" aliases
-command man :apropos %a
+command config :vim $MYVIFMRC
 
