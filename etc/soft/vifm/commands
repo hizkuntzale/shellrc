@@ -10,6 +10,7 @@ command bkedit !vim ~/.vifm/bookmarks.list
 command bkadd  :!echo %c:p >> ~/.vifm/bookmarks.list
 
 command man man %a %m
+command fb fb2 %c:p %m
 
 command t t -p %a %m
 
