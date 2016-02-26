@@ -1,3 +1,5 @@
+nmap O  :only<cr>
+nmap I  :vsplit<cr>
 nmap S  :sort<cr>
 nmap w  :view<cr>
 nmap s  :sync<cr>
@@ -19,8 +21,10 @@ nmap yn :!echo %c | xclip<cr>
 nmap <C-o> :!bash<cr>
 nmap <C-u> <C-w>x<tab>
 
-nmap ,ba :bmark! %c:p<space>
-nmap ,bl :bmarks<cr>
+nmap ,bl :bklist<cr>
+nmap <C-\> :bklist<cr>
+nmap ,ba :bkadd
+nmap ,be :bkedit<cr>
 
 nmap ,gq !!geeqie %c:p &<cr>
 

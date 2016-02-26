@@ -5,6 +5,10 @@ command df dfc %m 2> /dev/null
 command dus noc dus %d/* %m
 command dmesg dmesg %m
 
+command bklist cat ~/.vifm/bookmarks.list %M
+command bkedit !vim ~/.vifm/bookmarks.list
+command bkadd  :!echo %c:p >> ~/.vifm/bookmarks.list
+
 command man man %a %m
 
 command t t -p %a %m
@@ -29,4 +33,6 @@ command cal cal -y %m
 command xc xc %c
 
 command config :vim $MYVIFMRC
+
+command z !!zathura %c:p
 
