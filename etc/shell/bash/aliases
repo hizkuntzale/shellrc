@@ -192,12 +192,6 @@ imgRL() { echo "$1"; convert -rotate -90 "$1" "$1"; }
 #- Уменьшение размера изображения на 50%
 img50() { echo "$1"; convert -resize 50% "$1" "$1"; }
 
-#- vlc-ncurses
-vlp() { vlc -I ncurses ${1:-*.mp3}; } #noindex
-
-#- vlc-ncurses с увеличенной скоростью воспроизведения
-vls() { vlc --rate 1.2 -I ncurses ${1:-*.mp3}; } #noindex
-
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Сетевые_функции>\n
 ################################################################################
@@ -218,8 +212,8 @@ phps() {
 #- Vim
 alias :e="vim" #noindex
 
-#- Переход в последнюю директорию vifm noindex
-vicd() {
+#- Переход в последнюю директорию vifm
+vicd() { #noindex
 	local dst="$(command vifm --choose-dir -)"
 	if [ -z "$dst" ]; then
 		echo 'Directory picking cancelled/failed'
@@ -228,8 +222,7 @@ vicd() {
 	cd "$dst"
 }
 
-#- noindex
-function vifm() {
+function vifm() { #noindex
 	if [ -f ~/.vifm/lastdir ]; then
 		\rm ~/.vifm/lastdir
 	fi
@@ -237,7 +230,7 @@ function vifm() {
 	# "command" prevents recursive call
 	TERM=xterm-256color command vifm .
 	if [ -f ~/.vifm/lastdir ]; then
-		cd `cat ~/.vifm/lastdir`
+		cd "`cat ~/.vifm/lastdir`"
 	fi
 }
 
