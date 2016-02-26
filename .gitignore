@@ -29,6 +29,8 @@ etc/soft/mc_new/history
 etc/soft/mc_new/hotlist
 etc/soft/mc_new/panels.ini
 etc/soft/vim/vim/session
+etc/soft/vifm/bookmarks.list
+etc/soft/vifm/vifminfo
 etc/soft/vimperator/info
 etc/soft/zathura
 
