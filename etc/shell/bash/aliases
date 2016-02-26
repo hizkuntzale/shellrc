@@ -1,8 +1,5 @@
 #!/bin/bash ####################################################################
-#
-# Изменён: Пн. 14 апр. 2014 10:29:56
-# Изменён: Чт. 10 апр. 2014 10:35:05
-#
+
 ################################################################################
 #{{{				Псевдонимы
 ################################################################################
@@ -174,25 +171,6 @@ path() {
 alias w1="watch -n 1" #noindex
 
 #}}} ###########################################################################
-#{{{ \033[00m\n\b------<Мультимедийные_функции>\n
-################################################################################
-
-#- Конвертирование аудио в mp3
-a2mp3() { lame -b ${2:-320} --noreplaygain -q 0 -m s -k -p "$1"; }
-
-#- Лог scmpc/last.fm
-lastfmlog() { watch -n 1 "tail $SHELLRC/var/log/mpdscribble.log"; }
-
-#- Поворот изображения вправо на 90 градусов
-imgRR() { echo "$1"; convert -rotate 90 "$1" "$1"; }
-
-#- Поворот изображения влево на 90 градусов
-imgRL() { echo "$1"; convert -rotate -90 "$1" "$1"; }
-
-#- Уменьшение размера изображения на 50%
-img50() { echo "$1"; convert -resize 50% "$1" "$1"; }
-
-#}}} ###########################################################################
 #{{{ \033[00m\n\b------<Сетевые_функции>\n
 ################################################################################
 
@@ -200,6 +178,7 @@ img50() { echo "$1"; convert -resize 50% "$1" "$1"; }
 githubdl() {
 	git clone git://github.com/${1}.git
 }
+
 #- php-сервер
 phps() {
 	php -S ${2:-localhost}:${3:-80} -t ${1:-.}
@@ -268,9 +247,6 @@ alias U8="iconv -c -t 866"
 #- -> utf8
 alias 2U="iconv -c -t utf8"
 
-#- Конвертирование обложки в png
-alias cover2png="mv *.jpg cover.jpg; convert cover.jpg cover.png && rm -f cover.jpg"
-
 lnt() { #noindex
 	ln -s "$(pwd)/$1" "$HOME/Downloads/TORRENTS/${2:-}"
 }
@@ -289,11 +265,10 @@ sortf() { #noindex
 	mkdir -p ./Audio    ; command mv *{.ogg,.mp3,.wav,.m3u,.midi,.mid,.gp?} ./Audio
 	mkdir -p ./TFiles   ; command mv *.torrent* ./TFiles
 	mkdir -p ./Scripts  ; command mv *{.sh,.py,.rb,.tcl} ./Scripts
-	mkdir -p ./Wine     ; command mv *{.exe,.EXE} ./Wine
 	mkdir -p ./Vim      ; command mv *{.vim,.vba} ./Vim
 } 2>&-
 
-alias tt=ctorrent							#noindex
+alias tt=ctorrent #noindex
 
 #- Переименовывание torrent-файла
 ttr() {
@@ -312,45 +287,6 @@ function type() { #noindex
 		--line-number=' ' \
 		--style-file=$SHELLRC/etc/soft/source-hl/default.style
 	echo
-}
-
-#- Вывод размера файлов в отсортированном виде
-dus() {
-	\du -smc "$@" | sort -gr | awk '{
-		if ($1 > 1024) {
-			printf("%s%10sG","'$red'",sprintf("%.2f",$1/1024))
-		} else if ($1 > 1) {
-			printf("%s%10sM","'$yellow'",$1)
-		} else {
-			printf("%s%10sM","'$blue'","~"$1)
-		}
-		sub($1,"")
-		print $0,"'$rstc'"
-	}'
-}
-
-#- file -> [X] file
-fcheck() {
-	for i in "$@"; {
-		if [[ ! "$i" =~ \[X\]\ .* ]]; then
-			echo -n $i
-			echo -ne '\000'
-			echo -n $(echo $(basename "$i") | sed 's/^\[ \] \|^/[X] /')
-			echo -ne '\000'
-		fi
-	} | xargs -0 -n2 mv -v
-}
-
-#- file -> [ ] file
-fucheck() {
-	for i in "$@"; {
-		if [[ ! "$i" =~ \[.\]\ .* ]]; then
-			echo -n $i
-			echo -ne '\000'
-			echo -n "[ ] $i"
-			echo -ne '\000'
-		fi
-	} | xargs -0 -n2 mv -v
 }
 
 #- Ссылка на книгу для чтения
@@ -416,36 +352,8 @@ lnbin() {
 	ln -s $(realpath $1) $SHELLRC/bin/$2/$1
 }
 
-#- Генератор паролей
-passgen() {
-	for i in `seq ${2:-10}`; {
-		</dev/urandom tr -dc A-Za-z0-9_ | head -c ${1:-8}
-		echo ""
-	}
-}
-
 #- UUID носителей
 alias uuids="ls /dev/disk/by-uuid/"
-#- Монтирование образов
-alias mntiso="mount -o loop -t iso9660 $1 $2"
-
-#}}} ###########################################################################
-#{{{ \033[00m\n\b------<Сборка_и_установка_ПО>\n
-################################################################################
-
-#- Создание документации robodoc
-robodoc2html() {
-	mkdir -p ${1:-.}/doc
-	robodoc --src ${1:-.} --doc ./doc/ --multidoc \
-		--html \
-		--charset utf-8 \
-		--index \
-		--nosort \
-		--sections \
-		--source_line_numbers
-		# --syntaxcolors
-		# --nopre \
-}
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Управление_сервисами_и_процессами>\n
@@ -454,22 +362,18 @@ robodoc2html() {
 #- Поиск процесса по имени
 alias pgrep="pgrep -l"
 #- Запуск сервиса
-start() { su -c "sh $1 start"; }
+start() { su -c "sh /etc/init.d/$1 start"; }
 #- Остановка сервиса
-stop() { su -c "sh $1 stop"; }
+stop() { su -c "sh /etc/init.d/$1 stop"; }
 #- Перезапуск сервиса
-restart() { su -c "sh $1 restart"; }
-
-#}}} ###########################################################################
-#{{{ \033[00m\n\b------<Математические_функции>\n
-################################################################################
-
-#- Консольный калькулятор
-calc() { echo "$*" | bc -l; }
+restart() { su -c "sh /etc/init.d/$1 restart"; }
 
 #}}} ###########################################################################
 #{{{ \033[00m\n\b------<Прочее>\n
 ################################################################################
+
+#- Консольный калькулятор
+calc() { echo "$*" | bc -l; }
 
 #- Подсветка выражений
 clr() {
