@@ -28,6 +28,7 @@ alias lst='ls -al --time-style=+%D | grep $(\date +%D)'			#noindex
 alias lss='\ls --format=single-column'					#noindex
 alias nl="nl -b a"							#noindex
 alias df='df -hT'							#noindex
+alias dfc='dfc -t ext4,fuseblk -w'					#noindex
 alias du='du -hs'							#noindex
 alias free="free -m"							#noindex
 alias wget='wget -c -T 5'						#noindex
