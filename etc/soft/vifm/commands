@@ -1,7 +1,7 @@
 " Выход с переходом в текущую директорию
 command! Q :execute '!echo %d > ~/.vifm/lastdir' | quit
 
-command df dfc %m 2> /dev/null
+command df dfc -t ext4,fuseblk -w %m 2> /dev/null
 command dus noc dus %d/* %m
 command dmesg dmesg %m
 
