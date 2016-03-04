@@ -44,14 +44,15 @@ TEXT
 ${if_mounted /}$color /: ${color brown}${fs_free /}${endif}\
 ${if_mounted /home}$color | home: ${color brown}${fs_free /home/maks}${endif}\
 ${if_mounted /mnt/DATA}$color | data: ${color brown}${fs_free /mnt/DATA}${endif}\
-${if_mounted /mnt/MEDIA}$color | media: ${color brown}${fs_free /mnt/MEDIA}${endif}\
+${if_mounted /mnt/WINDOWS}$color | windows: ${color brown}${fs_free /mnt/WINDOWS}${endif}\
 ${if_mounted /mnt/FLASH}$color | flash: ${color brown}${fs_free /mnt/FLASH}${endif}\
 #${if_mpd_playing}${offset 50}${color darkgreen}[$mpd_smart - $mpd_length/$mpd_percent%]$color${endif}
-${goto 1103}\
+${goto 1050}\
 ${color darkred} ${execi 86400 dates >/dev/null && echo "[✻] " || echo ""}$color\
 ${if_match ${battery_percent BAT0} <= 20}${color red}${endif}\
 ${battery_percent BAT0}%$color |\
 ${color darkred}$color ${execi 60 cat $MD/new}$color | \
 ${color darkblue}[${execi 2 SHELL=/bin/sh skb 1}]$color | \
+${color darkgreen}${execi 5 amixer get Master | grep -o '\[..*%\]' -m 1}$color | \
 ${color black}${time %H:%M} (${time %d.%m.%Y}) 
 
