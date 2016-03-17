@@ -832,5 +832,9 @@ nmap fw		,qq<ESC>:call Dict(expand("<cword>"))<CR>
 vmap fw		,qq<Esc>gv:call Dict(@*)<CR>
 " }}}
 
+" javascript-libraries-syntax {{{
+let g:used_javascript_libs = 'jquery,angularjs,angularui,angularuirouter'
+" }}}
+
 " }}}###########################################################################
 
