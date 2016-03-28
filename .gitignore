@@ -13,6 +13,7 @@ etc/net/snownews
 
 etc/net/lftp/cwd_history
 etc/net/lftp/rl_history
+etc/net/lftp/*log*
 
 etc/net/ssh/*
 !config
