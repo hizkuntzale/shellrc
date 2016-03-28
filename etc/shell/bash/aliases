@@ -346,8 +346,8 @@ apply() {
 		fi
 	}
 
-	for file in $@; {
-		eval "$CMD" "$file"
+	for file in "$@"; {
+		eval "$CMD" \""$file"\"
 	}
 }
 
