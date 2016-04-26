@@ -2,75 +2,21 @@ Host *
 	ControlMaster auto
 	ControlPath   /home/%u/.ssh/sessions/%h_%p_%r
 
-#------ [ TX ]
+#------ [  ]
 
-Host tx-o
+Host s-119
 	User root
-	HostName 85.192.165.42
-	Port 1023
+	HostName 92.38.225.119
 
-Host tx-o-w
+Host s-12
 	User root
-	HostName 85.192.165.42
-	Port 1023
-	ProxyCommand ~/.ssh/scripts/tx-o.sh
+	HostName 92.38.231.12
 
-#------ [ AWS ]
-
-Host aws-tx
-	User ubuntu
-	HostName 54.72.210.58
-	IdentityFile ~/.ssh/aws-tx.pem
-
-Host aws-kb
-	User ubuntu
-	HostName 54.72.33.227
-	IdentityFile ~/.ssh/aws-kb.pem
-
-#------ [ VPS ]
-
-Host vps-kb
+Host s-232
 	User root
-	HostName 188.120.250.231
+	HostName 194.58.97.232
 
-#------ [ Office ]
-
-Host office
+Host s-201
 	User root
-	HostName 192.168.0.12
-
-Host office-pbx
-	User taxi
-	HostName 192.168.0.27
-
-Host office-web
-	User root
-	HostName 192.168.0.12
-
-Host office-v
-	User asp3ctus
-        HostName 192.168.0.98
-
-Host office-v-jenkins
-	User asp3ctus
-	HostName 192.168.0.20
-	ProxyCommand ssh -t -t office-v -W %h:%p
-
-Host office-v-zabbix
-	User asp3ctus
-	HostName 192.168.0.26
-	ProxyCommand ssh -t -t office-v -W %h:%p
-
-Host office-v-pg
-	User asp3ctus
-	HostName 192.168.0.28
-	ProxyCommand ssh -t -t office-v -W %h:%p
-
-Host office-wiki
-	User asp3ctus
-	HostName 192.168.0.21
-
-Host office-pi
-	User pi
-	HostName 192.168.0.49
+	HostName 194.58.108.201
 
