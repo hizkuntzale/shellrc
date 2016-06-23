@@ -19,7 +19,7 @@ fileviewer *.torrent dumptorrent -v %f
 filetype *.txt vim %f
 
 " img
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif geeqie %c
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif viewnior %c
 filextype *.svg sensible-browser %f &
 " fileviewer *.jpg imgv %px %py %pw %ph %c
 " fileviewer *.jpg lsi %f
