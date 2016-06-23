@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Сб 20 фев 2016 20:07:11
+# Изменён: Чт 23 июн 2016 20:55:33
 #
 
 #Цветовая схема#{{{
@@ -49,6 +49,7 @@ bind on Mod4+t exec urxvtc
 
 # dmenu
 bind on Mod4+x exec dmenu_exec
+#bind on Mod4+x exec rofi -show run -location 0 -width 100 -lines 10
 
 # Файловый менеджер dmenu
 bind on Mod4+z exec dmenfm
@@ -59,6 +60,9 @@ bind on Mod4+p exec dmpc
 
 # Радио
 bind on Mod4+r exec radio
+
+# Браузер
+bind on Mod4+w exec www
 
 #Выбор виртуальной машины для запуска
 bind on Mod4+Shift+V exec VM
@@ -195,6 +199,7 @@ set window_open_frame empty
 
 # Формат запуска dmenu
 set dmenu dmenu -i -fn '-*-fixed-*-*-*-*-15-*-*-*-*-*-*-*'
+#set dmenu rofi -dmenu
 #}}}
 
 # Запуск программ#{{{
