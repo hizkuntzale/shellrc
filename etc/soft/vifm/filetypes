@@ -51,7 +51,7 @@ filextype *.djvu
 filetype *.djvu apvlv %f &
 
 " ebook
-filextype *.fb2,*.mobi,*.epub,*.chm fbreader %f &
+filextype *.fb2,*.mobi,*.epub,*.chm,*.fb2.zip pybr %f &
 
 " web-страницы
 filetype *.html,*.htm xdg-open %f
