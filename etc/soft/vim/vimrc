@@ -42,6 +42,10 @@ au BufWinEnter * set cursorline
 " Vimwiki тормозит
 au BufWinEnter *.wiki set nocursorline
 
+" Отключение zip
+let g:loaded_zipPlugin = 1
+let g:loaded_zip       = 1
+
 " }}}---------------------------------------------------------------------------
 
 " {{{-------------------------- Работа с файловой системой----------------------

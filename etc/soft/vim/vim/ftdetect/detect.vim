@@ -33,6 +33,11 @@ au BufReadPre		*.doc set hlsearch!
 au BufReadPost		*.doc %!antiword "%"
 au BufReadPost		*.doc set filetype=txt
 
+au BufReadPre		*.docx set ro
+au BufReadPre		*.docx set hlsearch!
+au BufReadPost		*.docx %!docx2txt "%" -
+au BufReadPost		*.docx set filetype=txt
+
 au BufReadPre		*.odt set ro
 au BufReadPre		*.odt set hlsearch!
 au BufReadPost		*.odt %!odt2txt "%"
