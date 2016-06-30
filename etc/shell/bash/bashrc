@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Ср 16 мар 2016 21:47:28
+# Изменён: Чт 30 июн 2016 12:29:57
 #
 ################################################################################
 
@@ -12,6 +12,8 @@ export BASH_ENV="$HOME/.bashrc"			#Файл настроек интерпрет�
 export SHELLRC="$HOME/.shellrc"			#Путь к директории настроек
 export BASHRC="$SHELLRC/etc/shell/bash"		#Путь к настройкам bash
 export INPUTRC="$BASHRC/inputrc"		#Файл inputrc
+
+export export HH_CONFIG="keywords"		#hstr
 
 export STARDICT_DATA_DIR=$SHELLRC/etc/soft/sdcv/dictionaries/
 export SDCV_HISTSIZE=10000
@@ -308,6 +310,9 @@ bind -m vi-insert "\C-w.":backward-kill-word
 bind -m vi-insert "\C-o":history-search-backward
 bind -m vi-insert "\C-k":kill-line
 # bind -m vi-insert "\C-n":history-search-forward
+
+#hstr
+bind '"\C-r": "\C-ahh \C-j"'
 
 #commacd
 source $SHELLRC/etc/shell/bash/commacd
