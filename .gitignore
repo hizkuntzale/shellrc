@@ -20,6 +20,8 @@ etc/net/ssh/*
 
 etc/shell/cw
 
+etc/shell/hstr/hh_blacklist
+
 etc/soft/antiword
 etc/soft/figlet
 etc/soft/jodconverter

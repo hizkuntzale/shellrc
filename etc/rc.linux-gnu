@@ -10,6 +10,7 @@
 + shell/tcl/tclshrc                ~
 + shell/tcl/wishrc                 ~
 - shell/screen/screenrc            ~
++ shell/hstr/hh_blacklist          ~
 
 # [ X.org ]
 

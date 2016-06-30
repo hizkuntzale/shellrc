@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 30 июн 2016 12:29:57
+# Изменён: Чт 30 июн 2016 13:33:33
 #
 ################################################################################
 
@@ -13,7 +13,7 @@ export SHELLRC="$HOME/.shellrc"			#Путь к директории настро
 export BASHRC="$SHELLRC/etc/shell/bash"		#Путь к настройкам bash
 export INPUTRC="$BASHRC/inputrc"		#Файл inputrc
 
-export export HH_CONFIG="keywords"		#hstr
+export export HH_CONFIG="keywords,blacklist,rawhistory" #hstr
 
 export STARDICT_DATA_DIR=$SHELLRC/etc/soft/sdcv/dictionaries/
 export SDCV_HISTSIZE=10000
