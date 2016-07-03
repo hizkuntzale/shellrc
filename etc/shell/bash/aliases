@@ -187,6 +187,9 @@ phps() {
 #- Vim
 alias :e="vim" #noindex
 
+#- Закладки web-браузера
+alias bookmarks="vim $SHELLRC/var/www/urls" #noindex
+
 #- Переход в последнюю директорию vifm
 vicd() { #noindex
 	local dst="$(command vifm --choose-dir -)"
