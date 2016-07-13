@@ -1,0 +1,106 @@
+#XCompose
+
+#Греческий
+
+<Multi_key> <g> <a> : "α"
+<Multi_key> <g> <b> : "β"
+<Multi_key> <g> <g> : "γ"
+<Multi_key> <g> <d> : "δ"
+<Multi_key> <g> <3> : "ε" # note! 
+<Multi_key> <g> <z> : "ζ"
+<Multi_key> <g> <e> : "η"
+<Multi_key> <g> <h> : "θ" # note!
+<Multi_key> <g> <i> : "ι"
+<Multi_key> <g> <k> : "κ"
+<Multi_key> <g> <l> : "λ"
+<Multi_key> <g> <m> : "μ"
+<Multi_key> <g> <n> : "ν"
+<Multi_key> <g> <x> : "ξ"
+# note: no omicron
+<Multi_key> <g> <p> : "π"
+<Multi_key> <g> <r> : "ρ"
+<Multi_key> <g> <s> : "σ"
+<Multi_key> <g> <t> : "τ"
+<Multi_key> <g> <u> : "ψ"
+<Multi_key> <g> <f> : "φ" # note!
+<Multi_key> <g> <c> : "χ"
+<Multi_key> <g> <o> : "ω"
+
+<Multi_key> <g> <G> : "Γ"
+<Multi_key> <g> <D> : "Δ"
+<Multi_key> <g> <H> : "Θ"
+<Multi_key> <g> <L> : "Λ"
+<Multi_key> <g> <X> : "Ξ"
+<Multi_key> <g> <P> : "Π"
+<Multi_key> <g> <S> : "Σ"
+<Multi_key> <g> <F> : "Φ"
+<Multi_key> <g> <U> : "Ψ"
+<Multi_key> <g> <O> : "Ω"
+
+# Сербский
+<Multi_key> <s> <x> : "č"
+<Multi_key> <s> <c> : "ć"
+<Multi_key> <s> <j> : "đ"
+<Multi_key> <s> <g> : "dž"
+<Multi_key> <s> <z> : "ž"
+<Multi_key> <s> <z> : "š"
+
+<Multi_key> <s> <X> : "Č"
+<Multi_key> <s> <C> : "Ć"
+<Multi_key> <s> <J> : "Đ"
+<Multi_key> <s> <G> : "Dž"
+<Multi_key> <s> <Z> : "Ž"
+<Multi_key> <s> <Z> : "Š"
+
+<Multi_key> <s> <C> : "Ћ"
+<Multi_key> <s> <J> : "Ђ"
+<Multi_key> <s> <G> : "Џ"
+
+<Multi_key> <k> <c> : "ћ"
+<Multi_key> <k> <j> : "ђ"
+<Multi_key> <k> <g> : "џ"
+<Multi_key> <k> <l> : "љ"
+<Multi_key> <k> <n> : "њ"
+
+<Multi_key> <k> <C> : "Ћ"
+<Multi_key> <k> <J> : "Ђ"
+<Multi_key> <k> <G> : "Џ"
+<Multi_key> <k> <L> : "Љ"
+<Multi_key> <k> <N> : "Њ"
+
+# Испанский
+
+<Multi_key> <n> <asciitilde>		: "ñ"
+<Multi_key> <N> <asciitilde>		: "Ñ"
+<Multi_key> <exclam> <exclam>    	: "¡"
+<Multi_key> <question> <question>	: "¿"
+
+# Кавычки
+
+<Multi_key> <less> <less>        	: "«"
+<Multi_key> <greater> <greater>  	: "»"
+<Multi_key> <less> <apostrophe>  	: "‘"
+<Multi_key> <apostrophe> <less>  	: "‘"
+<Multi_key> <greater> <apostrophe> 	: "’"
+<Multi_key> <apostrophe> <greater> 	: "’"
+<Multi_key> <comma> <apostrophe> 	: "‚"
+<Multi_key> <apostrophe> <comma> 	: "‚"
+<Multi_key> <less> <quotedbl>    	: "“"
+<Multi_key> <quotedbl> <less>    	: "“"
+<Multi_key> <greater> <quotedbl> 	: "”"
+<Multi_key> <quotedbl> <greater> 	: "”"
+<Multi_key> <comma> <quotedbl>   	: "„"
+<Multi_key> <quotedbl> <comma>   	: "„"
+
+# Разное
+
+<Multi_key> <minus> <minus>		: "–"
+<Multi_key> <asterisk> <asterisk>	: "★"
+<Multi_key> <n> <n>			: "#"
+<Multi_key> <space> <space>      	: " "
+<Multi_key> <o> <c>              	: "©"
+<Multi_key> <o> <r>              	: "®"
+<Multi_key> <C> <equal>          	: "€"
+<Multi_key> <plus> <minus>       	: "±"
+<Multi_key> <minus> <plus> 		: "±"
+
