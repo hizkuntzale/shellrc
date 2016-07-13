@@ -43,7 +43,7 @@
 <Multi_key> <s> <j> : "đ"
 <Multi_key> <s> <g> : "dž"
 <Multi_key> <s> <z> : "ž"
-<Multi_key> <s> <z> : "š"
+<Multi_key> <s> <s> : "š"
 
 <Multi_key> <s> <X> : "Č"
 <Multi_key> <s> <C> : "Ć"
