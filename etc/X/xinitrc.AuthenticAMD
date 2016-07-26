@@ -8,3 +8,7 @@ xmodmap -e "keysym Menu = Super_R"
 
 exec musca
 
+export GTK_IM_MODULE="xim"
+export QT_IM_MODULE="xim"
+unset XMODIFIERS
+
