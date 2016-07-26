@@ -1,6 +1,7 @@
 display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).jpg -display :0.0
 
-setxkbmap -model pc104 -layout us,ru -variant ,
+setxkbmap -option ""
+setxkbmap -model pc104 -layout us,ru,el -variant ,,polytonic
 setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle,compose:ralt
 
 xmodmap $SHELLRC/etc/X/Xmodmaprc.$(uname -i)
