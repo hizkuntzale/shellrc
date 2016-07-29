@@ -196,8 +196,17 @@ set undoreload=10000"
 set background=dark
 colo wombat_converted                                 " Цветовая схема
 
+"Грамматические ошибки
 hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=160 ctermbg=none
+hi SpellBad cterm=bold ctermfg=160 ctermbg=none
+
+"Ошибки в заглавных буквах
+hi clear SpellCap 
+hi SpellCap cterm=bold ctermfg=110 ctermbg=none
+
+"Стилистические ошибки
+hi clear SpellLocal 
+hi SpellLocal cterm=bold ctermfg=120 ctermbg=none
 
 hi Todo		ctermfg=black ctermbg=221        	" Метки TODO
 
@@ -358,10 +367,11 @@ set pastetoggle=<F6>
 
 " Проверка орфографии
 set wcm=<Tab>
-menu Spell.ru		:set spell spelllang=<CR> :set spelllang=ru<CR>
-menu Spell.ru,en	:set spell spelllang=<CR> :set spelllang=ru,en<CR>
-menu Spell.en		:set spell spelllang=<CR> :set spelllang=en<CR>
-menu Spell.off		:set nospell<CR>
+menu Spell.ru		:setlocal spell<CR>:setlocal spelllang=<CR>:setlocal spelllang=ru<CR>
+menu Spell.el		:setlocal spell<CR>:setlocal spelllang=<CR>:setlocal spelllang=el<CR>
+menu Spell.en		:setlocal spell<CR>:setlocal spelllang=<CR>:setlocal spelllang=en<CR>
+menu Spell.ru,en,el	:setlocal spell<CR>:setlocal spelllang=<CR>:setlocal spelllang=ru,en,el<CR>
+menu Spell.off		:setlocal nospell<CR>
 map <F6> :emenu Spell.<TAB>
 
 " Навигация по ошибкам
