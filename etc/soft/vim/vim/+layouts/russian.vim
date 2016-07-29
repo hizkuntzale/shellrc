@@ -33,7 +33,7 @@ map т n
 map ь m
 map б ,
 map ю .
-map . .
+map . /
 map Ё ~
 map Й Q
 map Ц W
@@ -67,5 +67,5 @@ map Т N
 map Ь M
 map Б <
 map Ю >
-map , ?"'
+map , /
 

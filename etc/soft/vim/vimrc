@@ -607,10 +607,11 @@ iabbrev chg Создан:  TIMESTAMP#Изменён: TIMESTAMP<ESC>F#xi
 iabbrev cpr (c) 2014 Maxim Lihachev, <envrm@yandex.ru><ESC>
 
 " }}}###########################################################################
-" {{{			ВВОД КОМАНД В РУССКОЙ РАСКЛАДКЕ
+" {{{			ВВОД КОМАНД В ДРУГИХ РАСКЛАДКАХ
 " ##############################################################################
 
-source $SHELLRC/etc/soft/vim/vim/russian.vim
+source $SHELLRC/etc/soft/vim/vim/+layouts/russian.vim
+source $SHELLRC/etc/soft/vim/vim/+layouts/greek.vim
 
 " }}}###########################################################################
 " {{{			      НАСТРОЙКИ ПЛАГИНОВ
