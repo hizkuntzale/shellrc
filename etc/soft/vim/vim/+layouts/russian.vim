@@ -33,7 +33,6 @@ map т n
 map ь m
 map б ,
 map ю .
-map . /
 map Ё ~
 map Й Q
 map Ц W
