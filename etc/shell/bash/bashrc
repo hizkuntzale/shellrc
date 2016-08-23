@@ -1,6 +1,6 @@
 #!/bin/bash ####################################################################
 #
-# Изменён: Чт 30 июн 2016 13:49:21
+# Изменён: Вт 23 авг 2016 12:33:38
 #
 ################################################################################
 
@@ -12,6 +12,9 @@ export BASH_ENV="$HOME/.bashrc"			#Файл настроек интерпрет�
 export SHELLRC="$HOME/.shellrc"			#Путь к директории настроек
 export BASHRC="$SHELLRC/etc/shell/bash"		#Путь к настройкам bash
 export INPUTRC="$BASHRC/inputrc"		#Файл inputrc
+
+export GTK_IM_MODULE="xim"			#Метод ввода Χ
+export QT_IM_MODULE="xim"			#Метод ввода Χ
 
 export export HH_CONFIG="keywords,blacklist,rawhistory" #hstr
 
