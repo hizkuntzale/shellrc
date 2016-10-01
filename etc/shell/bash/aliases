@@ -444,6 +444,7 @@ t() {
 			| clr -bg --\>.* \
 			| sed "s/\&apos;/'/g"
 }
+alias ?=t #noindex
 
 #- Vimwiki
 alias ,ww="vim -c VimwikiIndex" #noindex
