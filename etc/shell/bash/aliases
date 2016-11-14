@@ -136,7 +136,7 @@ for file in ${HELPSRC[@]}; {
 	for i in $(awk '/\w\(\)|^alias|^#\{\{\{ / && !/#noindex/ {print NR"\n"}' $file); {
 		printf  "$blue\t%-17s$rstc%s\n" \
 			"$(echo $(sed "s/=/ /g; /alias \|()\|#{{{ \| .*/ s///g; "$i"q;d" $file))" \
-			"$(sed "/#\|}}}/ s///g; "$((--i))"q;d" $file)";
+			"$(sed "/#\|}}}/ s///g; "$[--i]"q;d" $file)";
 	}
 }
 printf "$white
@@ -148,10 +148,9 @@ b_back() { tar cvpzf "./Bash_`\date +%d-%m-%Y.%T`".tgz $SHELLRC; }
 
 #- Цветовые коды консоли
 colors() {
-	for ((i = 0; i < 127; i++ )); {
-		printf "\033[${i}m ${i} \e[0m"
-	}
-	echo ""
+	for i in {000..125}; {
+		printf "\033[${i}m${i}\e[0m "
+	} | fmt -w 130
 }
 
 #- Самые используемые команды [-u -- уникальные]
