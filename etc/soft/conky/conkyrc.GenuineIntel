@@ -1,6 +1,6 @@
 background yes
 use_xft yes 
-xftfont DejaVu Mono:size=10
+xftfont DejaVu Mono:size=11
 xftalpha 1
 update_interval 2.0
 total_run_times 0
@@ -10,7 +10,7 @@ own_window_transparent no
 own_window_colour black
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 1277 3
+minimum_size 1917 3
 draw_shades no
 draw_outline no
 draw_borders no

@@ -1,10 +1,15 @@
 display -window root $SHELLRC/etc/wm/wallpaper.$(uname -i).jpg
 
-setxkbmap -model pc104 -layout us,ru -variant ,
+setxkbmap -option ""
+setxkbmap -model pc104 -layout us,ru,el -variant ,,polytonic
 setxkbmap -option -option terminate:ctrl_alt_bksp,caps:escape,grp:lwin_toggle,compose:ralt
 
 xmodmap $SHELLRC/etc/X/Xmodmaprc.$(uname -i)
-xmodmap -e 'keycode 135 = Super_R'
+xmodmap -e "keysym Menu = Super_R"
 
-sleep 0.5
-exec musca > /dev/null
+exec musca
+
+export GTK_IM_MODULE="xim"
+export QT_IM_MODULE="xim"
+unset XMODIFIERS
+

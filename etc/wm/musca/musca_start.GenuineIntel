@@ -1,7 +1,7 @@
 [~/.musca_start]
 
 #
-# Изменён: Вт 12 янв 2016 10:41:53
+# Изменён: Вт 29 ноя 2016 10:24:33
 #
 
 #Цветовая схема#{{{
@@ -16,14 +16,14 @@ set border_catchall_unfocus #882255
 #}}}
 
 #Рабочие группы#{{{
-name work
+name α
 hook on add pad 0 0 21 0
-add internet
-add music
-use video
+add β
+add γ
+use δ
 pad 0 0 0 0
 border off
-use work
+use α
 refresh
 #}}}
 
