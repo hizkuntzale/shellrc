@@ -17,10 +17,6 @@ include "%L"
 <Multi_key> <s> <Z> : "Ž"
 <Multi_key> <s> <Z> : "Š"
 
-<Multi_key> <s> <C> : "Ћ"
-<Multi_key> <s> <J> : "Ђ"
-<Multi_key> <s> <G> : "Џ"
-
 <Multi_key> <k> <c> : "ћ"
 <Multi_key> <k> <j> : "ђ"
 <Multi_key> <k> <g> : "џ"
