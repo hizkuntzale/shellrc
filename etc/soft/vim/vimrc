@@ -198,15 +198,15 @@ colo wombat_converted                                 " Цветовая схе�
 
 "Грамматические ошибки
 hi clear SpellBad
-hi SpellBad cterm=bold ctermfg=160 ctermbg=none
+hi SpellBad cterm=bold ctermfg=160 ctermbg=NONE
 
 "Ошибки в заглавных буквах
 hi clear SpellCap 
-hi SpellCap cterm=bold ctermfg=110 ctermbg=none
+hi SpellCap cterm=bold ctermfg=110 ctermbg=NONE
 
 "Стилистические ошибки
 hi clear SpellLocal 
-hi SpellLocal cterm=bold ctermfg=120 ctermbg=none
+hi SpellLocal cterm=bold ctermfg=120 ctermbg=NONE
 
 hi Todo		ctermfg=black ctermbg=221        	" Метки TODO
 
