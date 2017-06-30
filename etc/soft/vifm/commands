@@ -2,7 +2,7 @@
 command! Q :execute '!echo %d > ~/.vifm/lastdir' | quit
 
 command df dfc -t ext4,fuseblk -w %m 2> /dev/null
-command dus noc dus %d/* %m
+command dus dus %d/* %q
 command dmesg dmesg %m
 
 " TMSU
@@ -30,7 +30,7 @@ command ext ext %f
 
 command diff vimdiff %f %F
 command run !! ./%f
-command vim !vim %a
+command vim !vim %f
 command git !!git %a
 
 command cal cal -y %m
