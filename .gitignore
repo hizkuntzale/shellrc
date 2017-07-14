@@ -1,5 +1,6 @@
 bin
 var
+vpn
 
 etc/mail/fetchmail/fetchmailrc
 etc/mail/mutt/boxes.mutt
