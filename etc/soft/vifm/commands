@@ -2,7 +2,7 @@
 command! Q :execute '!echo %d > ~/.vifm/lastdir' | quit
 
 command df dfc -t ext4,fuseblk -w %m 2> /dev/null
-command dus noc dus %d/* %m
+command dus dus %d/* %q
 command dmesg dmesg %m
 
 " TMSU
@@ -18,6 +18,8 @@ command fb fb2 %c:p %m
 
 command t t -p %a %m
 
+command ttr ttr %f
+
 command nt nt %a %m
 
 command vlc vlc %f
@@ -30,8 +32,10 @@ command ext ext %f
 
 command diff vimdiff %f %F
 command run !! ./%f
-command vim !vim %a
+command vim !vim %f
+
 command git !!git %a
+command gitdf g st | grep '^[[:space:]]' | grep -v '\)$' | sed 's/[[:space:]]*//' %u
 
 command cal cal -y %m
 

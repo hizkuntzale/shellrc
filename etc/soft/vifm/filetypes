@@ -21,8 +21,7 @@ filetype *.txt vim %f
 " img
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif viewnior %c
 filextype *.svg sensible-browser %f &
-" fileviewer *.jpg imgv %px %py %pw %ph %c
-" fileviewer *.jpg lsi %f
+fileviewer *.jpg,*.png lsimg %f %q %pc
 
 " audio
 filextype *.mp3,*.wav,*.flac,*.ogg,*.m4a vlc %f &
@@ -46,11 +45,12 @@ fileviewer *.pdf pdftotext -nopgbrk %f -
 
 " djvu
 filextype *.djvu
+  \ zathura %f &,
   \ qpdfview %f &,
   \ djview %f &
 filetype *.djvu apvlv %f &
 
-" ebook
+" ebooks
 filextype *.fb2,*.mobi,*.epub,*.chm,*.fb2.zip pybr %f &
 
 " web-страницы
@@ -71,4 +71,12 @@ fileviewer *.iso isoinfo -l -i %c
 fileviewer *.gp,*.gp3,*.gp4,*.gp5 gptinfo %c
 
 fileviewer *[^/] vcat %c
+
+" Монтирование ssh
+filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+" Монтирование FTP
+filetype *.ftp
+       \ {Mount with CurlFtpFS}
+       \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR %CLEAR,
 
