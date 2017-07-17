@@ -64,6 +64,9 @@ fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 fileviewer *.7z	7z l %c
 fileviewer *.rar unrar l %c
 
+" ISO
+fileviewer *.iso isoinfo -l -i %c
+
 " Табулатуры
 fileviewer *.gp,*.gp3,*.gp4,*.gp5 gptinfo %c
 
