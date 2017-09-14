@@ -6,6 +6,7 @@ fileviewer .git/ git-info --no-pager --color=always %d
 
 " Текстовые форматы
 fileviewer *.doc antiword %f
+fileviewer *.docx docx2txt %f -
 fileviewer *.odt odt2txt %f
 fileviewer *.rtf catdoc %f
 fileviewer *.fb2,*.fb2.zip fb2 %f
