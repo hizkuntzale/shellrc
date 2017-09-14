@@ -1,3 +1,5 @@
+filetype *.vk vkdigest.py `head -n 1 %f` | w3m -T text/html
+
 " Директории
 fileviewer */ \tree %f
 fileviewer .git/ git-info --no-pager --color=always %d
