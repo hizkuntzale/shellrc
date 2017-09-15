@@ -705,7 +705,7 @@ let wiki.template_path    = '~/.shellrc/vimwiki/style/'
 let wiki.template_default = 'template'
 let wiki.template_ext     = '.html'
 let wiki.css_name         = 'css/vimwiki.css'
-let wiki.auto_export      = 1
+let wiki.auto_export      = 0
 let wiki.nested_syntaxes  = {
 			\'prolog': 'prolog'
 			\, 'bash': 'sh'
