@@ -36,6 +36,20 @@ include "%L"
 <Multi_key> <exclam> <exclam>    	: "¡"
 <Multi_key> <question> <question>	: "¿"
 
+# Румынский
+
+<Multi_key> <s> <comma>			: "ș"
+<Multi_key> <S> <comma>			: "Ș"
+<Multi_key> <t> <comma>			: "ț"
+<Multi_key> <T> <comma>			: "Ț"
+                             
+<Multi_key> <a> <less>			: "ă"
+<Multi_key> <A> <less>			: "Ă"
+<Multi_key> <a> <greater>		: "â"
+<Multi_key> <A> <greater>		: "Â"
+<Multi_key> <T> <greater>		: "î"
+<Multi_key> <T> <greater>		: "Î"
+
 # Кавычки
 
 <Multi_key> <less> <less>        	: "«"
