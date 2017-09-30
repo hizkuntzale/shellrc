@@ -72,7 +72,12 @@ hi noteTagCapP ctermfg=235 ctermbg=129 cterm=bold
 " {dark text, red box, bold}
 syn match noteTagCapR /\[R .\{-}\]/ contains=noteDelimite_1,noteDelimite_2 containedin=noteComment
 hi noteTagCapR guifg=#262626 guibg=#FF5FAF gui=bold
-hi noteTagCapR ctermfg=235 ctermbg=205 cterm=bold
+hi noteTagCapR ctermfg=235 ctermbg=160 cterm=bold
+
+" {dark text, yellow box, bold}
+syn match noteTagCapY /\[Y .\{-}\]/ contains=noteDelimite_1,noteDelimite_2 containedin=noteComment
+hi noteTagCapY guifg=#262626 guibg=#FF5FAF gui=bold
+hi noteTagCapY ctermfg=235 ctermbg=226 cterm=bold
 
 "=============================================================================== Small Tags
 " {blue text}
@@ -103,7 +108,12 @@ hi noteTagSmlp ctermfg=129
 " {red text}
 syn match noteTagSmlr /\[r .\{-}\]/ contains=noteDelimite_1,noteDelimite_2 containedin=noteComment
 hi noteTagSmlr guifg=#FF5FAF
-hi noteTagSmlr ctermfg=205
+hi noteTagSmlr ctermfg=160
+
+" {yellow text}
+syn match noteTagSmly /\[y .\{-}\]/ contains=noteDelimite_1,noteDelimite_2 containedin=noteComment
+hi noteTagSmly guifg=#FF5FAF
+hi noteTagSmly ctermfg=226
 
 "=============================================================================== region
 " Include Programming Syntax Highlight
