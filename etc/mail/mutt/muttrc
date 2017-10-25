@@ -1,6 +1,6 @@
 # muttrc
 #
-# Изменён: Вс 25 авг 2013 01:04:32
+# Изменён: Ср 25 окт 2017 09:53:58
 #
 
 #Подключение конфигурационных файлов
@@ -17,7 +17,6 @@ auto_view text/html
 #set ascii_chars=yes
 set charset="UTF-8"
 set send_charset="us-ascii:iso-8859-1:utf-8"
-set locale=ru_RU.UTF-8
 
 #Отключение звукового сигнала
 set beep=no
