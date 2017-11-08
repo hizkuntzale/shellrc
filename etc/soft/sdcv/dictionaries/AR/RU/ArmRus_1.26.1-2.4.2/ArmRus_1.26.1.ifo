@@ -1,0 +1,8 @@
+StarDict's dict ifo file
+version=2.4.2
+wordcount=63869
+idxfilesize=1753457
+bookname=Армяно-Русский словарь
+date=2017.11.08
+sametypesequence=x
+description=Армяно-Русский словарь<br><br>Версия (version)=1.26.1<br>Словарных статей (wordcount)=63747<br>Внутреннее имя (bookname)=ArmRus_1.26.1<br>Конвертирован из формата dict_idx_ifo, добавлены теги, словарь сокращений, устранены повторения заголовков.<br>
