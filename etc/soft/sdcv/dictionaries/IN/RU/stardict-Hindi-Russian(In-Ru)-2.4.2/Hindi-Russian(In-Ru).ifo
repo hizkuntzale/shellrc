@@ -1,0 +1,8 @@
+StarDict's dict ifo file
+version=2.4.2
+wordcount=182
+idxfilesize=3764
+bookname=Хинди-русский учебный словарь
+date=2017.11.08
+sametypesequence=x
+description="Хинди-русский учебный словарь" (Версия 1.0)<br>Вступительный уровень.<br>145 слов с транскрипцией и примерами.<br><br>Скомпилирован из "Хинди-русского учебного словаря" для Lingvo Tutor составленного Амита-Кришной Брахмачари во время его самостоятельного обучения по "Учебнику языка хинди" (Ч. I. 2-е изд., издательство "Наука", 1980)<br><br>Словарь набирался вручную. Если обнаружатся опечатки, пожалуйста сообщите мне на e-mail: amita-krishna@mailserver.ru<br><br>Система упрощенной транскрипции:<br><br>अ	a<br>आ	aa<br>इ	i<br>ई	ee<br>उ	u<br>ऊ	uu<br>ए	e<br>ऐ	ai<br>ओ	o<br>औ	au/ow<br>ं	–/m<br>ः	h<br>क्	k<br>क़्	k<br>ख्	kh<br>ख़्	kh<br>ग्	g<br>ग़्	g<br>घ्	gh<br>ङ्	n<br>च्	c<br>छ्	ch<br>ज्	j<br>ज़्	z<br>झ्	jh<br>ञ्	n<br>ट्	t<br>ठ्	th<br>ड्	d<br>ड़्	d/r<br>ढ्	dh<br>ढ़्	dh/rh<br>ण्	n<br>त्	t<br>थ्	th<br>द्	d<br>ध्	dh<br>न्	n<br>प्	p<br>फ्	ph<br>फ़्	f<br>ब्	b<br>भ्	bh<br>म्	m<br>य्	y<br>य़्	y/j<br>र्	r<br>ल्	l<br>व्	v<br>श्	sh<br>ष्	sh<br>स्	s<br>ह्	h<br><br>	<br>Или наоборот:<br>	<br>a	अ<br>aa	आ<br>ai	ऐ<br>au	औ<br>b	ब्<br>bh	भ्<br>c	च्<br>ch	छ्<br>d	ड् ड़् द्<br>dh	ढ् ढ़् ध्<br>e	ए<br>ee	ई<br>f	फ़्<br>g	ग् ग़्<br>gh	घ्<br>h	ह् ः<br>i	इ<br>j	ज् य़्<br>jh	झ्<br>k	क् क़्<br>kh	ख् ख़्<br>l	ल्<br>m	म् ं<br>n	ङ् ञ् ण् न्<br>o	ओ<br>ow	औ<br>p	प्<br>ph	फ्<br>r	र् ड़्<br>rh	ढ़्<br>s	स्<br>sh	श् ष्<br>t	ट् त्<br>th	ठ् थ्<br>u	उ<br>uu	ऊ<br>v	व्<br>y	य् य़्<br>z	ज़्<br><br><br>	<br>
